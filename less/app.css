@@ -160,9 +160,10 @@ section.header {
   background-color: #110a05;
 }
 .content-wrapper {
-  width: 1205px;
+  position: relative;
   margin: 0 auto;
   font-size: 0;
+  width: 1205px;
 }
 .content-wrapper .container * {
   font-size: initial;

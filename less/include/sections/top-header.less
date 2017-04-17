@@ -1,0 +1,28 @@
+@import '../sizes';
+@import '../colors';
+
+.top-header-element {
+  height: @top-header-height;
+  position: relative;
+
+  white-space: nowrap;
+  .header-logo {
+    font-size: 0;
+  }
+  .header-menu {
+    display: inline-block;
+    background-color: @header-bg-color;
+    height: @top-header-height;
+    line-height: @top-header-height;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    a {
+      color: white;
+      padding: 0 20px;
+    }
+  }
+}
+
+section.header {
+  background-color: @header-bg-color;
+}

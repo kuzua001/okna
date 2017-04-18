@@ -1,9 +1,6 @@
-section.main {
-  .row > .col:first-child {
-    padding-left: 101px;
-    text-align: center;
-  }
+@import '../mixins';
 
+section.main {
   .row:first-child {
     padding-top: 43px;
   }
@@ -18,5 +15,14 @@ section.main {
     b {
       font-weight: 700;
     }
+  }
+
+  h1 .name {
+    font-size: 31.75px;
+    font-family: "Lora", serif;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 1px;
+    .transform(scale(1,0.9));
   }
 }

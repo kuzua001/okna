@@ -3,8 +3,10 @@
 @import 'include/mixins.less';
 @import 'include/reset.less';
 @import 'include/custom';
-@import 'include/sections/top-header';
 @import 'include/sections/sections-common';
+@import 'include/sections/section-main';
+@import 'include/elements/top-header';
+@import 'include/elements/contacts';
 
 
 
@@ -33,6 +35,11 @@ section .bg {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: -1;
+}
+
+section {
+  color: white;
 }
 
 footer {
@@ -45,4 +52,8 @@ body > .content {
 
 .container.container-90 {
   width: 90%;
+}
+
+.row.clear {
+  clear: left;
 }

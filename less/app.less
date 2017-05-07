@@ -7,6 +7,7 @@
 @import 'include/sections/section-main';
 @import 'include/elements/top-header';
 @import 'include/elements/contacts';
+@import 'include/elements/reservation-form';
 
 
 
@@ -17,8 +18,12 @@
   width: @large-content-width;
 }
 
-.content-wrapper .container * {
-  font-size: initial;
+.content-wrapper .container p,
+.content-wrapper .container b,
+.content-wrapper .container span,
+.content-wrapper .container input,
+.content-wrapper .container textarea {
+  font-size: 16px;
 }
 
 .menu {
@@ -60,15 +65,4 @@ body > .content {
 
 .center {
   text-align: center;
-}
-
-.reservation-form-element {
-  //background-color: #ffffff;
-  color: #fff;
-  padding: 20px;
-  text-align: left;
-  //.box-shadow(0 0 30px rgba(0, 0, 0, 0.5));
-  line-height: 24px;
-  margin-left: 9px!important;
-  font-family: "Lora", serif;
 }

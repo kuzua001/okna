@@ -1,8 +1,14 @@
 @import '../mixins';
 
 section.main {
-  .row:first-child {
+  height: 791px;
+
+  .content-wrapper {
     padding-top: 49px;
+  }
+
+  &:after {
+    background-color: #4f3a28;
   }
 
   .greeting {
@@ -38,7 +44,6 @@ section.main {
 
   .right-content-block-element {
     margin-top: 64px;
-    margin-left: 42px;
     width: 370px;
   }
 }

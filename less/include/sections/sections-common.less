@@ -1,6 +1,35 @@
-section {
+body > .content > section {
+
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -2;
+  }
+
   &.main {
-    height: 772px;
+    height: 791px;
+  }
+
+  &.service {
+    .content-wrapper {
+      padding-top: 31px;
+    }
+
+    height: 1739px;
+  }
+
+  &.main:after {
+    background-color: #4f3a28;
+  }
+
+  &.service:after {
+    background-color: #466289;
   }
 
   p {
@@ -10,4 +39,8 @@ section {
   .row.indent > .col:first-child {
     padding-left: 101px;
   }
+}
+
+html {
+  background-color: #4f3a28;
 }

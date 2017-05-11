@@ -1,5 +1,6 @@
 .simple-card-element {
 
+  height: 100%;
   margin: 0 65px 0 39px;
 
   header {
@@ -9,6 +10,10 @@
     font-family: "Open Sans", sans-serif;
     color: black;
     font-weight: 400;
+
+    &.pale {
+      background-color: #f9f1dc;
+    }
   }
 
   background-color: #fff;
@@ -24,8 +29,14 @@
     margin-top: 13px;
   }
 
-  .content {
+  section.content {
     padding: 0 20px;
+
+    em {
+      font-family: "Lora", sans-serif;
+      font-size: 18px;
+      font-style: normal;
+    }
   }
 
   .content > ul:not(.item-list) {

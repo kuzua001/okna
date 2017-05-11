@@ -351,7 +351,7 @@ function initMap() {
         ],
         {name: 'Styled Map'});
 
-    var map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.querySelector('.map-element .map'), {
         center: {lat: 55.647, lng: 37.581},
         zoom: 11,
         mapTypeControlOptions: {
@@ -369,7 +369,7 @@ function initMap() {
         new google.maps.LatLng(-84.999999, -179.999999),
         new google.maps.LatLng(84.999999, 179.999999));
 
-    var color = "#281404";
+    var color = "#32210e";
 
     rect = new google.maps.Rectangle({
         bounds: bounds,

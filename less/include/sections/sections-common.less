@@ -1,3 +1,5 @@
+@import '../../include/sizes.less';
+
 body > .content > section {
 
   position: relative;
@@ -19,6 +21,12 @@ body > .content > section {
 
   .row.indent > .col:first-child {
     padding-left: 101px;
+  }
+}
+
+@media (max-width: @desktop-width) {
+  .row.indent.indent-large > .col:first-child {
+    padding-left: 0!important;
   }
 }
 

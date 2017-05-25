@@ -42,6 +42,10 @@ body > .content {
   flex: 1 0 auto;
 }
 
+.container {
+  text-align: initial;
+}
+
 .container.container-90 {
   width: 90%;
 }
@@ -57,6 +61,27 @@ body > .content {
 .center {
   text-align: center;
 }
+
+
+@media screen and (max-width: @desktop-width) {
+  .content-wrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: @tablet-max-width) {
+  .content-wrapper {
+    .bg {
+      height: 100%;
+      display: inline-block;
+    }
+  }
+
+  .container {
+    overflow: hidden;
+  }
+}
+
 
 @import 'include/sizes.less';
 @import 'include/colors.less';

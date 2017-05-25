@@ -1,6 +1,8 @@
 @import '../mixins';
+@import '../sizes';
 
 .elegant-title-element {
+  overflow: hidden;
 
   &.black-text {
     color: #000;
@@ -11,7 +13,9 @@
   }
 
   span {
-    display: block;
+    display: inline-block;
+    clear: both;
+    float: left;
   }
 
   .first {

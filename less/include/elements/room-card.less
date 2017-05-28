@@ -1,6 +1,6 @@
 .room-card-element {
   color: black;
-  padding: 0 12px;
+  margin: 0 -6px 10px -6px;
 
   header {
     img {
@@ -17,11 +17,22 @@
     .room-type {
       float: left;
       overflow: hidden;
+      h4 {
+        font-family: "Lora", sans-serif;
+        font-size: 18px;
+      }
     }
 
     .price-item {
       text-align: right;
       margin-right: 10px;
+    }
+
+    .room-type .square,
+    .price-item,
+    .price-item .price {
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px;
     }
   }
 
@@ -33,10 +44,4 @@
       margin-right: 10px;
     }
   }
-
-  .room-type h4 {
-    font-size: 14px;
-  }
-
-  margin-bottom: 10px;
 }

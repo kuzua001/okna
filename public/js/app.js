@@ -320,7 +320,7 @@ function initMap() {
                 "elementType": "geometry.fill",
                 "stylers": [
                     {
-                        "color": "#2f1e17"
+                        "color": "#9c9995"
                     }
                 ]
             },
@@ -337,8 +337,9 @@ function initMap() {
         ,
         {name: 'Styled Map'});
 
+
     var map = new google.maps.Map(document.querySelector('.map-element .map'), {
-        center: {lat: 55.647, lng: 37.581},
+        center: {lat: 53.315590, lng: 34.282076},
         zoom: 11,
         mapTypeControlOptions: {
             mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
@@ -372,7 +373,7 @@ function initMap() {
 
     var features = [
         {
-            position: new google.maps.LatLng(55.647, 37.581),
+            position: new google.maps.LatLng(53.315590, 34.282076),
             type: 'library'
         }
     ];

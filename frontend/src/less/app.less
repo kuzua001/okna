@@ -90,7 +90,27 @@ body > .content {
 
 
 @media screen and (max-width: @tablet-max-width) {
+  .content-wrapper {
 
+    &:before {
+      display: inline-block;
+      content: '';
+      width: 10000px;
+      position: absolute;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      margin-left: -5000px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: auto 100%;
+      z-index: -1;
+    }
+
+    .bg {
+      display: none;
+    }
+  }
 }
 
 

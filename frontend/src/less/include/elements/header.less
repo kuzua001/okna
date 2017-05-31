@@ -51,8 +51,35 @@
       padding: 0 20px;
     }
   }
+
+  &> .mobile {
+    display: none;
+  }
 }
 
 section.header {
   background-color: @header-bg-color;
+}
+
+@media (max-width: @menu-max-width) {
+  .header-element {
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    top: 0;
+
+    &> .desktop {
+      display: none;
+    }
+
+    &> .mobile {
+      display: block!important;
+      height: 100%;
+      background-color: black;
+    }
+  }
+
+  body > .content {
+    padding-top: @top-header-height;
+  }
 }

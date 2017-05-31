@@ -1,6 +1,23 @@
 {
-  "name": "Hotel-markup",
+  "name": "hotel-markup",
   "version": "0.0.1",
   "devDependencies": {
-  }
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0"
+  },
+  "description": "Markup for Beshitza hotel website",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuzua001/bezhitsa.com.git"
+  },
+  "author": "Ivan Kuznetsov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuzua001/bezhitsa.com/issues"
+  },
+  "homepage": "https://github.com/kuzua001/bezhitsa.com#readme"
 }

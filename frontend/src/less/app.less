@@ -1,0 +1,122 @@
+.content-wrapper {
+  position: relative;
+  margin: 0 auto;
+  font-size: 0;
+  width: @large-content-width;
+}
+
+.content-wrapper p,
+.content-wrapper b,
+.content-wrapper span,
+.content-wrapper input,
+.content-wrapper textarea {
+  font-size: 16px;
+}
+
+.menu {
+  white-space: nowrap;
+  list-style: none;
+  height: 100%;
+}
+.menu > li {
+  display: inline-block;
+}
+
+section .bg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+section {
+  color: white;
+}
+
+footer {
+  flex: 0 0 auto;
+}
+
+body > .content {
+  flex: 1 0 auto;
+}
+
+.container {
+  text-align: initial;
+}
+
+.container.container-90 {
+  width: 90%;
+}
+
+.row-flex {
+  display: flex;
+}
+
+.row.clear {
+  clear: left;
+}
+
+.center {
+  text-align: center;
+}
+
+
+@media screen and (max-width: @desktop-width) {
+  .row-flex.row-flex-desktop {
+    display: inherit!important;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    text-align: center;
+
+    .bg {
+      width: auto!important;
+      height: 100%;
+      display: inline-block;
+    }
+  }
+
+  .container {
+    overflow: hidden;
+  }
+
+  section {
+    min-height: inherit!important;
+  }
+}
+
+
+@media screen and (max-width: @tablet-max-width) {
+
+}
+
+
+@import 'include/sizes.less';
+@import 'include/colors.less';
+@import 'include/mixins.less';
+@import 'include/reset.less';
+@import 'include/custom';
+@import 'include/elements/dummy-text';
+@import 'include/elements/header';
+@import 'include/elements/contacts';
+@import 'include/elements/reservation-form';
+@import 'include/elements/right-content-block';
+@import 'include/elements/detail-button';
+@import 'include/elements/simple-card';
+@import 'include/elements/room-card';
+@import 'include/elements/property-item';
+@import 'include/elements/elegant-title';
+@import 'include/elements/centered-title';
+@import 'include/elements/elegant-card';
+@import 'include/elements/map';
+@import 'include/elements/footer';
+@import 'include/elements/slider-element';
+@import 'include/sections/sections-common';
+@import 'include/sections/section-main';
+@import 'include/sections/section-service';
+@import 'include/sections/section-events';
+@import 'include/sections/section-fitness';
+@import 'include/sections/section-map';

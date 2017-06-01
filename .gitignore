@@ -1,3 +1,4 @@
 public/css/*
 !/public/css/materialize.css
 /frontend/dist/
+/node_modules/

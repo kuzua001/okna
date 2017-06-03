@@ -51,7 +51,34 @@ body > .content {
 }
 
 .row-flex {
+  padding-left: 38px;
+  padding-right: 47px;
   display: flex;
+
+  .l8 {order: 0;}
+  .l4 {order: 1;}
+
+  &.reverse-order {
+    .l8 {order: 1;}
+    .l4 {order: 0;}
+  }
+
+  .l8 + .l4 {
+    padding-left: 7px;
+  }
+
+  .l8:first-child {
+    padding-right: 14px;
+  }
+
+  .l8:last-child {
+    padding-left: 15px;
+  }
+
+  .l4:first-child {
+    padding-left: 13px;
+    padding-right: 5px;
+  }
 }
 
 .row.clear {
@@ -64,6 +91,10 @@ body > .content {
 
 
 @media screen and (max-width: @desktop-width) {
+  .row-flex {
+    padding: 0!important;
+  }
+
   .row-flex.row-flex-desktop {
     display: inherit!important;
   }

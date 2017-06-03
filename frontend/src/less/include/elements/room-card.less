@@ -1,6 +1,6 @@
 .room-card-element {
   color: black;
-  margin: 0 -6px 10px -6px;
+  margin: 0 -6px 15px -6px;
 
   header {
     img {
@@ -12,20 +12,25 @@
     background-color: #fff;
     color: black;
     overflow: hidden;
-    padding-top: 10px;
+    padding-top: 7px;
 
     .room-type {
+      padding: 0 17px;
+      margin-bottom: 17px;
       float: left;
       overflow: hidden;
       h4 {
+        margin-bottom: 11px;
         font-family: "Lora", sans-serif;
         font-size: 18px;
       }
     }
 
     .price-item {
+      position: relative;
+      top: 5px;
       text-align: right;
-      margin-right: 10px;
+      margin-right: 17px;
     }
 
     .room-type .square,
@@ -38,10 +43,18 @@
 
   footer {
     background-color: #f9f1dc;
+    height: 47px;
+    padding: 9px 19px;
 
     .property-item-element {
       display: inline-block;
-      margin-right: 10px;
+      margin-right: 29px;
+
+      span {
+        font-size: 12px;
+        top: -2px;
+        position: relative;
+      }
     }
   }
 }

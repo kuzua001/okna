@@ -4,7 +4,9 @@
 
 $(document).ready(function(){
     $('.slider').slider({
-        height: 657
+        height: 657,
+        interval: 1000000,
+        transition: 1000
     });
 });
 

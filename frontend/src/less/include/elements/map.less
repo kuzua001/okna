@@ -2,7 +2,7 @@
 @import "../sizes";
 
 .map-element {
-  height: 400px;
+  height: 497px;
   position: relative;
 
   .map {
@@ -10,7 +10,7 @@
   }
 
   .contact-info {
-    margin-top: -400px;
+    margin-top: -497px;
 
     .container {
       position: relative;
@@ -18,29 +18,48 @@
 
     .wrapper {
       .box-sizing(border-box);
-      padding: 25px 35px;
-      width: calc(~'33% - 24px');
+      padding: 25px 35px 37px 35px;
+      width: ~'calc(33% - 29px)';
       top: 40px;
       right: 0;
+      margin-right: 47px;
       position: absolute;
       background-color: #fff;
       color: black;
       font-family: "Open Sans", sans-serif;
+
+      .contacts-element {
+        margin-bottom: 60px;
+
+        dd {
+          margin-bottom: 11px;
+        }
+      }
+
+      p {
+        margin-top: 21.0px;
+        line-height: 16px;
+      }
 
       ul, p {
         font-size: 14px;
       }
 
       ul {
-        padding-left: 40px;
+        padding-left: 50px;
+        margin-top: 18px;
+
         li {
           list-style: disc;
           font-size: 9px;
+          line-height: 17px;
+
           span {
             font-size: 14px;
             margin-top: -1px;
             display: inline-block;
             vertical-align: top;
+            margin-left: 21px;
           }
         }
 
@@ -48,7 +67,9 @@
 
       h3 {
         font-size: 18px;
-        margin-bottom: 10px;
+        margin-bottom: 18px;
+        margin-top: -4px;
+        margin-left: -3px;
       }
     }
   }

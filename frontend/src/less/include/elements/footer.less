@@ -1,20 +1,26 @@
 body > footer {
   overflow: hidden;
   background-color: #110a05;
-  padding-top: 50px;
+  padding-top: 30px;
 
-  * {
+  nav {
     background-color: #110a05;
   }
 
   .logo-wrapper {
     img.logo {
       float: left;
+      position: relative;
+      left: 2px;
     }
 
     .title {
-      padding-top: 10px;
+      padding-top: 22px;
       color: #fff;
+      position: relative;
+      left: -15px;
+      letter-spacing: 0.5px;
+
       .name, .type {
         width: 200px;
         display: block;
@@ -33,8 +39,12 @@ body > footer {
   }
 
   nav.scrollto-links {
+    padding-top: 22px;
+    margin-left: 28px;
+    letter-spacing: 0.2px;
+
     a {
-      padding: 0 20px;
+      padding: 0 28px;
       font-size: 14px;
       color: #fff;
       text-transform: uppercase;
@@ -42,11 +52,15 @@ body > footer {
   }
 
   nav.social {
+    padding-top: 11px;
+    padding-left: 74px;
+
     i {
       display: inline-block;
       background-repeat: no-repeat;
-      width: 40px;
-      height: 40px;
+      width: 30px;
+      height: 30px;
+      margin-right: 6.5px;
     }
   }
 
@@ -68,6 +82,16 @@ body > footer {
 
   nav.legislation-links a:last-child:after {
     display: none;
+  }
+
+  /**
+  Строка со ссылками всякими
+   */
+  .row:last-child {
+    margin-top: -8px;
+    margin-left: -61px;
+    line-height: 9px;
+    letter-spacing: 0.2px;
   }
 
 }

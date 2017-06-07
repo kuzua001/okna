@@ -4,11 +4,16 @@
   .indicators {
     bottom: 62px;
     z-index: 3;
-    margin-left: 33px;
+    margin-left: 49px;
+
     .indicator-item {
       margin: 0 5px 0 4px;
       height: 6px;
       width: 6px;
+
+      &.active {
+        background-color: #b8a761;
+      }
     }
   }
 
@@ -27,7 +32,9 @@
 
     &.right {
       left: auto;
-      right: 10%;
+      right: 2%;
+      margin-right: -2px;
+      margin-top: 3px;
     }
   }
 }

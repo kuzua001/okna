@@ -10,23 +10,23 @@ const tscConfig    = require('./tsconfig.json');
 
 
 gulp.task('clean', function () {
-    return del('frontend/dist/js/**/*');
+    return del('frontend/web/js/**/*');
 });
 
 gulp.task('compile', ['clean'], function () {
     return gulp
-        .src('frontend/src/ts/**/*.ts')
+        .src('frontend/web/src/ts/**/*.ts')
         .pipe(typescript(tscConfig.compilerOptions))
-        .pipe(gulp.dest('frontend/dist/js/'));
+        .pipe(gulp.dest('frontend/web/js/'));
 });
 
 gulp.task('default', ['compile']);
 
 gulp.task('autoprefixer', function() {
-    return gulp.src('frontend/src/less/app.less')
+    return gulp.src('frontend/web/src/less/app.less')
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(gulp.dest('frontend/dist/css'))
+        .pipe(gulp.dest('frontend/web/css'))
 });

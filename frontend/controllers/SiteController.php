@@ -66,13 +66,24 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.
+     * Displays homepage (dummy).
      *
      * @return mixed
      */
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+
+    /**
+     * Displays future homepage.
+     *
+     * @return mixed
+     */
+    public function actionTest()
+    {
+        return $this->render('test');
     }
 
     /**

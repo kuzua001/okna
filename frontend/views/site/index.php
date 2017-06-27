@@ -2,11 +2,13 @@
 use frontend\widgets\common\BaseSection;
 use frontend\widgets\common\MainSection;
 use frontend\widgets\common\ServiceSection;
+use frontend\widgets\common\TemporarySection;
 use frontend\components\AppHelper;
 use yii\helpers\Html;
 
 
-echo MainSection::widget([
+
+/*echo MainSection::widget([
 	'title' =>
 		'<span class="name">Bezhitsa</span>
 		<br>
@@ -33,9 +35,9 @@ echo MainSection::widget([
 		'Получите удовольствие, выбрав восхитительную
 		<br>
 		атмосферу премиум комплекса «Бежица».',
-	'mainSloganFirst' => 'Ваш',
-    'mainSloganSecond' => 'изысканный и комфортный отдых',
-    'mainSloganThird' => 'мирового класса',
+	'mainSloganFirst' => AppHelper::getText('mainSloganFirst'),
+    'mainSloganSecond' => AppHelper::getText('mainSloganSecond'),
+    'mainSloganThird' => AppHelper::getText('mainSloganThird'),
 	'rightBlockHeader' => 'Харакетристики отеля',
 	'rightBlockContent' => 'Отель «Бежица» предлагает 48 роскошных номеров в самом центре города. Наслаждайтесь стильным интерьером, уникальным дизайном стандартных номеров, делюксов и люксов .',
 ]);
@@ -44,6 +46,10 @@ echo ServiceSection::widget([
 	'title' => 'Номера',
 	'content' => $this->render("//partial/blocks/service/content"),
 	'roomsDescription' => $this->render("//partial/blocks/service/rooms_description"),
+]);*/
+
+echo TemporarySection::widget([
+
 ]);
 
 //echo BaseSection::widget([

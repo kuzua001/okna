@@ -1,15 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ES5",
-    "lib": ["es2016", "dom"],
-    "module": "commonjs",
-    "sourceMap": false,
-    "emitDecoratorMetadata": true,
+    "target": "es5",
+    "module": "system",
+    "strict": true,
+    "noImplicitAny": false,
+    "sourceMap" : false,
+    "moduleResolution": "node",
     "experimentalDecorators": true,
-    "removeComments": false,
-    "noImplicitAny": false
+    "emitDecoratorMetadata": true,
+    "skipLibCheck" : true,
+    "rootDir": "./frontend/web/src/ts",
+    "outDir": "./frontend/web/js/built"
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "typings/main.d.ts",
+    "typings/main"
   ]
 }

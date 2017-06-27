@@ -8,8 +8,8 @@ $this->title = 'My Yii Application';
     <div class="content-wrapper">
         <img class="bg" src="/img/top-bg.jpg">
         <div class="container container-90">
-            <div class="row clear indent">
-                <div class="col l4 center">
+            <div class="row clear indent indent-large">
+                <div class="col l4 center desktop-only">
                     <img class="logo" src="/img/big-logo.png">
                     <h1>
                         <span class="name">Bezhitsa</span><br>
@@ -90,7 +90,7 @@ $this->title = 'My Yii Application';
     <div class="content-wrapper">
         <img class="bg" src="/img/section2-bg.jpg">
         <div class="container container-90">
-            <div class="row indent">
+            <div class="row indent indent-large">
                 <div class="col l6">
                     <h2 class="elegant-title-element">
                         <span class="first">Роскошный</span>

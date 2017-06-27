@@ -144,6 +144,26 @@ body > .content {
   }
 }
 
+@media (min-width:  calc(@menu-max-width + 1)) {
+  .mobile-only {
+    display: none!important;
+  }
+
+  .desktop-only {
+    display: inherit!important;
+  }
+}
+
+@media (max-width: @menu-max-width) {
+  .mobile-only {
+    display: inherit!important;
+  }
+
+  .desktop-only {
+    display: none!important;
+  }
+}
+
 
 @import 'include/sizes.less';
 @import 'include/colors.less';
@@ -166,6 +186,9 @@ body > .content {
 @import 'include/elements/map';
 @import 'include/elements/footer';
 @import 'include/elements/slider-element';
+@import 'include/elements/editable-text';
+@import 'include/elements/popup';
+@import 'include/elements/hamburger';
 @import 'include/sections/sections-common';
 @import 'include/sections/section-main';
 @import 'include/sections/section-service';

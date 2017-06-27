@@ -77,6 +77,12 @@ section.header {
     width: 100%;
     top: 0;
 
+    .hamburger-element {
+      position: absolute;
+      top: 9px;
+      left: 15px;
+    }
+
     &> .desktop {
       display: none;
     }
@@ -94,5 +100,11 @@ section.header {
 
   section.header + section {
     padding-top: 0;
+  }
+}
+
+@media (max-width: @desktop-width) {
+  .header-element .header-logo {
+    margin-left: 0!important;
   }
 }

@@ -6,12 +6,20 @@ use yii\helpers\Html;
 
 $widget = $this->context;
 ?>
+<?php
+use frontend\widgets\popup\Popup;
+
+echo Popup::widget([
+	'title' => 'Hello!',
+	'class' => 'active'
+]);
+?>
 <section class="main">
 	<div class="content-wrapper">
 		<img class="bg" src="/img/top-bg.jpg">
 		<div class="container container-90">
 			<div class="row clear indent">
-				<div class="col l4 center">
+				<div class="col l4 center desktop-only">
 					<img class="logo" src="/img/big-logo.png">
 					<h1>
                         <?= $widget->title() ?>
@@ -44,13 +52,13 @@ $widget = $this->context;
 			</div>
 			<div class="row clear indent indent-large middle-row">
 				<div class="col l4 m4 center">
-					<section class="reservation-form-element">
+					<section class="reservation-form-element" ng-controller="ReservationFormController as $form">
 						<header>
 							Забронировать проживание
 						</header>
 						<section class="content">
 							<div class="dates">
-								<input type="text" class="from" placeholder="заезд">
+								<input type="text" class="from" placeholder="заезд" style="font-size: 12px; color: #000" ng-model="$form.from">
 								<input type="text" class="to" placeholder="выезд">
 							</div>
 							<div class="people">
@@ -60,7 +68,7 @@ $widget = $this->context;
 							</div>
 						</section>
 						<footer>
-							<div class="apply">Бронировать</div>
+							<div class="apply" ng-cloak>Бронировать <span ng-bind="$form.from"></span></div>
 						</footer>
 					</section>
 				</div>

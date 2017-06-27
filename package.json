@@ -1,23 +1,13 @@
 {
   "name": "hotel-markup",
   "version": "0.0.1",
-  "devDependencies": {
-    "angular2": "^2.0.0-beta.17",
-    "del": "^2.2.2",
-    "es6-shim": "^0.35.3",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-typescript": "^3.1.7",
-    "reflect-metadata": "^0.1.2",
-    "rxjs": "^5.0.0-beta.6",
-    "typescript": "^2.3.4",
-    "typings": "^2.1.1",
-    "zone.js": "^0.8.11"
-  },
-  "description": "Markup for Beshitza hotel website",
   "main": "gulpfile.js",
+  "keywords": [],
+  "description": "Markup for Beshitza hotel website",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typings": "typings",
+    "postinstall": "typings install"
   },
   "repository": {
     "type": "git",
@@ -28,5 +18,38 @@
   "bugs": {
     "url": "https://github.com/kuzua001/bezhitsa.com/issues"
   },
-  "homepage": "https://github.com/kuzua001/bezhitsa.com#readme"
+  "homepage": "https://github.com/kuzua001/bezhitsa.com#readme",
+  "dependencies": {
+    "@angular/common": "^2.4.10",
+    "@angular/compiler": "^2.4.10",
+    "@angular/core": "^2.4.10",
+    "@angular/forms": "^2.4.10",
+    "@angular/http": "^2.4.10",
+    "@angular/platform-browser": "^2.4.10",
+    "@angular/platform-browser-dynamic": "^2.4.10",
+    "@angular/router": "^3.4.10",
+    "angular": "^1.6.4",
+    "angular-resource": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "bootstrap": "^3.3.7",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.0.1",
+    "systemjs": "^0.19.40",
+    "zone.js": "^0.7.8"
+  },
+  "devDependencies": {
+    "@types/core-js": "^0.9.34",
+    "@types/jquery": "^3.2.2",
+    "@types/node": "^6.0.45",
+    "concurrently": "^3.1.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-typescript": "^3.1.7",
+    "jquery": "^3.2.1",
+    "lite-server": "^2.2.2",
+    "typescript": "^2.4.0"
+  }
 }

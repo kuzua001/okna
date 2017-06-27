@@ -18,7 +18,13 @@ class AppAsset extends AssetBundle
     ];
 
     public $js = [
-        'js/app.js'
+        /*'js/node_modules/core-js/client/shim.min.js',*/
+       /* 'js/node_modules/zone.js/dist/zone.js', */
+        /*'js/node_modules/reflect-metadata/Reflect.js',*/
+        'js/node_modules/systemjs/dist/system.src.js',
+        'js/systemjs.config.js',
+        'js/import.js',
+        'js/app.js',
     ];
 
     public $jsOptions = [

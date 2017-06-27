@@ -1,11 +1,16 @@
-/**
- * Created by Иван on 01.06.2017.
- */
+import * as angular from 'angular';
+import 'angular-route';
 
-import { Component } from 'angular2/core';
+import { ReservationFormController } from './controllers/reservation_form';
+import { HoverDirective } from './directives/hover';
 
-@Component({
-    selector: 'ng-app',
-    template: `<h1>Hello {{name}}</h1>`
-})
-export class AppComponent { name = 'Angular'; }
+
+export default angular
+	.module('main', ['ngRoute'])
+	.controller('ReservationFormController', ReservationFormController)
+	.directive('hover', HoverDirective);
+
+
+// Bootstrap the angular app module
+//angular
+//	.bootstrap(document.body, ['main']);

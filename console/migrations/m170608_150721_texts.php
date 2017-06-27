@@ -5,17 +5,6 @@ use frontend\components\AppHelper;
 
 class m170608_150721_texts extends Migration
 {
-//    public function up()
-//    {
-//
-//    }
-//
-//    public function down()
-//    {
-//        echo "m170608_150721_texts cannot be reverted.\n";
-//
-//        return false;
-//    }
 
     public function up()
     {
@@ -45,15 +34,4 @@ class m170608_150721_texts extends Migration
     {
         $this->dropTable('texts');
     }
-
-    /*
-    // Use safeUp/safeDown to run migration code within a transaction
-    public function safeUp()
-    {
-    }
-
-    public function safeDown()
-    {
-    }
-    */
 }

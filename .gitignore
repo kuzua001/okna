@@ -1,5 +1,8 @@
 /frontend/web/css
-
+/frontend/web/js/built
+/frontend/web/js/typings
+/frontend/web/js/package-lock.json
+/typings
 
 # yii console commands
 /yii

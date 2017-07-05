@@ -1042,6 +1042,14 @@ body > footer .row:last-child {
   bottom: 0;
   z-index: -1;
 }
+.slide-dummy-element {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  left: 0;
+  right: 30px;
+  background-color: transparent;
+}
 .editable-text-element {
   font-size: inherit!important;
   color: inherit!important;

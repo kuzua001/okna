@@ -2,6 +2,7 @@
         <div class="content-wrapper">
             <header class="header-element">
                 <div class="mobile">
+					<div class="slide-dummy-element" ng-swipe-right="header.setState(true)"></div>
 					<div class="row">
 						<div class="col s12">
 							<span class="hamburger-element" ng-click="header.toggleMenu()">
@@ -13,7 +14,7 @@
 								<img src="/img/logo_header_mobile.png">
 							</a>
 						</div>
-						<div class="slide-menu-element" ng-class="{'active':header.slideMenuState}">
+						<div class="slide-menu-element" ng-class="{'active':header.slideMenuState}" ng-swipe-left="header.setState(false)">
 							<nav class="menu">
 								<a class="item">отель</a>
 								<a class="item">номера</a>

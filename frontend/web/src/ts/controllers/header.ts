@@ -11,6 +11,10 @@ export class HeaderController {
 		this.slideMenuState = !this.slideMenuState;
 	}
 
+	setState(state: boolean) {
+		this.slideMenuState = state;
+	}
+
 	constructor()
 	{
 	}

@@ -59,9 +59,6 @@ section.header + section {
   color: white;
   padding: 0 20px;
 }
-.header-element > .mobile {
-  display: none;
-}
 section.header {
   background-color: #110a05;
 }
@@ -76,11 +73,7 @@ section.header {
     top: 9px;
     left: 15px;
   }
-  .header-element > .desktop {
-    display: none;
-  }
-  .header-element > .mobile {
-    display: block!important;
+  .header-element > .mobile-only {
     height: 100%;
     background-color: black;
   }

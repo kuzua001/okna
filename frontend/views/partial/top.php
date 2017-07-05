@@ -1,7 +1,7 @@
     <section class="header" ng-controller="HeaderController as header">
         <div class="content-wrapper">
             <header class="header-element">
-                <div class="mobile">
+                <div class="mobile-only">
 					<div class="slide-dummy-element" ng-swipe-right="header.setState(true)"></div>
 					<div class="row">
 						<div class="col s12">
@@ -24,7 +24,7 @@
 						</div>
 					</div>
                 </div>
-                <div class="desktop container container-90">
+                <div class="desktop-only container container-90">
                     <div class="row">
                         <div class="col l4">
                             <a class="header-logo" href="/" title="beshitza.ru">

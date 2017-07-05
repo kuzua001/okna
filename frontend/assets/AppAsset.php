@@ -25,7 +25,7 @@ class AppAsset extends AssetBundle
         'js/systemjs.config.js',
         'js/import.js',
         'js/app.js',
-        'https://maps.googleapis.com/maps/api/js?key=AIzaSyAfNPNg4M7uT3PqOFIyGpHZx9f8jTqbKUg&callback=initMapvi '
+        'https://maps.googleapis.com/maps/api/js?key=AIzaSyAfNPNg4M7uT3PqOFIyGpHZx9f8jTqbKUg&callback=initMap'
     ];
 
     public $jsOptions = [

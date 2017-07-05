@@ -4,5 +4,8 @@
   },
   "globalDevDependencies": {
     "jquery": "registry:dt/jquery#1.10.0+20170310222111"
+  },
+  "devDependencies": {
+    "angular": "registry:dt/angular#1.6.0+20170321201455"
   }
 }

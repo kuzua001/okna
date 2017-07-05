@@ -1006,6 +1006,42 @@ body > footer .row:last-child {
   margin-right: -2px;
   margin-top: 3px;
 }
+.slide-menu-element {
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  left: -200px;
+  width: 200px;
+  transition: left 0.3s;
+  -webkit-box-shadow: 10px -5px 40px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 10px -5px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px -5px 40px rgba(0, 0, 0, 0.2);
+}
+.slide-menu-element nav {
+  background-color: #191919;
+}
+.slide-menu-element nav a {
+  margin-left: 15px;
+  display: block;
+  color: gainsboro;
+  font-size: 20px;
+  text-align: left;
+  line-height: 56px;
+}
+.slide-menu-element.active {
+  left: 0;
+  transition: left 0.3s;
+}
+.slide-menu-element.active:before {
+  content: '';
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
 .editable-text-element {
   font-size: inherit!important;
   color: inherit!important;

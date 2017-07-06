@@ -120,19 +120,13 @@ body > .content {
   }
 }
 @media screen and (min-width: 993px) {
-  .mobile-only {
-    display: none!important;
-  }
   .desktop-only {
-    display: inherit!important;
+    display: inherit;
   }
 }
 @media screen and (max-width: 992px) {
   .mobile-only {
-    display: inherit!important;
-  }
-  .desktop-only {
-    display: none!important;
+    display: inherit;
   }
 }
 /* auth */

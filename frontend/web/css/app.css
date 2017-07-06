@@ -120,6 +120,9 @@ body > .content {
   }
 }
 @media screen and (min-width: 993px) {
+  .mobile-only {
+    display: none!important;
+  }
   .desktop-only {
     display: inherit;
   }
@@ -127,6 +130,9 @@ body > .content {
 @media screen and (max-width: 992px) {
   .mobile-only {
     display: inherit;
+  }
+  .desktop-only {
+    display: none!important;
   }
 }
 /* auth */

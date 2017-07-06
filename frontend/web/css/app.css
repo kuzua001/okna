@@ -119,7 +119,7 @@ body > .content {
     display: none;
   }
 }
-@media screen and (min-width: calc(992px + 1)) {
+@media screen and (min-width: 993px) {
   .mobile-only {
     display: none!important;
   }

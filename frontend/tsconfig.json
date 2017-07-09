@@ -10,10 +10,10 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck" : true,
     "rootDir": "./frontend/web/src/ts",
-    "outDir": "./frontend/web/js/built"
+    "outDir": "./web/js/built"
   },
   "exclude": [
-    "node_modules",
+	  "../node_modules",
     "typings/main.d.ts",
     "typings/main"
   ]

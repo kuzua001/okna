@@ -11,7 +11,7 @@ $widget = $this->context;
 		<img class="bg" src="/img/section2-bg.jpg">
 		<div class="container container-90">
 			<div class="row indent">
-				<div class="col l6">
+				<div class="col l6 m6 s12">
 					<h2 class="elegant-title-element">
 						<span class="first">Роскошный</span>
 						<span class="second">сервис для</span>
@@ -21,7 +21,7 @@ $widget = $this->context;
 						подробнее про отель
 					</button>
 				</div>
-				<div class="col l6">
+				<div class="col l6 m6 s12">
 					<?= $widget->content ?>
 				</div>
 			</div>
@@ -146,7 +146,7 @@ $widget = $this->context;
 				</div>
 			</div>
 			<div class="row more-row">
-				<div class="col l12 center">
+				<div class="col l12 m12 s12 center">
 					<button class="detail-button-element">все номера номера</button>
 				</div>
 			</div>

@@ -2,6 +2,10 @@
 /frontend/web/js/built
 /frontend/web/js/typings
 /frontend/web/js/package-lock.json
+/backend/web/css
+/backend/web/js/built
+/backend/web/js/typings
+/backend/web/js/package-lock.json
 /typings
 
 # yii console commands

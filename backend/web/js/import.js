@@ -1,1 +1,1 @@
-System.import ('main');
+System.import ('app');

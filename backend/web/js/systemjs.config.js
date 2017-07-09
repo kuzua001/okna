@@ -1,40 +1,51 @@
-(function (global) {
-	System.config({
-		map: {
-			angular : 'js/node_modules/@angular/core/bundles/core.umd.js',
-			'@angular/core': 'js/node_modules/@angular/core/bundles/core.umd.js',
-			'@angular/common': 'js/node_modules/@angular/common/bundles/common.umd.js',
-			'@angular/compiler': 'js/node_modules/@angular/compiler/bundles/compiler.umd.js',
-			'@angular/platform-browser': 'js/node_modules/@angular/platform-browser/bundles/platform-browser.umd.js',
-			'@angular/platform-browser-dynamic': 'js/node_modules/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
-			'@angular/http': 'js/node_modules/@angular/http/bundles/http.umd.js',
-			'@angular/router': 'js/node_modules/@angular/router/bundles/router.umd.js',
-			'@angular/forms': 'js/node_modules/@angular/forms/bundles/forms.umd.js',
+(function(global) {
 
-			jquery : 'js/node_modules/jquery/dist/jquery.slim.js',
-			rxjs: 'js/node_modules/rxjs',
-			main: 'js/built'
-		},
-		packages: {
-			main: {
-				main: './index.js',
-				defaultExtension: 'js',
-			},
-			rxjs: {
-				defaultExtension: 'js'
-			}
-		},
-		meta : {
-			angular : {
-				format : 'global',
-				exports: 'angular',
-				deps : [
-					'jquery'
-				]
-			},
-			main : {
-				deps : ['angular']
-			}
-		}
-	});
+	// map tells the System loader where to look for things
+	var map = {
+		'app':                        'admin/js/built', // 'dist',
+		'@angular':                   'js/node_modules/@angular',
+		'rxjs':                       'js/node_modules/rxjs'
+	};
+
+	// packages tells the System loader how to load when no filename and/or no extension
+	var packages = {
+		'app':                        { main: 'index.js',  defaultExtension: 'js' },
+		'rxjs':                       { defaultExtension: 'js' }
+	};
+
+	var ngPackageNames = [
+		'common',
+		'compiler',
+		'core',
+		'forms',
+		'http',
+		'platform-browser',
+		'platform-browser-dynamic',
+		'router',
+		'upgrade',
+	];
+
+	// Individual files (~300 requests):
+	function packIndex(pkgName) {
+		packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };
+	}
+
+	// Bundled (~40 requests):
+	function packUmd(pkgName) {
+		packages['@angular/'+pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
+	}
+
+	// Most environments should use UMD; some (Karma) need the individual index files
+	var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
+
+	// Add package entries for angular packages
+	ngPackageNames.forEach(setPackageConfig);
+
+	var config = {
+		map: map,
+		packages: packages
+	};
+
+	System.config(config);
+
 })(this);

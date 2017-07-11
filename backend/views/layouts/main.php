@@ -11,6 +11,8 @@ use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 
 AppAsset::register($this);
+
+$isStaticContent = isset($this->params['isStaticContent']) ? $this->params['isStaticContent'] : false;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -24,47 +26,50 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-<ng-app>
-	<div class="wrap">
-        <?php
-        NavBar::begin([
-            'brandLabel' => 'My Company',
-            'brandUrl' => Yii::$app->homeUrl,
-            'options' => [
-                'class' => 'navbar-inverse navbar-fixed-top',
-            ],
-        ]);
-        $menuItems = [
-            ['label' => 'Home', 'url' => ['/site/index']],
-        ];
-        if (Yii::$app->user->isGuest) {
-            $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-        } else {
-            $menuItems[] = '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>';
-        }
-        echo Nav::widget([
-            'options' => ['class' => 'navbar-nav navbar-right'],
-            'items' => $menuItems,
-        ]);
-        NavBar::end();
-        ?>
 
-		<div class="container">
-            <?= Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
-            <?= Alert::widget() ?>
-            <?= $content ?>
-		</div>
+<div class="wrap">
+	<?php
+	NavBar::begin([
+		'brandLabel' => 'Bezhitsa admin',
+		'brandUrl' => Yii::$app->homeUrl,
+		'options' => [
+			'class' => 'navbar-inverse navbar-fixed-top',
+		],
+	]);
+	$menuItems = [
+		['label' => 'Home', 'url' => ['/site/index']],
+	];
+	if (Yii::$app->user->isGuest) {
+		$menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+	} else {
+		$menuItems[] = '<li>'
+			. Html::beginForm(['/site/logout'], 'post')
+			. Html::submitButton(
+				'Logout (' . Yii::$app->user->identity->username . ')',
+				['class' => 'btn btn-link logout']
+			)
+			. Html::endForm()
+			. '</li>';
+	}
+	echo Nav::widget([
+		'options' => ['class' => 'navbar-nav navbar-right'],
+		'items' => $menuItems,
+	]);
+	NavBar::end();
+	?>
+
+	<div class="container">
+		<?= Breadcrumbs::widget([
+			'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+		]) ?>
+		<?= Alert::widget() ?>
+		<?php if ($isStaticContent) { ?>
+			<?= $content?>
+		<?php } else { ?>
+			<ng-app><?= $content?></ng-app>
+		<?php } ?>
 	</div>
-</ng-app>
+</div>
 
 <footer class="footer">
     <div class="container">

@@ -4,7 +4,7 @@
 
 $this->title = 'My Yii Application';
 ?>
-<section class="main">
+<section class="main" id="section1">
     <div class="content-wrapper">
         <img class="bg" src="/img/top-bg.jpg">
         <div class="container container-90">
@@ -86,7 +86,7 @@ $this->title = 'My Yii Application';
         </div>
     </div>
 </section>
-<section class="service">
+<section class="service"  id="section2">
     <div class="content-wrapper">
         <img class="bg" src="/img/section2-bg.jpg">
         <div class="container container-90">
@@ -312,7 +312,7 @@ $this->title = 'My Yii Application';
         </div>
     </div>
 </section>
-<section class="events">
+<section class="events"  id="section3">
     <div class="content-wrapper">
         <div class="container container-90">
             <div class="row">
@@ -415,7 +415,7 @@ $this->title = 'My Yii Application';
         </div>
     </div>
 </section>
-<section class="fitness">
+<section class="fitness"  id="section4">
     <div class="content-wrapper">
         <div class="container container-90">
             <div class="row">

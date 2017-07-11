@@ -14,7 +14,7 @@
 			'@angular/router': 'js/node_modules/@angular/router/bundles/router.umd.js',
 			'@angular/forms': 'js/node_modules/@angular/forms/bundles/forms.umd.js',
 */
-			jquery : 'js/node_modules/jquery/dist/jquery.slim.js',
+			jquery : 'js/node_modules/jquery/dist/jquery.min.js',
 			rxjs: 'js/node_modules/rxjs',
 			main: 'js/built'
 		},

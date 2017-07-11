@@ -1,0 +1,5 @@
+<ul>
+	<li *ngFor="let user of users">
+		{{ user.email }} has ID <div (click)="edit(user.id)">#{{ user.id }}</div>.
+	</li>
+<ul>

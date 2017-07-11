@@ -1,20 +1,28 @@
-import { NgModule }      from '@angular/core';
+import { NgModule }  from '@angular/core';
 import { Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { RestangularModule } from 'ng2-restangular';
+import { UsersModule } from './users/users.module'
 
 
 @Component({
 	selector: 'ng-app',
-	template: `<h1>Hello {{name}}</h1>`
+	templateUrl: '/admin/dynamic/index'
 })
 export class AppComponent { name = 'Angular'; }
 
 
 @NgModule({
-	imports: [ BrowserModule ],
+	imports: [
+		BrowserModule,
+		RestangularModule.forRoot((RestangularProvider) => {
+			RestangularProvider.setBaseUrl('/admin/api/');
+		}),
+		UsersModule
+	],
 	declarations: [ AppComponent ],
-	bootstrap:    [ AppComponent ]
+	bootstrap: [ AppComponent ]
 })
 export class AppModule { }
 

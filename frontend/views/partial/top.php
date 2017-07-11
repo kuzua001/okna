@@ -16,10 +16,10 @@
 						</div>
 						<div class="slide-menu-element" ng-class="{'active':header.slideMenuState}" ng-swipe-left="header.setState(false)">
 							<nav class="menu">
-								<a class="item">отель</a>
-								<a class="item">номера</a>
-								<a class="item">ресторан</a>
-								<a class="item">фитнес-клуб&nbsp</a>
+								<a class="item" ng-click="header.setState(false); header.scrollTo('section#section1')">отель</a>
+								<a class="item" ng-click="header.setState(false); header.scrollTo('section#section2')">номера</a>
+								<a class="item" ng-click="header.setState(false); header.scrollTo('section#section3')">ресторан</a>
+								<a class="item" ng-click="header.setState(false); header.scrollTo('section#section4')">фитнес-клуб&nbsp</a>
 							</nav>
 						</div>
 					</div>
@@ -33,10 +33,10 @@
                         </div>
                         <div class="header-menu col l5">
                             <nav class="menu">
-                                <a class="item">отель</a>
-                                <a class="item">номера</a>
-                                <a class="item">ресторан</a>
-                                <a class="item">фитнес-клуб&nbsp</a>
+                                <a class="item" ng-click="header.scrollTo('section#section1')">отель</a>
+                                <a class="item" ng-click="header.scrollTo('section#section2')">номера</a>
+                                <a class="item" ng-click="header.scrollTo('section#section3')">ресторан</a>
+                                <a class="item" ng-click="header.scrollTo('section#section4')">фитнес-клуб&nbsp</a>
                             </nav>
                         </div>
                         <div class="lang-switcher col l3">

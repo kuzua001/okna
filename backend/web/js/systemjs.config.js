@@ -2,15 +2,19 @@
 
 	// map tells the System loader where to look for things
 	var map = {
-		'app':                        'admin/js/built', // 'dist',
+		'app':                        '/admin/js/built', // 'dist',
 		'@angular':                   'js/node_modules/@angular',
-		'rxjs':                       'js/node_modules/rxjs'
+		'ng2-restangular':            'js/node_modules/ng2-restangular',
+		'rxjs':                       'js/node_modules/rxjs',
+		'lodash':                     'js/node_modules/lodash'
 	};
 
 	// packages tells the System loader how to load when no filename and/or no extension
 	var packages = {
-		'app':                        { main: 'index.js',  defaultExtension: 'js' },
-		'rxjs':                       { defaultExtension: 'js' }
+		'app':                        { main: 'index.js',   defaultExtension: 'js' },
+		"ng2-restangular":            { main: './dist/esm/src/index.js',  defaultExtension: 'js'},
+		'rxjs':                       { main: "./Rx.js", defaultExtension: 'js' },
+		'lodash':                     { main: './lodash.js', defaultExtension: 'js'},
 	};
 
 	var ngPackageNames = [
@@ -43,7 +47,7 @@
 
 	var config = {
 		map: map,
-		packages: packages
+		packages: packages,
 	};
 
 	System.config(config);

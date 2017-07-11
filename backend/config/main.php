@@ -43,6 +43,14 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => [
+                        'users' => 'api/user',
+                        'texts' => 'api/text'
+                    ],
+                    'prefix' => 'api'
+                ]
             ],
         ],
     ],

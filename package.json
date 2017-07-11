@@ -39,6 +39,7 @@
     "zone.js": "^0.7.8"
   },
   "devDependencies": {
+    "@types/angular-mocks": "^1.5.10",
     "@types/core-js": "^0.9.34",
     "@types/jquery": "^3.2.2",
     "@types/node": "^6.0.45",
@@ -51,6 +52,9 @@
     "gulp-typescript": "^3.1.7",
     "jquery": "^3.2.1",
     "lite-server": "^2.2.2",
+    "lodash": "^4.17.4",
+    "ng2-restangular": "^0.1.30",
+    "ngx-restangular": "^1.0.11",
     "typescript": "^2.4.0"
   }
 }

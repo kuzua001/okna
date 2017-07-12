@@ -40,6 +40,7 @@ footer {
 
 body > .content {
   flex: 1 0 auto;
+  z-index: 1;
 }
 
 .container {
@@ -152,6 +153,11 @@ body > .content {
   .desktop-only {
     display: inherit;
   }
+
+  section.main,
+  section.main .content-wrapper {
+    padding-top: @top-header-height;
+  }
 }
 
 @media screen and (max-width: @menu-max-width) {
@@ -192,6 +198,7 @@ body > .content {
 @import 'include/elements/popup';
 @import 'include/elements/hamburger';
 @import 'include/sections/sections-common';
+@import 'include/sections/section-header';
 @import 'include/sections/section-main';
 @import 'include/sections/section-service';
 @import 'include/sections/section-events';

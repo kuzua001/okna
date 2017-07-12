@@ -1,16 +1,6 @@
 @import '../sizes';
 @import '../colors';
 
-section.header {
-  z-index: 999;
-  position: fixed!important;
-  width: 100%;
-
-  & + section {
-    padding-top: @top-header-height;
-  }
-}
-
 .header-element {
   height: @top-header-height;
   position: relative;
@@ -83,10 +73,6 @@ section.header {
       height: 100%;
       background-color: black;
     }
-  }
-
-  body > .content {
-    padding-top: @top-header-height;
   }
 
   section.header + section {

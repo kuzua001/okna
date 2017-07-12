@@ -5,6 +5,7 @@
 body > .content > section {
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 body > .content > section:after {
   content: '';

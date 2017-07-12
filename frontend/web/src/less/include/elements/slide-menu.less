@@ -1,7 +1,11 @@
 @import '../mixins';
 
 .slide-menu-element {
-	position: fixed;
+	position: fixed!important;
+	z-index: 1001!important;
+	* {
+		z-index: 1001!important;
+	}
 	top: 50px;
 	bottom: 0;
 	left: -200px;

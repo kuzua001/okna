@@ -5,7 +5,7 @@ import * as ng from 'angular'
 /**
  * Created by ivan on 6/20/17.
  */
-export class HeaderController
+export class SiteController
 {
 	slideMenuState: boolean = false;
 
@@ -14,12 +14,12 @@ export class HeaderController
 		this.slideMenuState = !this.slideMenuState;
 	}
 
-	setState(state: boolean)
+	setMenuState(state: boolean)
 	{
 		this.slideMenuState = state;
 	}
 
-	scrollTo(selector: string)
+	scrollBodyTo(selector: string)
 	{
 		jQuery('html, body').animate({
 			scrollTop: jQuery(selector).offset().top - 50

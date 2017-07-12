@@ -1,17 +1,16 @@
 @import '../sizes';
 
 section.header {
-	& * {
-		position: relative;
-		z-index: 1000;
-		-webkit-transform: translateZ(0);
-	}
-}
-
-section.header {
-	z-index: 999;
 	position: fixed!important;
 	width: 100%;
+	-webkit-transform: translateZ(0);
+	z-index: 999!important;
+
+	.content-wrapper {
+		position: relative;
+		z-index: 1000;
+		height: @top-header-height;
+	}
 
 	& + section {
 		padding-top: @top-header-height;

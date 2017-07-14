@@ -6,14 +6,7 @@ use yii\helpers\Html;
 
 $widget = $this->context;
 ?>
-<?php
-use frontend\widgets\popup\Popup;
-
-echo Popup::widget([
-	'title' => 'Hello!',
-	'class' => 'active'
-]);
-?>
+<?= Yii::t('message_1', 'текст на исходном языке'); ?>
 <section class="main">
 	<div class="content-wrapper">
 		<img class="bg" src="/img/top-bg.jpg">

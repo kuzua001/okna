@@ -1,0 +1,64 @@
+@import '../mixins';
+
+section.fitness-main {
+	min-height: 791px;
+	color: black;
+
+	.content-wrapper {
+		padding-top: 49px;
+
+		&:before {
+			background-image: url('../img/top-bg.jpg');
+		}
+
+	}
+
+	&:after {
+		background-color: #4f3a28;
+	}
+
+	.greeting {
+		font-family: "Lora", serif;
+		margin-top: 39px;
+		padding-left: 18px;
+		line-height: 21px;
+		font-size: 18px;
+		letter-spacing: 1px;
+		b {
+			font-weight: 700;
+		}
+	}
+
+	h1 {
+		color: black;
+
+		.name {
+			font-size: 31.75px;
+			font-family: "Lora", serif;
+			text-transform: uppercase;
+			display: inline-block;
+			margin-top: 3px;
+			.transform(scale(1,0.9));
+		}
+
+		.type {
+			font-family: 'Josefin Sans', sans-serif;
+			text-transform: uppercase;
+			font-size: 9px;
+			letter-spacing: 1.5px;
+			display: inline-block;
+			position: relative;
+			margin-top: 6px;
+		}
+	}
+
+	.right-content-block-element {
+		margin-top: 43px;
+		width: 370px;
+	}
+
+	.contacts-element {
+		margin-left: 34px;
+		padding-top: 30px;
+	}
+}

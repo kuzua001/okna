@@ -1,16 +1,12 @@
 @import '../sizes';
+@import '../colors';
 
 section.header {
 	position: fixed!important;
+	z-index: 999;
+	top: 0;
 	width: 100%;
-	-webkit-transform: translateZ(0);
-	z-index: 999!important;
-
-	.content-wrapper {
-		position: relative;
-		z-index: 1000;
-		height: @top-header-height;
-	}
+	background-color: @header-bg-color;
 
 	& + section {
 		padding-top: @top-header-height;

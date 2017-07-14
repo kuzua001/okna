@@ -28,6 +28,12 @@ section .bg {
   top: 0;
   left: 0;
   z-index: -1;
+
+  &.large {
+    left: 50%;
+    margin-left: -992px;
+    width: auto;
+  }
 }
 
 section {
@@ -203,3 +209,5 @@ body > .content {
 @import 'include/sections/section-events';
 @import 'include/sections/section-fitness';
 @import 'include/sections/section-map';
+@import 'include/sections/section-header';
+@import 'include/sections/section-fitness-main';

@@ -41,7 +41,7 @@
 		</header>
 	</div>
 </section>
-<div class="slide-menu-element" ng-class="{'active':header.slideMenuState}" ng-swipe-left="header.setState(false)">
+<div class="slide-menu-element" ng-class="{'active':header.slideMenuState}" ng-swipe-left="site.setState(false)">
 	<nav class="menu">
 		<a class="item" ng-click="site.setMenuState(false); site.scrollBodyTo('section#section1')">отель</a>
 		<a class="item" ng-click="site.setMenuState(false); site.scrollBodyTo('section#section2')">номера</a>

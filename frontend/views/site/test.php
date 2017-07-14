@@ -492,7 +492,9 @@ $this->title = 'My Yii Application';
             </div>
             <div class="row more-row">
                 <div class="col l12 center">
-                    <button class="detail-button-element black-text">узнать больше</button>
+                    <a href="http://bzfit.ru">
+						<button class="detail-button-element black-text">узнать больше</button>
+					</a>
                 </div>
             </div>
         </div>

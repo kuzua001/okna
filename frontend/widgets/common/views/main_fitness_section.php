@@ -18,17 +18,7 @@ $widget = $this->context;
 						<span class="type">фитнес</span>
 					</h1>
 				</div>
-				<div class="col l5 greeting">
-					<p class="header">
-						<b>
-						<?= $widget->welcomeHeader ?>
-						</b>
-					</p>
-					<p class="content">
-						<?= $widget->welcomeContent ?>
-					</p>
-				</div>
-				<div class="col l3">
+				<div class="col l3 push-l5 s12">
 					<?php if (count($widget->contactsList)) { ?>
 						<dl class="contacts-element">
 							<?php foreach($widget->contactsList as $item) { ?>

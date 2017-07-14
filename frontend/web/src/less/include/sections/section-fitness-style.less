@@ -1,4 +1,5 @@
 @import '../mixins';
+@import '../sizes';
 
 section.fitness-style {
 	min-height: 791px;
@@ -8,7 +9,7 @@ section.fitness-style {
 		padding-top: 49px;
 
 		&:before {
-			background-image: url('../img/backgrounds/style-fitness-bg.jpg');
+			background-image: url('../img/backgrounds/style-fitness-revers-bg.jpg');
 		}
 
 	}
@@ -19,5 +20,42 @@ section.fitness-style {
 
 	.elegant-title-element * {
 		font-family: 'Josefin Sans', sans-serif;
+		text-transform: uppercase;
+	}
+
+	.right-content-block-element {
+		margin-top: 78px;
+
+		.card-element {
+			margin-top: 39px;
+			max-width: 515px;
+		}
+
+		.elegant-title-element {
+			margin-left: -9px;
+		}
+
+		p {
+			margin-top: 20px;
+			line-height: 20px;
+		}
+	}
+}
+
+@media screen and (min-width: (@desktop-width - 1px)) {
+	section.fitness-style {
+		.right-content-block-element {
+			margin-top: 100px;
+			margin-left: -32px;
+		}
+	}
+}
+
+@media screen and (max-width: (@tablet-max-width)) {
+	section.fitness-style {
+		.right-content-block-element {
+			margin-left: 0;
+			margin-top: 0;
+		}
 	}
 }

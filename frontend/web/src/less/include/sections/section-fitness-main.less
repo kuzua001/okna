@@ -2,7 +2,7 @@
 @import '../sizes';
 
 section.fitness-main {
-	min-height: 791px;
+	min-height: 834px;
 	color: black;
 
 	.content-wrapper {
@@ -73,7 +73,6 @@ section.fitness-main {
 		.first {
 			font-size: 65px;
 			letter-spacing: 3px;
-			font-weight: bold;
 		}
 	}
 
@@ -89,5 +88,34 @@ section.fitness-main {
 		.row.indent:nth-child(2) > .col:first-child {
 			padding-left: 157px;
 		}
+	}
+}
+
+@media screen and (max-width: (@tablet-max-width)) {
+	section.fitness-main {
+
+		.content-wrapper {
+			padding-top: 20px;
+		}
+
+		.contacts-element {
+			margin-left: 8px;
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+
+		.elegant-title-element {
+			margin-left: 5px;
+			margin-top: 0;
+			.first {
+				font-size: 50px;
+			}
+
+			.second {
+				line-height: 40px;
+				font-size: 30px;
+			}
+		}
+
 	}
 }

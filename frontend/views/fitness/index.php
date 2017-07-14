@@ -11,21 +11,19 @@ echo MainFitnessSection::widget([
             'class' => 'address',
             'title' => 'Адрес',
             'value' =>
-                '<dd>
-					Клинцовская, 41,<br>
-					Брянск<br>
-					Российская Федерация<br>
-				</dd>',
+                'Клинцовская, 41,<br>
+                Брянск<br>
+                Российская Федерация<br>',
         ],
         [
             'class' => 'phone',
             'title' => 'Телефон',
-            'value' => '+7 (915) 117-98-77',
+            'value' => '8(4832)40-00-00',
         ],
     ],
-    'mainSloganFirst' => AppHelper::getText('mainSloganFirst'),
-    'mainSloganSecond' => AppHelper::getText('mainSloganSecond'),
-    'mainSloganThird' => AppHelper::getText('mainSloganThird'),
+    'mainSloganFirst' => 'специальные<br>цены',
+    'mainSloganSecond' => 'на клубные карты',
+    'mainSloganThird' => 'до открытия',
 ]);
 
 echo StyleFitnessSection::widget([]);

@@ -14,7 +14,7 @@ $widget = $this->context;
 				<div class="col l4 center desktop-only">
 					<img class="logo" src="/img/big-logo-black.png">
 					<h1>
-						<span class="name">Bezhitsa</span><br>
+						<span class="name">Бежица</span><br>
 						<span class="type">фитнес</span>
 					</h1>
 				</div>
@@ -46,12 +46,12 @@ $widget = $this->context;
 			<div class="row clear indent indent-large middle-row">
 				<div class="col l8 s12">
 					<h2 class="elegant-title-element">
-						<span class="first">Роскошный</span>
-						<span class="second">сервис для</span>
-						<span class="third tight">требовательных гостей</span>
+						<span class="first"><?= $widget->mainSloganFirst ?></span>
+						<span class="second"><?= $widget->mainSloganSecond ?></span>
+						<span class="third tight"><?= $widget->mainSloganThird ?></span>
 					</h2>
-					<button class="detail-button-element">
-						подробнее про отель
+					<button class="detail-button-element black-text">
+						подробнее
 					</button>
 				</div>
 			</div>

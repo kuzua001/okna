@@ -28,8 +28,10 @@ section .bg {
   top: 0;
   left: 0;
   z-index: -1;
+}
 
-  &.large {
+@media screen and (min-width: @desktop-width) {
+  section .bg.large {
     left: 50%;
     margin-left: -992px;
     width: auto;
@@ -127,7 +129,7 @@ body > .content {
 }
 
 
-@media screen and (max-width: @tablet-max-width) {
+@media screen and (max-width: (@desktop-width - 1px)) {
   .content-wrapper {
 
     &:before {
@@ -141,7 +143,6 @@ body > .content {
       margin-left: -5000px;
       background-repeat: no-repeat;
       background-position: center;
-      background-size: auto 100%;
       z-index: -1;
     }
 
@@ -150,6 +151,13 @@ body > .content {
     }
   }
 }
+
+@media screen and (max-width: @large-content-width) {
+  .content-wrapper:before {
+    background-size: auto 100%;
+  }
+}
+
 
 @media screen and (min-width: (@menu-max-width + 1px)) {
   .mobile-only {
@@ -211,3 +219,4 @@ body > .content {
 @import 'include/sections/section-map';
 @import 'include/sections/section-header';
 @import 'include/sections/section-fitness-main';
+@import 'include/sections/section-fitness-style';

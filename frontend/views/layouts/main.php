@@ -22,7 +22,7 @@ AppAsset::register($this);
 		<title><?= Html::encode($this->title) ?></title>
 		<?php $this->head() ?>
 	</head>
-	<body ng-app="main">
+	<body ng-app="main" ng-controller="SiteController as site">
 		<?php $this->beginBody() ?>
 			<div class="content">
 				<?= $this->render("//partial/top") ?>

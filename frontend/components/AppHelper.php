@@ -15,10 +15,14 @@ use yii\helpers\Html;
 class AppHelper
 {
 
-    private static $_textsDefault = null;
+    /**
+     * Доступные языки
+     */
+    const LANG_RU = 'ru-RU';
+    const LANG_EN = 'en-US';
 
-    const LANG_RU = 'ru';
-    const LANG_EN = 'en';
+    private static $textsDefaultPath = '@common/texts';
+    private static $_textsDefault = null;
 
     private static $_availableLanguages = [self::LANG_RU, self::LANG_EN];
 
@@ -30,11 +34,14 @@ class AppHelper
      *
      * @return string
      */
-    public static function getText($key, $lang = self::LANG_RU, $editable = true)
+    public static function getText($key, $editable = true)
     {
+        $lang = \Yii::$app->language;
+
         if (self::$_textsDefault === null) {
             $keys = [];
             foreach (self::$_availableLanguages as $lang) {
+                Yii::$app->params['texts'][$lang] = require(Yii::getAlias(self::$textsDefaultPath . '/' . $lang . '/default.php'));
                 $keys = array_unique(array_merge($keys, array_keys(Yii::$app->params['texts'][$lang])));
             }
 
@@ -54,7 +61,16 @@ class AppHelper
          */
         $text = Texts::find()->where('`key` = :key and lang = :lang', [':key' => $key, ':lang' => $lang])->one();
 
-        $textVal = is_object($text) ? $text->value : isset(self::$_textsDefault[$key][$lang]) ? self::$_textsDefault[$key][$lang] : '';
+        if (!is_object($text)) {
+            $text = new Texts();
+            $text->value = isset(self::$_textsDefault[$key][$lang]) ? self::$_textsDefault[$key][$lang] : '';;
+            $text->lang = $lang;
+            $text->key = $key;
+            $text->save();
+        }
+
+        $textVal = $text->value;
+
         return $editable ? Html::tag('span', $textVal, [
             'data-key' => $key,
             'data-lang' => $lang,

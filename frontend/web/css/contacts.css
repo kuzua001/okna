@@ -6,8 +6,14 @@
 .contacts-element i.address {
   background-image: url('../img/icons/address.png');
 }
+.contacts-element i.address.black-icon {
+  background-image: url('../img/icons/address_black.png');
+}
 .contacts-element i.phone {
   background-image: url('../img/icons/phone.png');
+}
+.contacts-element i.phone.black-icon {
+  background-image: url('../img/icons/phone_black.png');
 }
 .contacts-element dt {
   clear: left;

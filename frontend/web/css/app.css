@@ -26,6 +26,11 @@ section .bg {
   left: 0;
   z-index: -1;
 }
+section .bg.large {
+  left: 50%;
+  margin-left: -992px;
+  width: auto;
+}
 section {
   color: white;
 }
@@ -281,14 +286,6 @@ table {
   margin-left: 9px!important;
   font-family: "Lora", serif;
 }
-section.header {
-  z-index: 999;
-  position: fixed!important;
-  width: 100%;
-}
-section.header + section {
-  padding-top: 50px;
-}
 .header-element {
   height: 50px;
   position: relative;
@@ -337,15 +334,7 @@ section.header + section {
   color: white;
   padding: 0 20px;
 }
-section.header {
-  background-color: #110a05;
-}
 @media screen and (max-width: 992px) {
-  .header-element {
-    position: fixed;
-    width: 100%;
-    top: 0;
-  }
   .header-element .hamburger-element {
     position: absolute;
     top: 9px;
@@ -375,8 +364,14 @@ section.header {
 .contacts-element i.address {
   background-image: url('../img/icons/address.png');
 }
+.contacts-element i.address.black-icon {
+  background-image: url('../img/icons/address_black.png');
+}
 .contacts-element i.phone {
   background-image: url('../img/icons/phone.png');
+}
+.contacts-element i.phone.black-icon {
+  background-image: url('../img/icons/phone_black.png');
 }
 .contacts-element dt {
   clear: left;
@@ -1280,4 +1275,70 @@ section.map h2 {
 }
 section.map .container {
   overflow: initial!important;
+}
+section.header {
+  position: fixed!important;
+  z-index: 999;
+  top: 0;
+  width: 100%;
+  background-color: #110a05;
+}
+section.header + section {
+  padding-top: 50px;
+}
+section.fitness-main {
+  min-height: 791px;
+  color: black;
+}
+section.fitness-main .content-wrapper {
+  padding-top: 49px;
+}
+section.fitness-main .content-wrapper:before {
+  background-image: url('../img/top-bg.jpg');
+}
+section.fitness-main:after {
+  background-color: #4f3a28;
+}
+section.fitness-main .greeting {
+  font-family: "Lora", serif;
+  margin-top: 39px;
+  padding-left: 18px;
+  line-height: 21px;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+section.fitness-main .greeting b {
+  font-weight: 700;
+}
+section.fitness-main h1 {
+  color: black;
+}
+section.fitness-main h1 .name {
+  font-size: 31.75px;
+  font-family: "Lora", serif;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 3px;
+  -webkit-transform: scale(1, 0.9);
+  -moz-transform: scale(1, 0.9);
+  -ms-transform: scale(1, 0.9);
+  -o-transform: scale(1, 0.9);
+  transform: scale(1, 0.9);
+}
+section.fitness-main h1 .type {
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  display: inline-block;
+  position: relative;
+  margin-top: 6px;
+}
+section.fitness-main .right-content-block-element {
+  margin-top: 43px;
+  width: 370px;
+}
+section.fitness-main .contacts-element {
+  margin-left: 34px;
+  padding-top: 30px;
 }

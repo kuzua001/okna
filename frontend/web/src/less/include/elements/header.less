@@ -1,16 +1,6 @@
 @import '../sizes';
 @import '../colors';
 
-section.header {
-  z-index: 999;
-  position: fixed!important;
-  width: 100%;
-
-  & + section {
-    padding-top: @top-header-height;
-  }
-}
-
 .header-element {
   height: @top-header-height;
   position: relative;
@@ -63,15 +53,9 @@ section.header {
   }
 }
 
-section.header {
-  background-color: @header-bg-color;
-}
 
 @media screen and (max-width: @menu-max-width) {
   .header-element {
-    position: fixed;
-    width: 100%;
-    top: 0;
 
     .hamburger-element {
       position: absolute;

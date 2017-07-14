@@ -1,0 +1,14 @@
+@import '../sizes';
+@import '../colors';
+
+section.header {
+	position: fixed!important;
+	z-index: 999;
+	top: 0;
+	width: 100%;
+	background-color: @header-bg-color;
+
+	& + section {
+		padding-top: @top-header-height;
+	}
+}

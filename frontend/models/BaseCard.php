@@ -33,6 +33,6 @@ class BaseCard extends Model {
     public function render()
     {
         $params = $this->formTemplateParams();
-        return $this->render("//partial/blocks/service/rooms_description"),
+        return $this->render("//partial/blocks/service/rooms_description");
     }
 }

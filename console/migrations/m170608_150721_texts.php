@@ -19,7 +19,7 @@ class m170608_150721_texts extends Migration
             'lang' => $this->string(255)->notNull()->defaultValue(AppHelper::LANG_RU),
             'value' => $this->string(8000),
             'created_at' => $this->timestamp()->notNull()->defaultValue(new \yii\db\Expression('now()')),
-            'updated_at' => $this->timestamp()->notNull()->defaultValue(new \yii\db\Expression('now()')),
+            'updated_at' => $this->timestamp()->null(),
             'is_html' => $this->boolean()->defaultValue(false)
         ], $tableOptions);
 

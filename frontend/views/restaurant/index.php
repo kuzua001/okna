@@ -65,7 +65,7 @@ echo MainRestaurantSection::widget([
             <div class="row">
                 <div class="col l12 m12 s12">
                     <h2 class="centered-title-element black-text">
-						Ресторан «Бежица»
+						Мероприятия и свадьбы
                     </h2>
                 </div>
             </div>

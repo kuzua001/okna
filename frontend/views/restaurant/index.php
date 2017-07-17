@@ -50,7 +50,7 @@ echo MainRestaurantSection::widget([
                         </section>
                     </div>
                 </div>
-                <div class="col l8  m12 s12">
+                <div class="col l8  m12 s12" style="height: 481px;">
                     <div class="slider-element one-slide">
                         <img src="/img/shutterstock/dessert.jpg">
                     </div>
@@ -84,7 +84,7 @@ echo MainRestaurantSection::widget([
                     </div>
                 </div>
                 <div class="col l8  m12 s12">
-                    <div class="slider-element one-slide">
+                    <div class="slider-element one-slide" style="height: 481px;">
                         <img src="/img/shutterstock/restaurant.jpg">
                     </div>
                 </div>

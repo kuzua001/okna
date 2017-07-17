@@ -26,7 +26,7 @@ footer .row.indent > .col:first-child {
 }
 @media (max-width: 1440px) {
   .row.indent.indent-large > .col:first-child {
-    padding-left: 0!important;
+    padding-left: 10px!important;
   }
 }
 html {

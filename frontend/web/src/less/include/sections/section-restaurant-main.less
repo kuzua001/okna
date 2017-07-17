@@ -1,0 +1,122 @@
+@import '../mixins';
+@import '../sizes';
+
+section.restaurant-main {
+	min-height: 834px;
+	color: black;
+
+	.content-wrapper {
+		padding-top: 78px;
+		background-color: rgba(255,255,255,0.4);
+
+		&:before {
+			background-image: url('../img/backgrounds/top-restaurant-bg.jpg');
+		}
+
+	}
+
+	&:after {
+		background-color: #4f3a28;
+	}
+
+	.greeting {
+		font-family: "Lora", serif;
+		margin-top: 39px;
+		padding-left: 18px;
+		line-height: 21px;
+		font-size: 18px;
+		letter-spacing: 1px;
+		b {
+			font-weight: 700;
+		}
+	}
+
+	h1 {
+		color: black;
+
+		.name {
+			font-size: 31.75px;
+			font-family: "Lora", serif;
+			text-transform: uppercase;
+			display: inline-block;
+			margin-top: 3px;
+			.transform(scale(1,0.9));
+		}
+
+		.type {
+			font-family: 'Josefin Sans', sans-serif;
+			text-transform: uppercase;
+			font-size: 9px;
+			letter-spacing: 1.5px;
+			display: inline-block;
+			position: relative;
+			margin-top: 6px;
+		}
+	}
+
+	.right-content-block-element {
+		margin-top: 43px;
+		width: 370px;
+	}
+
+	.contacts-element {
+		margin-left: 34px;
+		padding-top: 30px;
+	}
+
+	.elegant-title-element {
+		margin-top: 83px;
+		* {
+			font-family: 'Josefin Sans', sans-serif;
+			text-transform: uppercase;
+		}
+
+		.first {
+			font-size: 65px;
+			letter-spacing: 3px;
+		}
+	}
+
+	.detail-button-element {
+		padding: 11px 83px;
+	}
+}
+
+@media screen and (min-width: (@desktop-width - 1px)) {
+	section.fitness-main {
+		padding-top: 20px;
+
+		.row.indent:nth-child(2) > .col:first-child {
+			padding-left: 157px;
+		}
+	}
+}
+
+@media screen and (max-width: (@tablet-max-width)) {
+	section.fitness-main {
+
+		.content-wrapper {
+			padding-top: 20px;
+		}
+
+		.contacts-element {
+			margin-left: 8px;
+			padding-top: 15px;
+			padding-bottom: 15px;
+		}
+
+		.elegant-title-element {
+			margin-left: 5px;
+			margin-top: 0;
+			.first {
+				font-size: 50px;
+			}
+
+			.second {
+				line-height: 40px;
+				font-size: 30px;
+			}
+		}
+
+	}
+}

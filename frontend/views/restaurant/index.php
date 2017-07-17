@@ -1,11 +1,10 @@
 <?php
 use frontend\components\AppHelper;
-use frontend\widgets\common\MainFitnessSection;
-use frontend\widgets\common\StyleFitnessSection;
+use frontend\widgets\common\MainRestaurantSection;
 ?>
 <?php
 
-echo MainFitnessSection::widget([
+echo MainRestaurantSection::widget([
     'contactsList' => [
         [
             'class' => 'address',
@@ -21,20 +20,19 @@ echo MainFitnessSection::widget([
             'value' => '8(4832)40-00-00',
         ],
     ],
-    'mainSloganFirst' => 'специальные<br>цены',
-    'mainSloganSecond' => 'на клубные карты',
-    'mainSloganThird' => 'до открытия',
+    'mainSloganFirst' => 'Авторская кухня',
+    'mainSloganSecond' => 'от шеф-повора',
+    'mainSloganThird' => 'Фёдора Гадалова',
 ]);
 
-echo StyleFitnessSection::widget([]);
 ?>
-<section class="fitness-gym"  id="section4">
+<section class="restaurant-dessert"  id="section4">
     <div class="content-wrapper">
         <div class="container container-90">
             <div class="row">
                 <div class="col l12 m12 s12">
                     <h2 class="centered-title-element black-text">
-                        Кардио зона и тренажерный зал
+						изысканная кухня
                     </h2>
                 </div>
             </div>
@@ -42,40 +40,32 @@ echo StyleFitnessSection::widget([]);
                 <div class="col l4 m12 s12">
                     <div class="card-element">
                         <header class="pale">
-                            Тренажерный зал
+                            Кухня нашего ресторана
                         </header>
                         <section class="content">
                             <p>
-								Современный фитнес-клуб в центре города, ориентированный на тех, кому дорого и здоровье и время.
-								Мы предлагаем стратегический подход к спорту: каждый наш специалист сделает все, чтобы вы достигли не просто кратковременных результатов, а улучшили образ жизни в целом.
-                            </p>
-                        </section>
-                        <header class="pale">
-                            Соверемнное оборудование
-                        </header>
-                        <section class="content">
-                            <p>
-								Новые фитнес-технологии позволяют по-новому взглянуть на достижение целей, а инфраструктура спортклуба — полезно организовать время.
+								Гастрономическая кухня от шеф-повора Федора Гадалова базируется на использовании сезонных продуктов от приватных фермеров и современных кулинарных техниках.
+								Ресторан предлагает блюда, в которых переосмыслена старинная рецептура, а знакомые вкусы открываются в оригинальных текстурах, формах и сочетаниях.
                             </p>
                         </section>
                     </div>
                 </div>
                 <div class="col l8  m12 s12">
                     <div class="slider-element one-slide">
-                        <img src="/img/shutterstock/kardio.jpg">
+                        <img src="/img/shutterstock/dessert.jpg">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section class="fitness-spa"  id="section4">
+<section class="restaurant-restaurant"  id="section4">
     <div class="content-wrapper">
         <div class="container container-90">
             <div class="row">
                 <div class="col l12 m12 s12">
                     <h2 class="centered-title-element black-text">
-                        Бассейн с зонами релаксации
+						Ресторан «Бежица»
                     </h2>
                 </div>
             </div>
@@ -83,19 +73,19 @@ echo StyleFitnessSection::widget([]);
                 <div class="col l4 m12 s12">
                     <div class="card-element">
                         <header class="pale">
-                            Бассейн
+                            О нашем ресторане
                         </header>
                         <section class="content">
                             <p>
-								Бассейн оснащен новейшей системой очистки Silvertronix без использования хлора.
-								Безупречное состояние воды обеспечивается за счет метода многоступенчатой фильтрации и насыщения ионами серебра и меди.
+								Ресторан "Бежица" это идеальное место расположенное недалеко от центра  для проведения вашего  изысканного банкета или свадебного торжества! К вашем услугам : просторный банкетный и фуршетный зал, использование нашего светового
+								и музыкального оборудования и конечно же приветливый персонал.
                             </p>
                         </section>
                     </div>
                 </div>
                 <div class="col l8  m12 s12">
                     <div class="slider-element one-slide">
-                        <img src="/img/shutterstock/spa.jpg">
+                        <img src="/img/shutterstock/restaurant.jpg">
                     </div>
                 </div>
             </div>

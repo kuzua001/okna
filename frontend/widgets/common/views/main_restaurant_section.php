@@ -8,7 +8,7 @@ $widget = $this->context;
 ?>
 <section class="restaurant-main">
 	<div class="content-wrapper">
-		<img class="bg large" src="/img/backgrounds/top-restaurant-bg.jpg">
+		<img class="bg large" src="/img/backgrounds/top-restaurant-bg-blured.jpg">
 		<div class="container container-90">
 			<div class="row clear indent">
 				<div class="col l4 center desktop-only">

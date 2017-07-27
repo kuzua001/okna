@@ -41,6 +41,27 @@ class MetadataMapping
     private $methodNameField = null;
 
     /**
+     * @var string|null Название поля id класса (в таблице с методами)
+     */
+    private $methodClassIdField = null;
+
+    /**
+     * @return null|string
+     */
+    public function getMethodClassIdField()
+    {
+        return $this->methodClassIdField;
+    }
+
+    /**
+     * @param null|string $methodClassIdField
+     */
+    public function setMethodClassIdField($methodClassIdField)
+    {
+        $this->methodClassIdField = $methodClassIdField;
+    }
+
+    /**
      * @return null|string
      */
     public function getClassTableName()
@@ -135,7 +156,7 @@ class MetadataMapping
      */
     public function hasMethodMapping()
     {
-        return !empty($this->methodTableName) && !empty($this->methodNameField);
+        return !empty($this->methodTableName) && !empty($this->methodNameField) &&!empty($this->methodClassIdField);
     }
 
 

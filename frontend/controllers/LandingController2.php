@@ -9,12 +9,17 @@ use frontend\widgets\common\BaseSection;
 use yii;
 
 
-class LandingController extends Controller
+class LandingController2 extends Controller
 {
     private $sectionItems = [];
 
     public function actionIndex()
     {
         return $this->render('index.php', ['sectionItems' => $this->sectionItems]);
+    }
+
+    public function  actionTest()
+    {
+
     }
 }

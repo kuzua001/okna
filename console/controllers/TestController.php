@@ -10,6 +10,8 @@ namespace console\controllers;
 
 use frontend\components\ControllerMetadataGrabber;
 use frontend\components\MetadataGrabber;
+use frontend\components\MetadataMapper;
+use frontend\components\MetadataMapping;
 use yii\console\Controller;
 use yii;
 
@@ -22,30 +24,9 @@ class TestController extends Controller
 {
     public function actionIndex()
     {
-        $controllerlist = [];
+        $mapper = new MetadataMapper();
 
-        $grabber = new ControllerMetadataGrabber();
-        $controllerlist = $grabber->getMethodList('AjaxController');
-
-        var_dump($controllerlist);
-
-        /*
-        asort($controllerlist);
-        $fulllist = [];
-        foreach ($controllerlist as $controller) {
-            $handle = fopen($conrollerDir . $controller, "r");
-            if ($handle) {
-                while (($line = fgets($handle)) !== false) {
-                    if (preg_match('/public function action(.*?)\(/', $line, $display)):
-                        if (strlen($display[1]) > 2):
-                            $fulllist[substr($controller, 0, -4)][] = strtolower($display[1]);
-                        endif;
-                    endif;
-                }
-            }
-            fclose($handle);
-        }
-
-        var_dump($fulllist);*/
+        $mapper->addGrabber(new ControllerMetadataGrabber());
+        $mapper->updateAll();
     }
 }

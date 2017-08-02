@@ -20,8 +20,8 @@ echo MainRestaurantSection::widget([
             'value' => '8(4832)40-00-00',
         ],
     ],
-    'mainSloganFirst' => 'Авторская кухня',
-    'mainSloganSecond' => 'от шеф-повора',
+    'mainSloganFirst' => 'Изысканая кухня',
+    'mainSloganSecond' => 'от шеф-повара',
     'mainSloganThird' => 'Фёдора Гадалова',
 ]);
 

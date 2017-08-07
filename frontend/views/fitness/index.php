@@ -21,8 +21,8 @@ echo MainFitnessSection::widget([
             'value' => '8(4832)40-00-00',
         ],
     ],
-    'mainSloganFirst' => 'СКОРО ОТКРЫТИЕ<br><br>Специальные<br>цены',
-    'mainSloganSecond' => 'на клубные карты',
+    'mainSloganFirst' => 'СКОРО ОТКРЫТИЕ<br><br>',
+    'mainSloganSecond' => 'Специальные<br>цены<br>на клубные карты',
     'mainSloganThird' => 'до открытия',
 ]);
 

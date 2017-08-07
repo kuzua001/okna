@@ -38,7 +38,7 @@ $this->title = 'My Yii Application';
                             <i class="phone"></i>
                         </dt>
                         <dd>
-                            +7 (915) 117-98-77
+							8(4832)40-00-00
                         </dd>
                     </dl>
                 </div>
@@ -523,7 +523,7 @@ $this->title = 'My Yii Application';
                             <i class="phone"></i>
                         </dt>
                         <dd>
-                            +7 (915) 117-98-77
+							8(4832)40-00-00
                         </dd>
                     </dl>
                     <h3>Расположение и транспорт</h3>

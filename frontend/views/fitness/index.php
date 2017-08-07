@@ -21,7 +21,7 @@ echo MainFitnessSection::widget([
             'value' => '8(4832)40-00-00',
         ],
     ],
-    'mainSloganFirst' => 'специальные<br>цены',
+    'mainSloganFirst' => 'СКОРО ОТКРЫТИЕ<br><br>Специальные<br>цены',
     'mainSloganSecond' => 'на клубные карты',
     'mainSloganThird' => 'до открытия',
 ]);
@@ -125,7 +125,7 @@ echo StyleFitnessSection::widget([]);
                             <i class="phone"></i>
                         </dt>
                         <dd>
-                            +7 (915) 117-98-77
+							8(4832)40-00-00
                         </dd>
                     </dl>
                     <h3>Расположение и транспорт</h3>

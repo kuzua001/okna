@@ -25,7 +25,7 @@ echo MainRestaurantSection::widget([
             'value' => '8(4832)40-00-00',
         ],
     ],
-    'mainSloganFirst' => 'СКОРО ОТКРЫТИЕ',
+    'mainSloganFirst' => 'СКОРО ОТКРЫТИЕ<br>',
     'mainSloganSecond' => 'Изысканная кухня<br>от шеф-повара',
     'mainSloganThird' => 'Фёдора Гадалова',
 ]);

@@ -81,7 +81,7 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionTest()
+    public function actionTest($pageId)
     {
         return $this->render('test');
     }

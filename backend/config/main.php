@@ -50,6 +50,10 @@ return [
                         'texts' => 'api/text'
                     ],
                     'prefix' => 'api'
+                ],
+                [
+                    'pattern' => 'page/edit/<pageId:\d+>',
+                    'route' => 'dynamic/page-edit',
                 ]
             ],
         ],

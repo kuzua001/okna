@@ -23,4 +23,9 @@ class DynamicController extends Controller
     {
         return $this->render('index');
     }
+
+    public function actionPageEdit($pageId)
+    {
+        return $this->render('page/edit');
+    }
 }

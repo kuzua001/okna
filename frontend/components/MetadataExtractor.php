@@ -10,13 +10,18 @@ namespace frontend\components;
 
 
 use yii\db\Exception;
+use frontend\components\grabbers\ControllerMetadataGrabber;
+use frontend\components\grabbers\PagesMetadataGrabber;
 
-class ObjectBuilder
+
+class MetadataExtractor
 {
-    const CONTROLLER_MAPPING = 'controller';
+    const CONTROLLER_MAPPING  = 'controller';
+    const PAGES_MAPPING       = 'pages';
 
     private static $allowedTypes = [
-        self::CONTROLLER_MAPPING
+        self::CONTROLLER_MAPPING,
+        self::PAGES_MAPPING
     ];
 
     /**
@@ -30,26 +35,25 @@ class ObjectBuilder
         switch ($objectType) {
             case self::CONTROLLER_MAPPING:
                 return ControllerMetadataGrabber::getDefaultMapping();
+
+            case self::PAGES_MAPPING:
+                return PagesMetadataGrabber::getDefaultMapping();
+
         }
     }
 
     /**
      * @param $objectType
      * @param $classId
-     * @return null|object
+     * @return null|string
      */
-    public static function create($objectType, $classId)
+    public static function getClassName($objectType, $classId)
     {
         if (in_array($objectType, self::$allowedTypes)) {
             $mapping = self::getMapping($objectType);
-            $className = MetadataMapper::getStoredClassById($mapping, $classId);
-            try {
-                $instance = new $className();
-                return $instance;
-            } catch (Exception $ex) {
-            }
+            $className =  MetadataMapper::getStoredClassById($mapping, $classId);
         }
 
-        return null;
+        return empty($className) ? null : $className;
     }
 }

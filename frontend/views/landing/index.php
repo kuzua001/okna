@@ -1,10 +1,13 @@
 <?php
 
-use frontend\widgets\common\BaseSection;
+use frontend\widgets\section\Section;
 use frontend\models\SectionItem;
+use frontend\models\pages\LandingPage;
 
-/** @var array $sectionItems */
+/** @var LandingPage $page */
 ?>
-<?php foreach ($sectionItems as $item) { ?>
-    <?= /* @var SectionItem $item*/ $item->html()?>
+<?php foreach ($page->pageParams->getSectionsParams() as $sectionParams) { ?>
+    <?= Section::widget([
+        'sectionParams' => $sectionParams
+    ]) ?>
 <?php } ?>

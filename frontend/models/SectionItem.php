@@ -7,7 +7,7 @@
  */
 namespace frontend\models;
 
-use frontend\widgets\common\BaseSection;
+use frontend\widgets\common\Section;
 use frontend\widgets\common\MainSection;
 
 
@@ -20,11 +20,11 @@ class SectionItem
     /**
      * SectionItem constructor.
      *
-     * @param BaseSection $section
+     * @param Section     $section
      * @param             $config
      * @param             $name
      */
-    function __construct(BaseSection $section, $config, $name)
+    function __construct(Section $section, $config, $name)
     {
         $this->section = $section;
     }

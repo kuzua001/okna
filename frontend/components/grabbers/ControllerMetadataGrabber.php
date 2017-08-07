@@ -6,8 +6,10 @@
  * Time: 6:48 AM
  */
 
-namespace frontend\components;
+namespace frontend\components\grabbers;
 
+use frontend\components\MetadataGrabber;
+use frontend\components\MetadataMapping;
 
 class ControllerMetadataGrabber extends MetadataGrabber
 {

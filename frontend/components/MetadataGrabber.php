@@ -49,7 +49,7 @@ abstract class MetadataGrabber implements IMetadataGrabber
     public function __construct()
     {
         $this->classDir  = Yii::getAlias('@' . str_replace('\\', '/', $this->classNamespace) . '/');
-        $this->mapping = self::getDefaultMapping();
+        $this->mapping = static::getDefaultMapping();
     }
 
     /**

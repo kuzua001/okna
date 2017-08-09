@@ -14,7 +14,7 @@ $widget = $this->context;
 		}
 	}
 </style>
-<section class="main" style="position: relative; box-sizing: content-box; margin-bottom: -6px; height: 700px!important;">
+<section class="main" style="position: relative; box-sizing: content-box; margin-bottom: -6px; height: 791px!important;">
 	<div class="content-wrapper" style="height: 100%">
 		<img class="bg" src="/img/top-bg.jpg">
 		<div class="container container-90">

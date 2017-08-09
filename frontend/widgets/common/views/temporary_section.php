@@ -6,8 +6,16 @@ use yii\helpers\Html;
 
 $widget = $this->context;
 ?>
-<section class="main" style="position: relative;">
-	<div class="content-wrapper">
+<style>
+	@media (max-width: 992px) {
+		p.sotr {
+			text-align: left!important;
+			margin-left: 40px;
+		}
+	}
+</style>
+<section class="main" style="position: relative; box-sizing: content-box; margin-bottom: -6px; height: 700px!important;">
+	<div class="content-wrapper" style="height: 100%">
 		<img class="bg" src="/img/top-bg.jpg">
 		<div class="container container-90">
 			<div class="row clear indent">
@@ -52,7 +60,7 @@ $widget = $this->context;
 			</div>
 		</div>
 	</div>
-	<p style="position: absolute; bottom: 20px; text-align: center; left: 0; right: 0;">
+	<p style="position: absolute; bottom: 20px; text-align: center; left: 0; right: 0;" class="sotr">
 		По вопросам сотрудничества : <a href="mailto:siyanovich.a@mail.ru">siyanovich.a@mail.ru</a>
 	</p>
 </section>

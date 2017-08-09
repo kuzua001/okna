@@ -6,7 +6,7 @@ use yii\helpers\Html;
 
 $widget = $this->context;
 ?>
-<section class="main">
+<section class="main" style="position: relative;">
 	<div class="content-wrapper">
 		<img class="bg" src="/img/top-bg.jpg">
 		<div class="container container-90">
@@ -46,10 +46,13 @@ $widget = $this->context;
 				</div>
 			</div>
 			<div class="row clear">
-				<section class="dummy-text-element col l8 push-l4">
-					<h2 style="font-size: 50px; margin-top: 20px;">СКОРО ОТКРЫТИЕ</h2>
-				</section>
+				<div class="dummy-text-element col l8 push-l4">
+					<h2 style="font-size: 50px; margin-top: 20px; line-height: 50px; margin-bottom: 40px;">СКОРО ОТКРЫТИЕ</h2>
+				</div>
 			</div>
 		</div>
 	</div>
+	<p style="position: absolute; bottom: 20px; text-align: center; left: 0; right: 0;">
+		По вопросам сотрудничества : <a href="mailto:siyanovich.a@mail.ru">siyanovich.a@mail.ru</a>
+	</p>
 </section>

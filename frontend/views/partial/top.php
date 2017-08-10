@@ -4,7 +4,7 @@ use \yii\widgets\Menu;
 
 if (!isset($this->params['menuItems'])) {
 	$menuItems = [
-		['label' => 'отель', 'selector' => 'section#section1', 'url' => '/'],
+		['label' => 'отель', 'selector' => 'section#section1', 'url' => 'http://bezhitsa.com'],
 		['label' => 'ресторан', 'selector' => 'section#section3', 'url' => 'http://bzrest.ru'],
 		['label' => 'фитнес-клуб&nbsp', 'selector' => 'section#section4', 'url' => 'http://bzfit.ru'],
 	];

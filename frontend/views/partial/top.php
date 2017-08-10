@@ -1,3 +1,15 @@
+<?php
+
+use \yii\widgets\Menu;
+
+if (!isset($this->params['menuItems'])) {
+	$menuItems = [
+		['label' => 'отель', 'selector' => 'section#section1', 'url' => '/'],
+		['label' => 'ресторан', 'selector' => 'section#section3', 'url' => 'http://bzrest.ru'],
+		['label' => 'фитнес-клуб&nbsp', 'selector' => 'section#section4', 'url' => 'http://bzfit.ru'],
+	];
+}
+?>
 <section class="header">
 	<div class="content-wrapper">
 		<header class="header-element">
@@ -19,17 +31,22 @@
 			<div class="desktop-only container container-90">
 				<div class="row">
 					<div class="col l4">
-						<a class="header-logo" href="/" title="beshitza.ru">
+						<a class="header-logo" href="http://bezhitsa.com" title="beshitza.ru">
 							<img src="/img/logo_header.jpg">
 						</a>
 					</div>
 					<div class="header-menu col l5">
 						<nav class="menu">
-							<a class="item" ng-click="site.scrollBodyTo('section#section1')">отель</a>
-							<a class="item" ng-click="site.scrollBodyTo('section#section2')">номера</a>
-							<a class="item" ng-click="site.scrollBodyTo('section#section3')">ресторан</a>
-							<a class="item" ng-click="site.scrollBodyTo('section#section4')">фитнес-клуб&nbsp</a>
+                            <?php foreach ($menuItems as $item) { ?>
+								<a class="item" ng-click="site.scrollBodyTo(\"<?= $item['selector']?>\")" href="<?= $item['url']?>"><?= $item['label']?></a>
+							<?php } ?>
 						</nav>
+<!--						<nav class="menu">-->
+<!--							<a class="item" ng-click="site.scrollBodyTo('section#section1')">отель</a>-->
+<!--							<a class="item" ng-click="site.scrollBodyTo('section#section2')">номера</a>-->
+<!--							<a class="item" ng-click="site.scrollBodyTo('section#section3')">ресторан</a>-->
+<!--							<a class="item" ng-click="site.scrollBodyTo('section#section4')">фитнес-клуб&nbsp</a>-->
+<!--						</nav>-->
 					</div>
 					<div class="lang-switcher col l3">
 						<a>

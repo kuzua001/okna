@@ -60,9 +60,8 @@ if (!isset($this->params['menuItems'])) {
 </section>
 <div class="slide-menu-element mobile-only" ng-class="{'active':site.slideMenuState}" ng-swipe-left="site.setMenuState(false)">
 	<nav class="menu">
-		<a class="item" ng-click="site.setMenuState(false); site.scrollBodyTo('section#section1')">отель</a>
-		<a class="item" ng-click="site.setMenuState(false); site.scrollBodyTo('section#section2')">номера</a>
-		<a class="item" ng-click="site.setMenuState(false); site.scrollBodyTo('section#section3')">ресторан</a>
-		<a class="item" ng-click="site.setMenuState(false); site.scrollBodyTo('section#section4')">фитнес-клуб&nbsp</a>
+        <?php foreach ($menuItems as $item) { ?>
+			<a class="item" ng-click="site.scrollBodyTo(\"<?= $item['selector']?>\")" href="<?= $item['url']?>"><?= $item['label']?></a>
+        <?php } ?>
 	</nav>
 </div>

@@ -52,7 +52,7 @@ class Page extends ActiveRecord
      */
     public function getPageFields()
     {
-        return empty($this->pageParams) ? $this->pageParams->getFields() : [];
+        return !empty($this->pageParams) ? $this->pageParams->toPageFields() : new PageFields;
     }
 
     public static function tableName()
@@ -74,7 +74,15 @@ class Page extends ActiveRecord
      */
     public static function id($pageId)
     {
-        $pageClassName = MetadataExtractor::getClassName(MetadataExtractor::PAGES_MAPPING, $pageId);
+        $basePage = Page::findOne($pageId);
+
+        if (empty($basePage)) {
+            return null;
+        }
+
+        $pageClasId = $basePage->pages_id;
+        $pageClassName = MetadataExtractor::getClassName(MetadataExtractor::PAGES_MAPPING, $pageClasId);
+
         try {
             $page = $pageClassName::findOne($pageId);
             if (is_subclass_of($page, self::className())) {

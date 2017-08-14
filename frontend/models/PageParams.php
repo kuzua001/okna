@@ -19,6 +19,8 @@ use yii\db\ActiveRecord;
 class PageParams
 {
 
+    protected $pageParamsNamespace = 'frontend\models\pages';
+
     /**
      * Инициализировать объект из сериализованного представления
      * @param $serialized string
@@ -42,6 +44,14 @@ class PageParams
     }
 
     /**
+     * @return bool|string
+     */
+    public function varyingField()
+    {
+        return false;
+    }
+
+    /**
      * Привести объект к сериализованному виду
      * @return string
      */
@@ -50,17 +60,58 @@ class PageParams
         return serialize($this);
     }
 
+
     /**
-     * @return (ParamField)[]
+     * Преобразовать объект параметры страницы в массив полей страницы
+     * @return array
      */
-    public static function getFields()
+    public function toPageFieldsArr()
     {
+        return $this->toPageFields()->getParamsArr();
+    }
 
-        /*var_dump(static::className());
-        $rc = new \ReflectionClass(static::className());
-        $prop = $rc->getProperties()[0];
-        var_dump($prop->getDocComment());*/
+    /**
+     * Преобразовать объект параметры страницы в объект "поля страницы"
+     * @return PageFields
+     */
+    public function toPageFields()
+    {
+        $pageFields = new PageFields();
+        $rc         = new \ReflectionClass(get_called_class());
+        $properties = $rc->getProperties();
 
-        return [];
+        foreach ($properties as $item) {
+            $comment = $item->getDocComment();
+
+            preg_match('/@type\s+(.+)\s?\n/', $comment, $typeMatch);
+            preg_match('/@title\s+(.+)\s?\n/', $comment, $titleMatch);
+            preg_match('/@default\s+(.+)\s?\n/', $comment, $defaultMatch);
+
+            $typeStr = isset($typeMatch[1]) ? $typeMatch[1] : '';
+
+            $title   = isset($titleMatch[1]) ? $titleMatch[1] : '';
+            $default = isset($defaultMatch[1]) ? $defaultMatch[1] : '';
+
+            preg_match('/\(([a-zA-Z\|]*)\)\[\]/', $typeStr, $multiple);
+            if (count($multiple) === 0) {
+                if (ParamField::checkType($typeStr)) {
+                    $pageFields->addField($item->name, $typeStr, $title, $default);
+                }
+            } else {
+                $classes = explode('|', $multiple[1]);
+                $multiplePageFields = [];
+
+                foreach ($classes as $class) {
+                    $fullClassName = $this->pageParamsNamespace . '\\' . $class;
+                    /** @var $params PageParams */
+                    $params = new $fullClassName;
+                    $multiplePageFields[] = $params->toPageFieldsArr();
+                }
+
+                $pageFields->addCompositeField($item->name, true, $multiplePageFields);
+            }
+        }
+
+        return $pageFields;
     }
 }

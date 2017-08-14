@@ -16,7 +16,7 @@ class TextPageParams extends PageParams
     /**
      * @var $title
      * @title Заголовок страницы
-     * @type ParamField::TYPE_TEXTAREA
+     * @type string
      */
     public $title;
 
@@ -24,7 +24,7 @@ class TextPageParams extends PageParams
     /**
      * @var $content
      * @title Контент страницы
-     * @type
+     * @type html
      */
     public $content;
 }

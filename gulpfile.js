@@ -36,4 +36,4 @@ gulp.task('compile-back', ['clean-back'], function () {
 		.pipe(gulp.dest('backend/web/js/built'));
 });
 
-gulp.task('default', ['compile']);
+gulp.task('default', ['compile, compile-back']);

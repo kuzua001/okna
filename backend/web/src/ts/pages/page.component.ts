@@ -1,4 +1,4 @@
-import { Component  } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Restangular } from 'ng2-restangular';
 /**
  * Created by ivan on 7/10/17.
@@ -14,10 +14,12 @@ export class PageComponent {
 	public pages: any;
 	public currentPage: string;
 
-
-	public loadPage(id: number)
+	@ViewChild('start') start;
+	public loadPage(pageId: any)
 	{
-
+		this.restangular.one('pageFields', pageId).get().subscribe( pageFields => {
+			console.log(pageFields);
+		});
 	}
 
 	ngOnInit() {

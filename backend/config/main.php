@@ -46,8 +46,9 @@ return [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => [
-                        'users' => 'api/user',
-                        'texts' => 'api/text'
+                        'users'      => 'api/user',
+                        'texts'      => 'api/text',
+                        'pageFields' => 'api/page-fields'
                     ],
                     'prefix' => 'api'
                 ],

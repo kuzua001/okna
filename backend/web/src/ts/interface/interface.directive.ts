@@ -17,12 +17,12 @@ export class InterfaceDirective implements OnChanges {
 		}
 	}
 
-	updateModel() {
-		console.log('i am changing');
-		let $parent: JQuery = $(this.element);
-		for (let i in this.interfaceSettings) {
-			let item = this.interfaceSettings[i];
-			let $elem;
+	private generateInterface(interfaceSettings)
+	{
+		let $elem;
+
+		for (let i in interfaceSettings) {
+			let item = interfaceSettings[i];
 			switch (item.type) {
 				case 'text':
 					$elem = $('<input type="text">');
@@ -33,14 +33,29 @@ export class InterfaceDirective implements OnChanges {
 				case 'checkbox':
 					$elem = $('<input type="checkbox">');
 					break;
+				case 'composite':
+					for (let i in item.availableInstances) {
+						$elem = this.generateInterface(item.availableInstances[i]);
+					}
+					break;
 			}
-
-			$parent.append(item.title);
-			$parent.append($elem);
 		}
+
+		return $elem;
+
 	}
 
-	constructor(private elem: ElementRef, private renderer: Renderer) {
+
+	updateModel()
+	{
+		console.log('i am changing');
+		let $interface: JQuery = $(this.element);
+		$interface.empty();
+		$interface.append(this.generateInterface(this.interfaceSettings));
+	}
+
+	constructor(private elem: ElementRef, private renderer: Renderer)
+	{
 		this.element = elem.nativeElement;
 
 		this.interfaceSettings = [

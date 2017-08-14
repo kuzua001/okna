@@ -12,9 +12,10 @@ namespace frontend\models;
 class ParamField
 {
     const TYPE_STRING   = 'string';
-    const TYPE_DEFAULT  = self::TYPE_STRING;
     const TYPE_TEXTAREA = 'textarea';
+    const TYPE_HTML     = 'html';
     const TYPE_CHECKBOX = 'checkbox';
+    const TYPE_DEFAULT  = self::TYPE_STRING;
 
     private $value = null;
     private $name;
@@ -25,7 +26,12 @@ class ParamField
         self::TYPE_CHECKBOX,
         self::TYPE_STRING,
         self::TYPE_TEXTAREA,
+        self::TYPE_HTML,
     ];
+
+    public static function checkType($type) {
+        return in_array($type, static::$allowedTypes);
+    }
 
     function __construct($name, $type)
     {

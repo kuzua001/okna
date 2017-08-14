@@ -1,7 +1,7 @@
-<div>
+<div #start>
 	<div style="width: 300px; float: left;">
 		<ul>
-			<li *ngFor="let page of pages" (click)="currentPage = page.url">
+			<li *ngFor="let page of pages" (click)="loadPage(page.id)">
 				{{ page.url }}
 			</li>
 		</ul>

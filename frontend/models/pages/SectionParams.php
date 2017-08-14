@@ -27,6 +27,11 @@ class SectionParams extends PageParams
      */
     protected $sectionType;
 
+    public function varyingField()
+    {
+        return 'sectionType';
+    }
+
     /**
      * Возвращает тип секции
      * @return mixed

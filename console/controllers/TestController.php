@@ -51,9 +51,12 @@ class TestController extends Controller
         $mainSectionParams->sloganSecond       = 'изысканный и комфортный отдых';
         $mainSectionParams->sloganThird        = 'МИРОВОГО КЛАССА';
 
+
+        var_dump($mainSectionParams->toPageFields());
+/*
         $page->pageParams->emptySections();
         $page->pageParams->addSection($mainSectionParams);
 
-        $page->save();
+        $page->save();*/
     }
 }

@@ -63,10 +63,4 @@ class HotelMainSectionParams extends SectionParams
      * @type string
      */
     public $sloganThird;
-
-    /**
-     * @var $sections
-     * @type (TextPageParams)[]
-     */
-    public $sections;
 }

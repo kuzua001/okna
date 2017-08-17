@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { InterfaceDirective } from '../interface/interface.directive';
 import { Restangular } from 'ng2-restangular';
 /**
  * Created by ivan on 7/10/17.
@@ -15,10 +16,12 @@ export class PageComponent {
 	public currentPage: string;
 
 	@ViewChild('start') start;
+	@ViewChild( InterfaceDirective ) directive: InterfaceDirective;
 	public loadPage(pageId: any)
 	{
 		this.restangular.one('pageFields', pageId).get().subscribe( pageFields => {
-			console.log(pageFields);
+			//console.log(pageFields);
+			this.directive.updateInterface(pageFields);
 		});
 	}
 

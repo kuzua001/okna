@@ -19,7 +19,7 @@ class LandingPageParams extends PageParams
      * @title Параметры секций
      * @type (HotelMainSectionParams)[]
      */
-    protected $sectionsParams;
+    public $sectionsParams;
 
     public function getSectionsParams()
     {

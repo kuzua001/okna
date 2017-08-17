@@ -14,6 +14,7 @@ use yii\base\Object;
 class PageFields extends Object
 {
     protected $params = [];
+    protected $values = null;
 
     const TYPE_CHECKBOX      = ParamField::TYPE_CHECKBOX;
     const TYPE_STRING        = ParamField::TYPE_STRING;
@@ -38,6 +39,11 @@ class PageFields extends Object
         ];
     }
 
+    public function setupValues($values)
+    {
+        $this->values = $values;
+    }
+
     /**
      * @param       $key
      * @param       $isArr
@@ -53,6 +59,9 @@ class PageFields extends Object
 
     public function __toString()
     {
-        return json_encode($this->params);
+        return json_encode((object) [
+            'params' => $this->params,
+            'values' => $this->values
+        ]);
     }
 }

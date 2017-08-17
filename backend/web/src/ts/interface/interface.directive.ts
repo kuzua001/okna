@@ -5,43 +5,67 @@ import { Directive, ElementRef, Renderer, Input, OnChanges } from '@angular/core
 import $ from "jquery";
 
 @Directive({ selector: '[interfaceElement]' })
-export class InterfaceDirective implements OnChanges {
+export class InterfaceDirective {
 
 	private element: Node;
 
 	private interfaceSettings;
 
-	ngOnChanges(changes) {
-		if(changes.interfaceSettings){
-			this.updateModel();
-		}
+	public updateInterface(interfaceSettings)
+	{
+		this.interfaceSettings = interfaceSettings;
+		this.updateModel();
 	}
 
-	private generateInterface(interfaceSettings)
+	private generateInterface(interfaceSettings, values, levelName: string)
 	{
-		let $elem;
+		let $interface = $('<div>');
 
 		for (let i in interfaceSettings) {
-			let item = interfaceSettings[i];
+			if (!$.isNumeric(i)) {
+				continue;
+			}
+
+			let $input;
+			let $inputBlock = $('<div>');
+
+
+			let item     = interfaceSettings[i];
+			let itemName = levelName !== '' ? (levelName + '.' + item.key) : item.key;
+			let itemId   = 'interface-' + itemName;
+
 			switch (item.type) {
+				case 'string':
+					$input = $('<input type="text">');
+					break;
+				case 'html':
+					$input = $('<textarea>');
+					break;
 				case 'text':
-					$elem = $('<input type="text">');
+					$input = $('<input type="text">');
 					break;
 				case 'textarea':
-					$elem = $('<textarea>');
+					$input = $('<textarea>');
 					break;
 				case 'checkbox':
-					$elem = $('<input type="checkbox">');
+					$input = $('<input type="checkbox">');
 					break;
 				case 'composite':
 					for (let i in item.availableInstances) {
-						$elem = this.generateInterface(item.availableInstances[i]);
+						$inputBlock = this.generateInterface(item.availableInstances[i], values[levelName], itemName);
 					}
 					break;
 			}
+
+			$input.attr('id', itemId);
+			$input.val(values[item.key]);
+			$inputBlock.append($('<label for="' + itemId + '">' + item.title + '</label>'));
+			$inputBlock.append($input);
+
+			$interface.append($inputBlock);
 		}
 
-		return $elem;
+		return $interface;
 
 	}
 
@@ -51,23 +75,15 @@ export class InterfaceDirective implements OnChanges {
 		console.log('i am changing');
 		let $interface: JQuery = $(this.element);
 		$interface.empty();
-		$interface.append(this.generateInterface(this.interfaceSettings));
+
+		console.log(this.interfaceSettings.params);
+		console.log(this.interfaceSettings.values);
+
+		$interface.append(this.generateInterface(this.interfaceSettings.params, this.interfaceSettings.values, ''));
 	}
 
 	constructor(private elem: ElementRef, private renderer: Renderer)
 	{
 		this.element = elem.nativeElement;
-
-		this.interfaceSettings = [
-			{type: 'text',     name : 't1', title : 'Заголовок'},
-			{type: 'textarea', name : 't2', title : 'введите текст'},
-			{type: 'checkbox', name : 't3', title : 'Заголовок'},
-
-		];
-
-		let $obj = this;
-		$(function() {
-			$obj.updateModel();
-		});
 	}
 }

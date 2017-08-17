@@ -112,6 +112,8 @@ class PageParams
             }
         }
 
+        $pageFields->setupValues($this);
+
         return $pageFields;
     }
 }

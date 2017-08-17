@@ -3,6 +3,8 @@
  */
 
 const gulp         = require('gulp');
+const rev          = require('gulp-rev');
+const revManifest  = require('gulp-revmanifest');
 const del          = require('del');
 const typescript   = require('gulp-typescript');
 const autoprefixer = require('gulp-autoprefixer');
@@ -19,7 +21,10 @@ gulp.task('compile', ['clean'], function () {
     return gulp
         .src('frontend/web/src/ts/**/*.ts')
         .pipe(typescript(tscConfig.compilerOptions))
-        .pipe(gulp.dest('frontend/web/js/built'));
+		// .pipe(rev())
+		.pipe(gulp.dest('frontend/web/js/built'));
+		// .pipe(revManifest())
+		// .pipe(gulp.dest('frontend/web/js/rev'))
 });
 
 
@@ -33,7 +38,10 @@ gulp.task('compile-back', ['clean-back'], function () {
 	return gulp
 		.src('backend/web/src/ts/**/*.ts')
 		.pipe(typescript(tscConfig.compilerOptions))
+		// .pipe(rev())
 		.pipe(gulp.dest('backend/web/js/built'));
+		// .pipe(revManifest())
+		// .pipe(gulp.dest('backend/web/js/rev'));
 });
 
 gulp.task('default', ['compile', 'compile-back']);

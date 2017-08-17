@@ -22,6 +22,7 @@ class AppAsset extends AssetBundle
         'js/node_modules/systemjs/dist/system.src.js',
         'js/systemjs.config.js',
         'js/import.js',
+        'https://cloud.tinymce.com/stable/tinymce.min.js'
     ];
 
     public $jsOptions = [

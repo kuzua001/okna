@@ -4,6 +4,8 @@
 import { Directive, ElementRef, Renderer, Input, OnChanges } from '@angular/core';
 import $ from "jquery";
 
+declare let tinymce: any;
+
 @Directive({ selector: '[interfaceElement]' })
 export class InterfaceDirective {
 
@@ -39,7 +41,7 @@ export class InterfaceDirective {
 					$input = $('<input type="text">');
 					break;
 				case 'html':
-					$input = $('<textarea>');
+					$input = $('<textarea class="tinymce">');
 					break;
 				case 'text':
 					$input = $('<input type="text">');
@@ -80,6 +82,7 @@ export class InterfaceDirective {
 		console.log(this.interfaceSettings.values);
 
 		$interface.append(this.generateInterface(this.interfaceSettings.params, this.interfaceSettings.values, ''));
+		tinymce.init({ selector : '.tinymce'});
 	}
 
 	constructor(private elem: ElementRef, private renderer: Renderer)

@@ -32,6 +32,6 @@ class Product extends ActiveRecord
      */
     public static function getTop()
     {
-        return self::find()->where('is_top = 1')->all();
+        return self::find()->where('is_top = 1')->asArray()->all();
     }
 }

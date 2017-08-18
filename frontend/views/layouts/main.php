@@ -28,17 +28,45 @@ Yii::$app->language = 'ru';
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title">Modal title</h5>
+						<h5 class="modal-title">Оформить заказ</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body">
-						<p>Modal body text goes here.</p>
+						<div ng-switch="site.getCart().products.length">
+							<p ng-switch-when="0">
+								Ваша корзина пуста
+							</p>
+							<p ng-switch-default>
+								Ваш заказ на сумму {{ site.getCart().total }} Руб.</br>
+								Позиции заказа:
+							</p>
+						</div>
+						<div ng-if="site.getCart().products.length">
+							<ul>
+								<li ng-repeat="(key, product) in site.getCart().products" ng-if="product.product.name">
+									{{ product.product.name }} x {{ product.quantity }}
+								</li>
+							</ul>
+
+							<form>
+								<div class="form-group">
+									<label for="name">Имя</label>
+									<input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Введите имя">
+									<small id="nameHelp" class="form-text text-muted">Иван, мистер голодный, г-н многоуважаемый</small>
+								</div>
+								<div class="form-group">
+									<label for="phone">Телефон</label>
+									<input type="text" class="form-control" id="name" aria-describedby="phoneHelp" placeholder="Укажите телефон">
+									<small id="phoneHelp" class="form-text text-muted">+7 (999) 999-99-99</small>
+								</div>
+							</form>
+						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary">Save changes</button>
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Вызвать курьера</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
 					</div>
 				</div>
 			</div>

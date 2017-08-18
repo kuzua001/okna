@@ -6,14 +6,14 @@ import 'angular-carousel';
 
 import { ReservationFormController } from './controllers/reservation_form';
 import { SiteController } from './controllers/site';
-import { HoverDirective } from './directives/hover';
+import { CartController } from './controllers/cart';
 
 
 export default angular
 	.module('main', ['ngRoute', 'ngTouch', 'angular-carousel'])
 	.controller('ReservationFormController', ReservationFormController)
 	.controller('SiteController', SiteController)
-	.directive('hover', HoverDirective);
+	.controller('CartController', ["$rootScope", ($rootScope) => new CartController($rootScope)]);
 
 
 // Bootstrap the angular app module

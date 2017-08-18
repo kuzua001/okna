@@ -11,6 +11,7 @@ namespace frontend\controllers;
 use frontend\components\AppHelper;
 use yii\web\Controller;
 use yii;
+use frontend\models\Product;
 
 // Yii2 cache
 // Yii2 cache invalidation
@@ -39,9 +40,17 @@ class AjaxController extends Controller
     {'key' : '1','lang':'ru','value':'azazaza'}, 'success':function(html){console.log(html);}});
      */
 
-    public function actionSetText()
+    public function actionGetProducts()
+    {
+        return json_encode(Product::getTop());
+    }
+
+    public function actionUpdateCart()
     {
         $post = Yii::$app->request->post();
-        AppHelper::setText($post['key'], $post['lang'], $post['value']);
+
+        var_dump($post);
+
+        //\Yii::$app->session['cart'] =
     }
 }

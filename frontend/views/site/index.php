@@ -9,40 +9,38 @@ use frontend\models\Product;
 					<img class="waitress" src="/img/sushi/girl-delivery.png">
 				</div>
 				<div class="col-lg-8">
-					<div class="shop-front-element">
+					<div class="shop-front-element" ng-controller="CartController as cart">
 						<div class="wrapper">
 							<img class="waiter" src="/img/sushi/podnos.png">
 							<div class="products-slider-element">
 								<ul class="image" rn-carousel rn-carousel-controls rn-carousel-buffered>
-                                    <?php foreach(Product::getTop() as $item) { ?>
-										<li class="slide product-card-element small">
-											<h3 class="title">
-                                                <?= $item->name ?> <span class="weight"><?= $item->weight ?> гр.</span>
-											</h3>
-											<img src="<?= $item->img ?>">
-											<div class="add-to-cart">
-												<span class="price"><?= $item->price ?> Руб.</span>
-												<div class="input-group">
-										  		<span class="input-group-btn">
-											  		<button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="quant[2]">
-														-
-											  		</button>
-										  		</span>
-													<input type="text" name="quant[2]" class="form-control input-number" value="0" min="1" max="100">
-													<span class="input-group-btn">
-													<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
-														+
-													</button>
-												</span>
-												</div>
+									<li ng-repeat="(key, product) in cart.getProducts()" class="slide product-card-element small">
+										<h3 class="title">
+											{{ product.name }} <span class="weight">{{ product.weight }} гр.</span>
+										</h3>
+										<img src="{{ product.img }}">
+										<div class="add-to-cart">
+											<span class="price">{{ product.price }} Руб.</span>
+											<div class="input-group">
+											<span class="input-group-btn">
+												<button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="quant[2]" ng-click="cart.reduceProduct(product)">
+													-
+												</button>
+											</span>
+												<input type="text" name="quant[2]" class="form-control input-number" value="0" min="1" max="100" ng-model="count" ng-value="cart.getCount(product)" ng-change="cart.setProduct(product, count)">
+												<span class="input-group-btn">
+												<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]" ng-click="cart.increaseProduct(product)">
+													+
+												</button>
+											</span>
 											</div>
-										</li>
-                                    <?php } ?>
+										</div>
+									</li>
 								</ul>
 							</div>
 						</div>
 					</div>
-					<div class="description">
+					<div class="description">cd /us	q
 						<h3 class="text-default">
 							Доставка еды из <br>ресторана "Калипсо"
 						</h3>

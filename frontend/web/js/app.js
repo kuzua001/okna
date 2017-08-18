@@ -1,5 +1,11 @@
-$(function() {
+var $jq = jQuery.noConflict();
+
+function showModal(id) {
+	$jq('#' + id).modal('show');
+}
+
+$jq(function() {
 	setTimeout(function() {
-		$('body').removeClass('loading');
+		$jq('body').removeClass('loading');
 	}, 500);
-})
+});

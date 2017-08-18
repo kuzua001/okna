@@ -1,0 +1,43 @@
+@import '../../grid/grid';
+
+body > footer {
+	z-index: 2;
+	background-color: #151414;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	overflow: hidden;
+
+	a {
+		color: #fff;
+	}
+
+	.row {
+		font-size: 15px;
+		text-align: right;
+
+		.foot-links,
+		.foot-header {
+			text-align: left;
+		}
+
+		div:last-child {
+			.foot-header,
+			.foot-links {
+				text-align: right;
+			}
+		}
+	}
+
+	.foot-header {
+		color: #aaa;
+		margin-bottom: 15px;
+
+		@media (max-width: @screen-xs-max) {
+			min-height: 44px;
+		}
+	}
+
+	.systems {
+		margin-top: 10px;
+	}
+}

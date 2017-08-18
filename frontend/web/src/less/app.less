@@ -1,227 +1,25 @@
-.content-wrapper {
-  position: relative;
-  margin: 0 auto;
-  font-size: 0;
-  width: @large-content-width;
-}
-
-.content-wrapper p,
-.content-wrapper b,
-.content-wrapper span,
-.content-wrapper input,
-.content-wrapper textarea {
-  font-size: 16px;
-}
-
-.menu {
-  white-space: nowrap;
-  list-style: none;
-  height: 100%;
-}
-.menu > li {
-  display: inline-block;
-}
-
-section .bg {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-@media screen and (min-width: @desktop-width) {
-  section .bg.large {
-    left: 50%;
-    margin-left: -992px;
-    width: auto;
-  }
-}
-
-section {
-  color: white;
-}
-
-footer {
-  flex: 0 0 auto;
-}
-
-body > .content {
-  flex: 1 0 auto;
-  z-index: 1;
-}
-
-.container {
-  text-align: initial;
-}
-
-.container.container-90 {
-  width: 90%;
-}
-
-.row-flex {
-  padding-left: 38px;
-  padding-right: 47px;
-  display: flex;
-
-  .l8 {order: 0;}
-  .l4 {order: 1;}
-
-  &.reverse-order {
-    .l8 {order: 1;}
-    .l4 {order: 0;}
-  }
-
-  .l8 + .l4 {
-    padding-left: 7px;
-  }
-
-  .l8:first-child {
-    padding-right: 14px;
-  }
-
-  .l8:last-child {
-    padding-left: 15px;
-  }
-
-  .l4:first-child {
-    padding-left: 13px;
-    padding-right: 5px;
-  }
-}
-
-.row.clear {
-  clear: left;
-}
-
-.center {
-  text-align: center;
-}
+@import 'include/mixins.less';
 
 
-@media screen and (max-width: (@desktop-width - 1px)) {
-  .row-flex {
-    padding: 0!important;
-  }
-
-  .row-flex.row-flex-desktop {
-    display: inherit!important;
-  }
-
-  .content-wrapper {
-    width: 100%;
-    text-align: center;
-
-    .bg {
-      width: auto!important;
-      height: 100%;
-      display: inline-block;
-    }
-  }
-
-  .container {
-    overflow: hidden;
-  }
-
-  section {
-    min-height: inherit!important;
-  }
-}
 
 
-@media screen and (max-width: (@desktop-width - 1px)) {
-  .content-wrapper {
-
-    &:before {
-      display: inline-block;
-      content: '';
-      width: 10000px;
-      position: absolute;
-      height: 100%;
-      top: 0;
-      left: 50%;
-      margin-left: -5000px;
-      background-repeat: no-repeat;
-      background-position: center;
-      z-index: -1;
-    }
-
-    .bg {
-      display: none;
-    }
-  }
-}
-
-@media screen and (max-width: @large-content-width) {
-  .content-wrapper:before {
-    background-size: auto 100%;
-  }
-}
-
-
-@media screen and (min-width: (@menu-max-width + 1px)) {
-  .mobile-only {
-    display: none!important;
-  }
-
-  .desktop-only {
-    display: inherit;
-  }
-
-  section.main,
-  section.main .content-wrapper {
-    padding-top: @top-header-height;
-  }
-}
-
-@media screen and (max-width: @menu-max-width) {
-  .mobile-only {
-    display: inherit;
-  }
-
-  .desktop-only {
-    display: none!important;
-  }
-}
-
+@import 'grid/grid';
 @import 'include/sizes.less';
 @import 'include/colors.less';
-@import 'include/mixins.less';
 @import 'include/reset.less';
 @import 'include/custom';
-@import 'include/elements/dummy-text';
-@import 'include/elements/header';
-@import 'include/elements/contacts';
-@import 'include/elements/reservation-form';
-@import 'include/elements/right-content-block';
-@import 'include/elements/detail-button';
-@import 'include/elements/card';
-@import 'include/elements/room-card';
-@import 'include/elements/rooms-list';
-@import 'include/elements/property-item';
-@import 'include/elements/elegant-title';
-@import 'include/elements/centered-title';
-@import 'include/elements/elegant-card';
-@import 'include/elements/map';
-@import 'include/elements/footer';
-@import 'include/elements/slider';
-@import 'include/elements/slide-menu';
-@import 'include/elements/slide-dummy';
-@import 'include/elements/editable-text';
-@import 'include/elements/popup';
+
+@import 'include/sections/header';
+@import 'include/sections/footer';
+
 @import 'include/elements/hamburger';
+@import 'include/elements/slide-menu';
+@import 'include/elements/shop-front';
+@import 'include/elements/waitress';
+@import 'include/elements/products-slider';
+@import 'include/elements/products-card';
+
+
 @import 'include/sections/sections-common';
 @import 'include/sections/section-header';
-@import 'include/sections/section-main';
-@import 'include/sections/section-service';
-@import 'include/sections/section-events';
-@import 'include/sections/section-fitness';
-@import 'include/sections/section-map';
-@import 'include/sections/section-header';
-@import 'include/sections/section-fitness-main';
-@import 'include/sections/section-restaurant-main';
-@import 'include/sections/section-restaurant-dessert';
-@import 'include/sections/section-restaurant-restaurant';
-@import 'include/sections/section-fitness-style';
-@import 'include/sections/section-fitness-spa';
-@import 'include/sections/section-fitness-gym';
+@import 'include/sections/section-delivery';

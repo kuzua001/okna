@@ -1,0 +1,30 @@
+@import '../mixins';
+@import '../../grid/grid';
+
+section.delivery {
+
+	color: #000;
+
+  .content-wrapper {
+	padding-top: 30px;
+	max-height: 700px;
+
+	.row:first-child {
+  		padding-top: 150px;
+
+		@media (min-width: @screen-md-max) {
+			padding-top: 100px;
+		}
+	}
+
+    @media (min-width: (@screen-md-min + 1px)) {
+      margin-top: 52px;
+    }
+
+    @media (max-width: @screen-md-min) {
+		.shop-front-element {
+			height: 250px;
+		}
+	}
+  }
+}

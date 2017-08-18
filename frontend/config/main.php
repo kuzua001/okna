@@ -1,4 +1,7 @@
 <?php
+
+use \frontend\models\Page;
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
@@ -7,6 +10,7 @@ $params = array_merge(
 );
 
 return [
+    'params' => $params,
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'language' => 'en-US',
@@ -42,11 +46,8 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-                'test' => 'site/test',
-            ],
+            'rules' => [],
         ],
 
     ],
-    'params' => $params,
 ];

@@ -4,6 +4,7 @@
 			angular : 'js/node_modules/angular/angular.js',
 			'angular-route' : 'js/node_modules/angular-route/angular-route.min.js',
 			'angular-touch' : 'js/node_modules/angular-touch/angular-touch.min.js',
+			'angular-carousel' : 'js/node_modules/angular-carousel/dist/angular-carousel.min.js',
 			'angular-resource' : 'js/node_modules/angular-resource/angular-resource.min.js',
 			/*'@angular/core': 'js/node_modules/@angular/core/bundles/core.umd.js',
 			'@angular/common': 'js/node_modules/@angular/common/bundles/common.umd.js',
@@ -15,6 +16,7 @@
 			'@angular/forms': 'js/node_modules/@angular/forms/bundles/forms.umd.js',
 */
 			jquery : 'js/node_modules/jquery/dist/jquery.min.js',
+			popper : 'js/node_modules/popper.js/dist/umd/popper.min.js',
 			rxjs: 'js/node_modules/rxjs',
 			main: 'js/built'
 		},
@@ -32,7 +34,7 @@
 				format : 'global',
 				exports: 'angular',
 				deps : [
-					'jquery'
+					'jquery', 'popper'
 				]
 			},
 			main : {

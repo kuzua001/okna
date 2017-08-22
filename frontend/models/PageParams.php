@@ -60,6 +60,24 @@ class PageParams
         return serialize($this);
     }
 
+    public static function getValuesWithTypes($pageParams)
+    {
+        $ret = [];
+        foreach ($pageParams as $key => $val) {
+            if (is_array($val)) {
+                $ret[$key] = [];
+                foreach ($val as $i => $obj) {
+                    $objArr = (array) $obj;
+                    $objArr['type'] = $obj->{$obj->varyingField()};
+                    $ret[$key][$i] = $objArr;
+                }
+            } else {
+                $ret[$key] = $val;
+            }
+        }
+
+        return $ret;
+    }
 
     /**
      * Преобразовать объект параметры страницы в массив полей страницы
@@ -105,7 +123,7 @@ class PageParams
                     $fullClassName = $this->pageParamsNamespace . '\\' . $class;
                     /** @var $params PageParams */
                     $params = new $fullClassName;
-                    $multiplePageFields[] = $params->toPageFieldsArr();
+                    $multiplePageFields[$params->{$params->varyingField()}] = $params->toPageFieldsArr();
                 }
 
                 $pageFields->addCompositeField($item->name, true, $multiplePageFields);

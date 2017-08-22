@@ -38,8 +38,10 @@ export class InterfaceDirective {
 			let itemId   = 'interface-' + itemName;
 
 			if (item.type == 'composite') {
-				for (let i in item.availableInstances) {
-					$inputBlock = this.generateInterface(item.availableInstances[i], values[levelName], itemName);
+				for (let i in values[item.key]) {
+					let sectionSettings = values[item.key][i];
+					let sectionType = sectionSettings.type;
+					$inputBlock = this.generateInterface(item.availableInstances[sectionType], sectionSettings, itemName);
 				}
 			} else {
 				switch (item.type) {
@@ -61,13 +63,15 @@ export class InterfaceDirective {
 				}
 
 				$input.attr('id', itemId);
-				//$input.val(values[item.key]);
+				console.log('setting value of ' + item.key + ':' + values[item.key]);
+				$input.val(values[item.key]);
 				$inputBlock.append($('<label for="' + itemId + '">' + item.title + '</label>'));
 				$inputBlock.append($input);
 			}
 
 			$interface.append($inputBlock);
 		}
+
 
 		return $interface;
 

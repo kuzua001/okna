@@ -61,7 +61,7 @@ class PageFields extends Object
     {
         return json_encode((object) [
             'params' => $this->params,
-            'values' => $this->values
+            'values' => PageParams::getValuesWithTypes($this->values)
         ]);
     }
 }

@@ -9,7 +9,7 @@ section.service .content-wrapper {
   padding-top: 100px;
 }
 section.service .content-wrapper:before {
-  background-image: url('../img/section2-bg.jpg');
+  background-image: url('/img/section2-bg.jpg');
 }
 section.service .card-element .content p:first-child {
   margin-bottom: 12px!important;

@@ -4,6 +4,7 @@
 import { Directive, ElementRef, Renderer, Input, OnChanges } from '@angular/core';
 import $ from "jquery";
 
+
 declare let tinymce: any;
 
 @Directive({ selector: '[interfaceElement]' })
@@ -36,33 +37,34 @@ export class InterfaceDirective {
 			let itemName = levelName !== '' ? (levelName + '.' + item.key) : item.key;
 			let itemId   = 'interface-' + itemName;
 
-			switch (item.type) {
-				case 'string':
-					$input = $('<input type="text">');
-					break;
-				case 'html':
-					$input = $('<textarea class="tinymce">');
-					break;
-				case 'text':
-					$input = $('<input type="text">');
-					break;
-				case 'textarea':
-					$input = $('<textarea>');
-					break;
-				case 'checkbox':
-					$input = $('<input type="checkbox">');
-					break;
-				case 'composite':
-					for (let i in item.availableInstances) {
-						$inputBlock = this.generateInterface(item.availableInstances[i], values[levelName], itemName);
-					}
-					break;
-			}
+			if (item.type == 'composite') {
+				for (let i in item.availableInstances) {
+					$inputBlock = this.generateInterface(item.availableInstances[i], values[levelName], itemName);
+				}
+			} else {
+				switch (item.type) {
+					case 'string':
+						$input = $('<input type="text">');
+						break;
+					case 'html':
+						$input = $('<textarea class="tinymce">');
+						break;
+					case 'text':
+						$input = $('<input type="text">');
+						break;
+					case 'textarea':
+						$input = $('<textarea>');
+						break;
+					case 'checkbox':
+						$input = $('<input type="checkbox">');
+						break;
+				}
 
-			$input.attr('id', itemId);
-			$input.val(values[item.key]);
-			$inputBlock.append($('<label for="' + itemId + '">' + item.title + '</label>'));
-			$inputBlock.append($input);
+				$input.attr('id', itemId);
+				//$input.val(values[item.key]);
+				$inputBlock.append($('<label for="' + itemId + '">' + item.title + '</label>'));
+				$inputBlock.append($input);
+			}
 
 			$interface.append($inputBlock);
 		}
@@ -82,7 +84,13 @@ export class InterfaceDirective {
 		console.log(this.interfaceSettings.values);
 
 		$interface.append(this.generateInterface(this.interfaceSettings.params, this.interfaceSettings.values, ''));
-		tinymce.init({ selector : '.tinymce'});
+		tinymce.init({
+			"selector" : ".tinymce",
+			"plugins" : "code",
+			"toolbar" : "code",
+			"menubar" : "tools",
+			"content_css" : "/css/tinymce.css"
+		});
 	}
 
 	constructor(private elem: ElementRef, private renderer: Renderer)

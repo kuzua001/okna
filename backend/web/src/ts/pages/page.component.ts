@@ -7,7 +7,7 @@ import { Restangular } from 'ng2-restangular';
 
 @Component({
 	selector: 'ng-pages',
-	templateUrl: '/admin/templates/pages/list.html',
+	templateUrl: `/admin/templates/pages/list.html?v=${new Date().getTime()}`,
 })
 export class PageComponent {
 	constructor(public restangular: Restangular) {}

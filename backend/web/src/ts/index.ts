@@ -8,7 +8,7 @@ import { PagesModule } from './pages/page.module'
 
 @Component({
 	selector: 'ng-app',
-	templateUrl: '/admin/dynamic/index'
+	templateUrl: `/admin/dynamic/index?v=${new Date().getTime()}`
 })
 export class AppComponent { name = 'Angular'; }
 

@@ -20,6 +20,42 @@ export class InterfaceDirective {
 		this.updateModel();
 	}
 
+
+	public readInterfaceValues() {
+		this.interfaceSettings.values = this.readValuesStep(this.interfaceSettings.params, '');
+		return this.interfaceSettings.values;
+	}
+
+	private readValuesStep(interfaceSettings, levelName)
+	{
+		let values = {};
+
+		for (let i in interfaceSettings) {
+			if (!$.isNumeric(i)) {
+				continue;
+			}
+
+			let item     = interfaceSettings[i];
+			let itemName = levelName !== '' ? (levelName + '-' + item.key) : item.key;
+			let itemId   = 'interface-' + itemName;
+
+			if (item.type == 'composite') {
+				console.log(itemName);
+				values[item.key] = {};
+				$('[data-section-name=' + itemName + ']').each((i, elem) => {
+					let sectionType = $(elem).attr('data-section-type');
+					values[item.key][i] = this.readValuesStep(item.availableInstances[sectionType], itemName +  '-' + i);
+					values[item.key][i].type = sectionType;
+				});
+			} else {
+				console.log(itemId);
+				values[item.key] = $('#' + itemId).val();
+			}
+		}
+
+		return values;
+	}
+
 	private generateInterface(interfaceSettings, values, levelName: string)
 	{
 		let $interface = $('<div>');
@@ -34,14 +70,16 @@ export class InterfaceDirective {
 
 
 			let item     = interfaceSettings[i];
-			let itemName = levelName !== '' ? (levelName + '.' + item.key) : item.key;
+			let itemName = levelName !== '' ? (levelName + '-' + item.key) : item.key;
 			let itemId   = 'interface-' + itemName;
 
 			if (item.type == 'composite') {
 				for (let i in values[item.key]) {
 					let sectionSettings = values[item.key][i];
 					let sectionType = sectionSettings.type;
-					$inputBlock = this.generateInterface(item.availableInstances[sectionType], sectionSettings, itemName);
+					$inputBlock.append(this.generateInterface(item.availableInstances[sectionType], sectionSettings, itemName +  '-' + i));
+					$inputBlock.attr('data-section-type', sectionType);
+					$inputBlock.attr('data-section-name', itemName);
 				}
 			} else {
 				switch (item.type) {
@@ -71,7 +109,6 @@ export class InterfaceDirective {
 
 			$interface.append($inputBlock);
 		}
-
 
 		return $interface;
 

@@ -15,13 +15,24 @@ export class PageComponent {
 	public pages: any;
 	public currentPage: string;
 
+	private pageId: number;
+
 	@ViewChild('start') start;
 	@ViewChild( InterfaceDirective ) directive: InterfaceDirective;
 	public loadPage(pageId: any)
 	{
+		this.pageId = pageId;
 		this.restangular.one('pageFields', pageId).get().subscribe( pageFields => {
 			//console.log(pageFields);
 			this.directive.updateInterface(pageFields);
+		});
+	}
+
+	public savePage() {
+		let values = this.directive.readInterfaceValues();
+		this.restangular.one('page').customPOST({
+			id : this.pageId,
+			data : values
 		});
 	}
 

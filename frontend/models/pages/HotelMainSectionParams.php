@@ -63,4 +63,12 @@ class HotelMainSectionParams extends SectionParams
      * @type string
      */
     public $sloganThird;
+
+    /**
+     * @var $isDark integer
+     * @title Темный?
+     * @default 1
+     * @type checkbox
+     */
+    public $isDark;
 }

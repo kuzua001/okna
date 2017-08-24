@@ -13,6 +13,7 @@ class PageFieldsController extends ApiController
     protected function verbs() {
         return [
             'index' => [ 'GET' ],
+            'update' => [ 'PUT' ],
         ];
     }
 
@@ -22,7 +23,8 @@ class PageFieldsController extends ApiController
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'index' => ['get'],
+                    'index'  => ['get'],
+                    'update' => ['put']
                 ],
             ],
         ];
@@ -31,7 +33,9 @@ class PageFieldsController extends ApiController
     public function actions()
     {
         $actions = parent::actions();
-        $actions['view']['class'] = 'backend\controllers\api\pagefields\CustomViewAction';
+        $actions['view']['class']   = 'backend\controllers\api\pagefields\CustomViewAction';
+        $actions['update']['class'] = 'backend\controllers\api\pagefields\CustomUpdateAction';
+
 
         return $actions;
     }

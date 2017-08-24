@@ -77,9 +77,20 @@ export class InterfaceDirective {
 				for (let i in values[item.key]) {
 					let sectionSettings = values[item.key][i];
 					let sectionType = sectionSettings.type;
-					$inputBlock.append(this.generateInterface(item.availableInstances[sectionType], sectionSettings, itemName +  '-' + i));
-					$inputBlock.attr('data-section-type', sectionType);
-					$inputBlock.attr('data-section-name', itemName);
+
+
+					console.log(sectionSettings);
+					console.log(sectionType);
+					console.log(item.availableInstances);
+
+
+					let $interfaceSub = this.generateInterface(item.availableInstances[sectionType], sectionSettings, itemName +  '-' + i);
+					$interfaceSub.attr('data-section-type', sectionType);
+					$interfaceSub.attr('data-section-name', itemName);
+					$interfaceSub.addClass('section');
+					$inputBlock.append($interfaceSub);
+
+					console.log($interfaceSub.html());
 				}
 			} else {
 				switch (item.type) {

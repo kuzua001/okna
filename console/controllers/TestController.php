@@ -18,6 +18,8 @@ use frontend\components\ObjectBuilder;
 use frontend\models\Page;
 use frontend\models\pages\HotelMainSectionParams;
 use frontend\models\pages\LandingPage;
+use frontend\models\pages\SliderItemParams;
+use frontend\models\pages\SliderTabsSectionParams;
 use frontend\models\pages\TextPageParams;
 use frontend\models\pages\TextPage;
 use yii\console\Controller;
@@ -52,11 +54,53 @@ class TestController extends Controller
         $mainSectionParams->sloganThird        = 'МИРОВОГО КЛАССА';
 
 
-        var_dump($mainSectionParams->toPageFields());
-/*
+        $slide1 = new SliderItemParams();
+        $slide1->tabTitle = 'Ресторан "Бежица"';
+        $slide1->tabContent = '<p style="
+    text-align: justify;
+">
+										Гастрономическая кухня базируется на использовании сезонных продуктов от приватных фермеров и современных кулинарных техниках.<br>
+										Ресторан предлагает блюда, в которых переосмыслена старинная рецептура, а знакомые вкусы открываются в оригинальных текстурах, формах и сочетаниях.
+									</p>
+									<p>
+										<em>
+											Идеально для изысканного банкета или свадебного торжества!
+										</em>
+									</p>
+									<p class="increased-margin">
+										Шеф-повар –&nbsp;Фёдор Гадалов.
+									</p>';
+
+        $slide2 = new SliderItemParams();
+        $slide2->tabTitle = 'Лобби бар';
+        $slide2->tabContent = '<p style="
+    text-align: justify;
+">
+										Гастрономическая кухня базируется на использовании сезонных продуктов от приватных фермеров и современных кулинарных техниках.<br>
+										Ресторан предлагает блюда, в которых переосмыслена старинная рецептура, а знакомые вкусы открываются в оригинальных текстурах, формах и сочетаниях.
+									</p>
+									<p>
+										<em>
+											Идеально для изысканного банкета или свадебного торжества!
+										</em>
+									</p>
+									<p class="increased-margin">
+										Шеф-повар –&nbsp;Фёдор Гадалов.
+									</p>';
+
+        $sliderTabsSectionParams = new SliderTabsSectionParams();
+        $sliderTabsSectionParams->detailButtonText = 'Узнать больше';
+        $sliderTabsSectionParams->title = 'Мероприятия и свадьбы';
+        $sliderTabsSectionParams->slides = [$slide1, $slide2];
+
+
+
+  //      var_dump($mainSectionParams->toPageFields());
+
         $page->pageParams->emptySections();
         $page->pageParams->addSection($mainSectionParams);
+        $page->pageParams->addSection($sliderTabsSectionParams);
 
-        $page->save();*/
+        $page->save();
     }
 }

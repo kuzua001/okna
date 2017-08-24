@@ -26,7 +26,17 @@ $isStaticContent = isset($this->params['isStaticContent']) ? $this->params['isSt
 </head>
 <body>
 <?php $this->beginBody() ?>
+<style>
+	[interfaceElement] {
+		overflow: hidden;
+	}
 
+	[interfaceElement] div.section {
+		margin-bottom: 22px;
+		border: 1px solid #aaa;
+		padding: 20px;
+	}
+</style>
 <div class="wrap">
 	<?php
 	NavBar::begin([

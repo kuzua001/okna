@@ -21,6 +21,39 @@ class PageParams
 
     protected $pageParamsNamespace = 'frontend\models\pages';
 
+    public function initFromArray($data) {
+        $pageFields = $this->toPageFieldsArr(true);
+
+        foreach ($data as $key => $value) {
+            if (property_exists($this, $key)) {
+                $item = [];
+
+                foreach ($pageFields as $item) {
+                    if ($item['key'] == $key);
+                    break;
+                }
+
+                if (empty($item)) {
+                    continue;
+                }
+
+                if ($item['type'] == 'composite') {
+                    $this->$key = [];
+                    foreach ($value as $itemArr) {
+                        /** @var $itemInstance PageParams */
+                        $itemInstance = clone $item['availableInstances'][$itemArr['type']];
+                        $itemInstance->initFromArray($itemArr);
+                        $this->$key[] = $itemInstance;
+                    }
+                } else {
+                    $this->$key = $value;
+                }
+            }
+        }
+
+        return true;
+    }
+
     /**
      * Инициализировать объект из сериализованного представления
      * @param $serialized string
@@ -67,7 +100,7 @@ class PageParams
             if (is_array($val)) {
                 $ret[$key] = [];
                 foreach ($val as $i => $obj) {
-                    $objArr = (array) $obj;
+                    $objArr = self::getValuesWithTypes($obj);
                     $objArr['type'] = $obj->{$obj->varyingField()};
                     $ret[$key][$i] = $objArr;
                 }
@@ -83,16 +116,16 @@ class PageParams
      * Преобразовать объект параметры страницы в массив полей страницы
      * @return array
      */
-    public function toPageFieldsArr()
+    public function toPageFieldsArr($asObj = false)
     {
-        return $this->toPageFields()->getParamsArr();
+        return $this->toPageFields($asObj)->getParamsArr();
     }
 
     /**
      * Преобразовать объект параметры страницы в объект "поля страницы"
      * @return PageFields
      */
-    public function toPageFields()
+    public function toPageFields($asObj = false)
     {
         $pageFields = new PageFields();
         $rc         = new \ReflectionClass(get_called_class());
@@ -123,7 +156,7 @@ class PageParams
                     $fullClassName = $this->pageParamsNamespace . '\\' . $class;
                     /** @var $params PageParams */
                     $params = new $fullClassName;
-                    $multiplePageFields[$params->{$params->varyingField()}] = $params->toPageFieldsArr();
+                    $multiplePageFields[$params->{$params->varyingField()}] = $asObj ? $params : $params->toPageFieldsArr();
                 }
 
                 $pageFields->addCompositeField($item->name, true, $multiplePageFields);

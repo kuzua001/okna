@@ -16,6 +16,7 @@ class Section extends Widget
 {
     const TYPE_HOTEL_MAIN    = 'hotel_main';
     const TYPE_HOTEL_SERVICE = 'hotel_service';
+    const TYPE_SLIDER_TABS   = 'slider_tabs';
 
     /**
      * @var SectionParams Параметры секции (объект любого унаследованного класса)
@@ -27,6 +28,9 @@ class Section extends Widget
         switch ($this->sectionParams->getSectionType()) {
             case self::TYPE_HOTEL_MAIN:
                 return $this->render('hotel/main');
+            case self::TYPE_SLIDER_TABS:
+                return $this->render('common/slider_tabs');
+
         }
     }
 }

@@ -48,7 +48,7 @@ class Page extends ActiveRecord
     }
 
     /**
-     * @return (ParamFierd)[]
+     * @return (ParamField)[]
      */
     public function getPageFields()
     {

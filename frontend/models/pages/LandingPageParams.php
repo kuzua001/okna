@@ -17,7 +17,7 @@ class LandingPageParams extends PageParams
     /**
      * @var $sectionsParams (SectionParams)[]
      * @title Параметры секций
-     * @type (HotelMainSectionParams)[]
+     * @type (HotelMainSectionParams|SliderTabsSectionParams)[]
      */
     public $sectionsParams;
 

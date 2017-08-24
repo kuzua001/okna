@@ -30,10 +30,7 @@ export class PageComponent {
 
 	public savePage() {
 		let values = this.directive.readInterfaceValues();
-		this.restangular.one('page').customPOST({
-			id : this.pageId,
-			data : values
-		});
+		this.restangular.one('pageFields', this.pageId).customPUT(values);
 	}
 
 	ngOnInit() {

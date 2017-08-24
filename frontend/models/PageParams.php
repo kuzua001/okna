@@ -43,7 +43,7 @@ class PageParams
                         /** @var $itemInstance PageParams */
                         $itemInstance = clone $item['availableInstances'][$itemArr['type']];
                         $itemInstance->initFromArray($itemArr);
-                        $this->$key[] = $itemInstance;
+                        array_push($this->$key, $itemInstance);
                     }
                 } else {
                     $this->$key = $value;

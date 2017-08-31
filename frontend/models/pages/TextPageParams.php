@@ -8,10 +8,10 @@
 
 namespace frontend\models\pages;
 
-use frontend\models\PageParams;
+use frontend\models\CmsPageParams;
 use frontend\models\ParamField;
 
-class TextPageParams extends PageParams
+class TextPageParams extends CmsPageParams
 {
     /**
      * @var $title

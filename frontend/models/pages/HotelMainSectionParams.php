@@ -36,7 +36,7 @@ class HotelMainSectionParams extends SectionParams
      * @var $greetingContent string
      * @title Текст приветствия
      * @default Получите удовольствие, выбрав восхитительную атмосферу премиум комплекса «Бежица».
-     * @type text
+     * @type textarea
      */
     public $greetingContent;
 
@@ -58,17 +58,9 @@ class HotelMainSectionParams extends SectionParams
 
     /**
      * @var $sloganThird string
-     * @title Третья часть центрального заголовка
+     * @title Третья часть центрального заголовка2
      * @default МИРОВОГО КЛАССА
      * @type string
      */
     public $sloganThird;
-
-    /**
-     * @var $isDark integer
-     * @title Темный?
-     * @default 1
-     * @type checkbox
-     */
-    public $isDark;
 }

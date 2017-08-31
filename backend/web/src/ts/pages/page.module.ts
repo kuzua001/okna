@@ -1,13 +1,14 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
-import { PageComponent } from "./page.component";
+import {NewPageComponent, PageComponent} from "./page.component";
 import { InterfaceDirective } from '../interface/interface.directive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-	declarations: [PageComponent, InterfaceDirective],
-	exports: [PageComponent],
+	declarations: [PageComponent, NewPageComponent, InterfaceDirective],
+	exports: [PageComponent, NewPageComponent],
 	imports: [
-		CommonModule
+		CommonModule, FormsModule
 	]
 })
 export class PagesModule {

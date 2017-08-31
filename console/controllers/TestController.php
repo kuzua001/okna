@@ -40,67 +40,69 @@ class TestController extends Controller
     public function actionIndex()
     {
 
-        $page = Page::id(2);
-
-        /**
-         * @var LandingPage $page
-         */
-        $mainSectionParams = new HotelMainSectionParams();
-        $mainSectionParams->mainHeaderTypePart = 'гранд отель';
-        $mainSectionParams->greetingHeader     = 'Добро пожаловать!';
-        $mainSectionParams->greetingContent    = 'Получите удовольствие, выбрав восхитительную атмосферу премиум комплекса «Бежица».';
-        $mainSectionParams->sloganFirst        = 'Ваш';
-        $mainSectionParams->sloganSecond       = 'изысканный и комфортный отдых';
-        $mainSectionParams->sloganThird        = 'МИРОВОГО КЛАССА';
+        $page = Page::id(18);
 
 
-        $slide1 = new SliderItemParams();
-        $slide1->tabTitle = 'Ресторан "Бежица"';
-        $slide1->tabContent = '<p style="
-    text-align: justify;
-">
-										Гастрономическая кухня базируется на использовании сезонных продуктов от приватных фермеров и современных кулинарных техниках.<br>
-										Ресторан предлагает блюда, в которых переосмыслена старинная рецептура, а знакомые вкусы открываются в оригинальных текстурах, формах и сочетаниях.
-									</p>
-									<p>
-										<em>
-											Идеально для изысканного банкета или свадебного торжества!
-										</em>
-									</p>
-									<p class="increased-margin">
-										Шеф-повар –&nbsp;Фёдор Гадалов.
-									</p>';
+        $json = '{
+  "sectionsParams": {
+    "0": {
+      "mainHeaderTypePart": "гранд отель",
+      "greetingHeader": "Добро пожаловать!",
+      "greetingContent": "Получите удовольствие, выбрав восхитительную атмосферу премиум комплекса «Бежица».",
+      "sloganFirst": "Ваш",
+      "sloganSecond": "изысканный и комфортный отдых",
+      "sloganThird": "МИРОВОГО КЛАССА",
+      "title": "",
+      "type": "hotel_main"
+    },
+    "1": {
+      "slides": {
+        "0": {
+          "tabTitle": "Ресторан \"Бежица\"",
+          "tabContent": "<p style=\"\n    text-align: justify;\n\">\n\t\t\t\t\t\t\t\t\t\tГастрономическая кухня базируется на использовании сезонных продуктов от приватных фермеров и современных кулинарных техниках.<br>\n\t\t\t\t\t\t\t\t\t\tРесторан предлагает блюда, в которых переосмыслена старинная рецептура, а знакомые вкусы открываются в оригинальных текстурах, формах и сочетаниях.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t<em>\n\t\t\t\t\t\t\t\t\t\t\tИдеально для изысканного банкета или свадебного торжества!\n\t\t\t\t\t\t\t\t\t\t</em>\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p class=\"increased-margin\">\n\t\t\t\t\t\t\t\t\t\tШеф-повар –&nbsp;Фёдор Гадалов.\n\t\t\t\t\t\t\t\t\t</p>",
+          "type": "simple_slide"
+        },
+        "1": {
+          "tabTitle": "Лобби бар",
+          "tabContent": "<p style=\"\n    text-align: justify;\n\">\n\t\t\t\t\t\t\t\t\t\tГастрономическая кухня базируется на использовании сезонных продуктов от приватных фермеров и современных кулинарных техниках.<br>\n\t\t\t\t\t\t\t\t\t\tРесторан предлагает блюда, в которых переосмыслена старинная рецептура, а знакомые вкусы открываются в оригинальных текстурах, формах и сочетаниях.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t\t<em>\n\t\t\t\t\t\t\t\t\t\t\tИдеально для изысканного банкета или свадебного торжества!\n\t\t\t\t\t\t\t\t\t\t</em>\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t\t<p class=\"increased-margin\">\n\t\t\t\t\t\t\t\t\t\tШеф-повар –&nbsp;Фёдор Гадалов.\n\t\t\t\t\t\t\t\t\t</p>",
+          "type": "simple_slide"
+        }
+      },
+      "detailButtonText": "Узнать больше",
+      "title": "Мероприятия и свадьбы",
+      "type": "slider_tabs"
+    }
+  },
+  "isEnabled": false
+}';
 
-        $slide2 = new SliderItemParams();
-        $slide2->tabTitle = 'Лобби бар';
-        $slide2->tabContent = '<p style="
-    text-align: justify;
-">
-										Гастрономическая кухня базируется на использовании сезонных продуктов от приватных фермеров и современных кулинарных техниках.<br>
-										Ресторан предлагает блюда, в которых переосмыслена старинная рецептура, а знакомые вкусы открываются в оригинальных текстурах, формах и сочетаниях.
-									</p>
-									<p>
-										<em>
-											Идеально для изысканного банкета или свадебного торжества!
-										</em>
-									</p>
-									<p class="increased-margin">
-										Шеф-повар –&nbsp;Фёдор Гадалов.
-									</p>';
+//        /**
+//         * @var LandingPage $page
+//         */
+//        $mainSectionParams = new HotelMainSectionParams();
+//        $mainSectionParams->mainHeaderTypePart = 'гранд отель';
+//        $mainSectionParams->greetingHeader     = 'Добро пожаловать!';
+//        $mainSectionParams->greetingContent    = 'Получите удовольствие, выбрав восхитительную атмосферу премиум комплекса «Бежица».';
+//        $mainSectionParams->sloganFirst        = 'Ваш';
+//        $mainSectionParams->sloganSecond       = 'изысканный и комфортный отдых';
+//        $mainSectionParams->sloganThird        = 'МИРОВОГО КЛАССА';
+//
+//
+//
+//
+//
+//  //      var_dump($mainSectionParams->toPageFields());
+//
+//        $page->pageParams->emptySections();
+//        $page->pageParams->addSection($mainSectionParams);
+//       // $page->pageParams->addSection($sliderTabsSectionParams);
+//
+//        $page->save();
 
-        $sliderTabsSectionParams = new SliderTabsSectionParams();
-        $sliderTabsSectionParams->detailButtonText = 'Узнать больше';
-        $sliderTabsSectionParams->title = 'Мероприятия и свадьбы';
-        $sliderTabsSectionParams->slides = [$slide1, $slide2];
 
-
-
-  //      var_dump($mainSectionParams->toPageFields());
-
-        $page->pageParams->emptySections();
-        $page->pageParams->addSection($mainSectionParams);
-        $page->pageParams->addSection($sliderTabsSectionParams);
-
+        $page->pageParams->initFromArray(json_decode($json, true));
         $page->save();
+
+        print_r($page);
     }
 }

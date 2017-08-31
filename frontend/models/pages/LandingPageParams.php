@@ -8,10 +8,10 @@
 
 namespace frontend\models\pages;
 
-use frontend\models\PageParams;
+use frontend\models\CmsPageParams;
 use frontend\models\ParamField;
 
-class LandingPageParams extends PageParams
+class LandingPageParams extends CmsPageParams
 {
 
     /**

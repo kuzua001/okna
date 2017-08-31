@@ -23,7 +23,6 @@ class PageFields extends Object
     const TYPE_COMPOSITE     = 'composite';
     const TYPE_COMPOSITE_ARR = 'composite_arr';
 
-
     public function getParamsArr()
     {
         return $this->params;
@@ -31,7 +30,7 @@ class PageFields extends Object
 
     public function addField($key, $type, $title = '', $default = '')
     {
-        $this->params[] = [
+        $this->params[$key] = [
             'key'     => $key,
             'type'    => $type,
             'title'   => $title,
@@ -50,7 +49,7 @@ class PageFields extends Object
      * @param array (PageFields)[] $availableInstances
      */
     public function addCompositeField($key, $isArr, array $availableInstances) {
-        $this->params[] = [
+        $this->params[$key] = [
             'key'  => $key,
             'type' => $isArr ? self::TYPE_COMPOSITE : self::TYPE_COMPOSITE_ARR,
             'availableInstances' => $availableInstances
@@ -59,6 +58,10 @@ class PageFields extends Object
 
     public function __toString()
     {
+
+        //var_dump(PageParams::getValuesWithTypes($this->values));
+        //exit();
+
         return json_encode((object) [
             'params' => $this->params,
             'values' => PageParams::getValuesWithTypes($this->values)

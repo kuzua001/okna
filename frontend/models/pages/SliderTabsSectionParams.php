@@ -32,12 +32,4 @@ class SliderTabsSectionParams extends SectionParams
      * @type (SliderItemParams)[]
      */
     public $slides;
-
-    /**
-     * @var $isLeftSide integer
-     * @title Темный?
-     * @default 1
-     * @type checkbox
-     */
-    public $isLeftSide;
 }

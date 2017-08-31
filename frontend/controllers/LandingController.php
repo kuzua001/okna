@@ -11,6 +11,7 @@ use yii;
 
 class LandingController extends CmsController
 {
+
     public function actionIndex()
     {
         return $this->render('index.php', ['page' => $this->page]);

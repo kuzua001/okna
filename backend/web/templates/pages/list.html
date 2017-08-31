@@ -1,15 +1,25 @@
 <div #start>
-	<div style="width: 300px; float: left;">
-		<ul>
-			<li *ngFor="let page of pages" (click)="loadPage(page.id)">
-				{{ page.url }}
+	<div class="modal fade" id="createPageModal">
+		<new-page (submitted)="createPage($event)"></new-page>
+	</div>
+	<div class="col-lg-3 sidebar-nav">
+		<ul class="nav nav-list">
+			<li *ngFor="let page of pages" (click)="loadPage(page)">
+				<a>{{ page.name }} <a href="/{{ page.url }}" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></a>
 			</li>
 		</ul>
+		<button class="btn btn-success" data-toggle="modal" data-target="#createPageModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
 	</div>
-	<div>
-		<div class="fields" interfaceElement></div>
-		<div class="controls">
-			<button (click)="savePage()">Сохранить</button>
+	<div class="col-lg-9" *ngIf="isLoaded()">
+		<div class="form-vertical">
+			<div class="page-options form-group checkbox">
+				<label for="enabled-checkbox">Опубликован?</label>
+				<input id="enabled-checkbox" type="checkbox" [checked]="currentPage.is_enabled" (change)="pageEnableToggle()"/>
+			</div>
+			<div class="fields form-group" interfaceElement></div>
+			<div class="controls form-group">
+				<button class="btn btn-default" (click)="savePage()">Сохранить</button>
+			</div>
 		</div>
 	</div>
 </div>

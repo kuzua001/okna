@@ -21,32 +21,45 @@ class PageParams
 
     protected $pageParamsNamespace = 'frontend\models\pages';
 
-    public function initFromArray($data) {
-        $pageFields = $this->toPageFieldsArr(true);
+    protected $availableInstances = [];
 
-        foreach ($data as $key => $value) {
-            if (property_exists($this, $key)) {
-                $item = [];
+    /**
+     * Получить availableInstances
+     * @return array
+     */
+    public function getAvailableInstances()
+    {
+        return $this->availableInstances;
+    }
 
-                foreach ($pageFields as $item) {
-                    if ($item['key'] == $key);
-                    break;
-                }
+    public function initFromArray($data, $pageFields = null) {
+        $pageFields = is_null($pageFields) ? $this->toPageFieldsArr(true, false) : $pageFields;
 
-                if (empty($item)) {
-                    continue;
-                }
+        if (is_array($data)) {
+            foreach ($data as $key => $value) {
+                if (property_exists($this, $key)) {
 
-                if ($item['type'] == 'composite') {
-                    $this->$key = [];
-                    foreach ($value as $itemArr) {
-                        /** @var $itemInstance PageParams */
-                        $itemInstance = clone $item['availableInstances'][$itemArr['type']];
-                        $itemInstance->initFromArray($itemArr);
-                        array_push($this->$key, $itemInstance);
+                    if (!isset($pageFields[$key])) {
+                        continue;
                     }
-                } else {
-                    $this->$key = $value;
+                    $item = $pageFields[$key];
+
+                    if ($item['type'] == 'composite') {
+                        $this->$key = [];
+                        if (is_array($value)) {
+                            foreach ($value as $itemArr) {
+                                /** @var $itemInstance PageParams */
+                                /** @var $instance PageParams */
+                                $availableInstances = is_object($item) ? $item->getAvailableInstances() : $item['availableInstances'];
+                                $instance = $availableInstances[$itemArr['type']];
+                                $itemInstance = clone $instance;
+                                $itemInstance->initFromArray($itemArr, $instance->getAvailableInstances());
+                                array_push($this->$key, $itemInstance);
+                            }
+                        }
+                    } else {
+                        $this->$key = $value;
+                    }
                 }
             }
         }
@@ -100,9 +113,13 @@ class PageParams
             if (is_array($val)) {
                 $ret[$key] = [];
                 foreach ($val as $i => $obj) {
-                    $objArr = self::getValuesWithTypes($obj);
-                    $objArr['type'] = $obj->{$obj->varyingField()};
-                    $ret[$key][$i] = $objArr;
+                    if (is_object($obj)) {
+                        $objArr = self::getValuesWithTypes($obj);
+                        $objArr['type'] = $obj->{$obj->varyingField()};
+                        $ret[$key][$i] = $objArr;
+                    } else {
+                        $ret[$key][$i]  = $obj;
+                    }
                 }
             } else {
                 $ret[$key] = $val;
@@ -116,16 +133,16 @@ class PageParams
      * Преобразовать объект параметры страницы в массив полей страницы
      * @return array
      */
-    public function toPageFieldsArr($asObj = false)
+    public function toPageFieldsArr($asObj = false, $onlyComposite = false)
     {
-        return $this->toPageFields($asObj)->getParamsArr();
+        return $this->toPageFields($asObj, $onlyComposite)->getParamsArr();
     }
 
     /**
      * Преобразовать объект параметры страницы в объект "поля страницы"
      * @return PageFields
      */
-    public function toPageFields($asObj = false)
+    public function toPageFields($asObj = false, $onlyComposite = false)
     {
         $pageFields = new PageFields();
         $rc         = new \ReflectionClass(get_called_class());
@@ -145,7 +162,7 @@ class PageParams
 
             preg_match('/\(([a-zA-Z\|]*)\)\[\]/', $typeStr, $multiple);
             if (count($multiple) === 0) {
-                if (ParamField::checkType($typeStr)) {
+                if (ParamField::checkType($typeStr) && !$onlyComposite) {
                     $pageFields->addField($item->name, $typeStr, $title, $default);
                 }
             } else {
@@ -156,7 +173,10 @@ class PageParams
                     $fullClassName = $this->pageParamsNamespace . '\\' . $class;
                     /** @var $params PageParams */
                     $params = new $fullClassName;
-                    $multiplePageFields[$params->{$params->varyingField()}] = $asObj ? $params : $params->toPageFieldsArr();
+                    if ($asObj) {
+                        $params->availableInstances = $params->toPageFieldsArr($asObj, $onlyComposite);
+                    }
+                    $multiplePageFields[$params->{$params->varyingField()}] = $asObj ? $params : $params->toPageFieldsArr($asObj);
                 }
 
                 $pageFields->addCompositeField($item->name, true, $multiplePageFields);

@@ -19,15 +19,16 @@ class PageFieldsController extends ApiController
 
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'index'  => ['get'],
-                    'update' => ['put']
-                ],
+        $behaviors = [];//parent::behaviors();
+        $behaviors['verbs'] = [
+            'class' => VerbFilter::className(),
+            'actions' => [
+                'index'  => ['get'],
+                'update' => ['put']
             ],
         ];
+
+        return $behaviors;
     }
 
     public function actions()

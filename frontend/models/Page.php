@@ -10,6 +10,9 @@ namespace frontend\models;
 
 use frontend\components\MetadataExtractor;
 use frontend\components\ObjectBuilder;
+use frontend\controllers\CmsController;
+use frontend\models\pages\LandingPage;
+use frontend\models\pages\TextPage;
 use yii\db\ActiveRecord;
 use yii\db\Exception;
 use yii\db\Query;
@@ -22,12 +25,20 @@ use yii\db\Query;
  * @property $action_id integer
  * @property $pages_id integer
  * @property $params_data string
+ * @property $is_enabled boolean
  */
 class Page extends ActiveRecord
 {
     public function fields()
     {
-        return ['id', 'url', 'action_id', 'name'];
+        return ['id', 'url', 'action_id', 'name', 'is_enabled', 'pages_id'];
+    }
+
+    public function scenarios()
+    {
+        return [
+            'default' => ['id', 'url', 'action_id', 'name', 'is_enabled', 'pages_id']
+        ];
     }
     /**
      * @var PageParams
@@ -62,9 +73,15 @@ class Page extends ActiveRecord
 
     public function beforeSave($insert)
     {
-        $this->params_data = $this->pageParams->toSerialized();
+        if (parent::beforeSave($insert)) {
+            if (!is_null($this->pageParams)) {
+                $this->params_data = $this->pageParams->toSerialized();
+            }
 
-        return parent::beforeSave($insert);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -100,6 +117,13 @@ class Page extends ActiveRecord
         $pages = self::find()->all();
 
         foreach ($pages as $page) {
+
+            /**
+             * @var $page TextPage|LandingPage
+             */
+            if (!$page->is_enabled) {
+                continue;
+            }
 
             $routes[] = [
                 'pattern' => $page->url,

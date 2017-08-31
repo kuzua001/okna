@@ -1,9 +1,34 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Output, EventEmitter } from '@angular/core';
 import { InterfaceDirective } from '../interface/interface.directive';
 import { Restangular } from 'ng2-restangular';
 /**
  * Created by ivan on 7/10/17.
  */
+
+export class Page {
+	id: number;
+	name: string;
+	action_id: number;
+	url: string;
+	pages_id: number;
+}
+
+@Component({
+	selector: 'new-page',
+	templateUrl: `/admin/templates/pages/new-page.html?v=${new Date().getTime()}`,
+})
+export class NewPageComponent {
+	@Output()
+	submitted:EventEmitter<Page> = new EventEmitter();
+
+	newPage: Page = {
+		id : 0,
+		name : '',
+		url : '',
+		action_id : 0,
+		pages_id : 0
+	};
+}
 
 @Component({
 	selector: 'ng-pages',
@@ -13,28 +38,48 @@ export class PageComponent {
 	constructor(public restangular: Restangular) {}
 
 	public pages: any;
-	public currentPage: string;
 
-	private pageId: number;
+	public currentPage: any;
 
 	@ViewChild('start') start;
 	@ViewChild( InterfaceDirective ) directive: InterfaceDirective;
-	public loadPage(pageId: any)
+
+	public isLoaded()
 	{
-		this.pageId = pageId;
-		this.restangular.one('pageFields', pageId).get().subscribe( pageFields => {
+		return this.currentPage != null;
+	}
+
+	public loadPage(page: any)
+	{
+		this.currentPage = page;
+		console.log(page);
+		this.restangular.one('pageFields', page.id).get().subscribe( pageFields => {
 			//console.log(pageFields);
 			this.directive.updateInterface(pageFields);
 		});
 	}
 
+	public createPage(page)
+	{
+		let pages = this.restangular.all('page');
+		pages.post(page).subscribe( page => {
+			this.pages.push(page);
+		});
+	}
+
+	public pageEnableToggle()
+	{
+		this.currentPage.is_enabled = !this.currentPage.is_enabled;
+		this.currentPage.is_enabled = this.currentPage.is_enabled ? 1 : 0;
+		this.currentPage.put();
+	}
+
 	public savePage() {
 		let values = this.directive.readInterfaceValues();
-		this.restangular.one('pageFields', this.pageId).customPUT(values);
+		this.restangular.one('pageFields', this.currentPage.id).customPUT(values);
 	}
 
 	ngOnInit() {
-		this.currentPage = 'Плейсхолдер';
 		// GET /admin/api/users/1
 		this.restangular.all('page').getList().subscribe( pages => {
 			this.pages = pages;

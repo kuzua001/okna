@@ -2,10 +2,12 @@
  * Created by ivan on 7/31/17.
  */
 import { Directive, ElementRef, Renderer, Input, OnChanges } from '@angular/core';
-import $ from "jquery";
+declare let require: any;
+declare let CKEDITOR: any;
 
-
-declare let tinymce: any;
+import $ from 'jquery';
+import 'bootstrap';
+import 'jqueryui';
 
 @Directive({ selector: '[interfaceElement]' })
 export class InterfaceDirective {
@@ -63,8 +65,9 @@ export class InterfaceDirective {
 	}
 
 	private templateCounter: number = 0;
+	private ckEditorIds = [];
 
-	private generateInterface(interfaceSettings, values, levelName: string)
+	private generateInterface(interfaceSettings, values, levelName: string, ckeditorInit = true)
 	{
 
 		this.templateCounter ++;
@@ -99,6 +102,7 @@ export class InterfaceDirective {
 					$interfaceSub.attr('data-section-type', sectionType);
 					$interfaceSub.attr('data-section-name', itemName);
 					$interfaceSub.addClass('section').addClass('existing');
+					$interfaceSub.append($('<span class="close"><i class="fa fa-close"></i></span>'));
 					$inputBlock.append($interfaceSub);
 
 					console.log($interfaceSub.html());
@@ -112,10 +116,11 @@ export class InterfaceDirective {
 
 				for (let type in item.availableInstances) {
 					$newElementsSelect.append($('<option value="' + type + '">' + type  + '</option>'));
-					let $interfaceSub = this.generateInterface(item.availableInstances[type], [], itemName +  '-' + templateName);
+					let $interfaceSub = this.generateInterface(item.availableInstances[type], [], itemName +  '-' + templateName, false);
 					$interfaceSub.attr('data-section-type', type);
 					$interfaceSub.attr('data-section-name', itemName);
 					$interfaceSub.addClass('section');
+					$interfaceSub.append($('<span class="close"><i class="fa fa-close"></i></span>'));
 					$newElementsHiddenList.append($interfaceSub);
 				}
 
@@ -134,7 +139,7 @@ export class InterfaceDirective {
 						$input.val(value);
 						break;
 					case 'html':
-						$input = $('<textarea class="tinymce">');
+						$input = $('<textarea class="ckeditor">');
 						$input.val(value);
 						break;
 					case 'text':
@@ -160,9 +165,18 @@ export class InterfaceDirective {
 					$input.addClass('form-control');
 				}
 
+
+				if (item.type == 'html' && ckeditorInit) {
+					this.ckEditorIds.push(itemId);
+				}
+
 				$inputBlock.append($('<label for="' + itemId + '">' + item.title + '</label>'));
 				$inputBlock.append($input);
 
+			}
+
+			if (item.separated == true) {
+				$interface.append($('<hr class="separator">'));
 			}
 
 			$interface.append($inputBlock);
@@ -181,7 +195,7 @@ export class InterfaceDirective {
 			let $elem = $(elem);
 			let $parent = $elem.parent();
 			let templateName = $parent.data('template-name');
-			$elem.click(() => {
+			$elem.off('click').on('click', () => {
 				console.log('added!!');
 				let sectionType = $parent.children('select').val();
 				let $newSection = $parent.children('.new-elements-list').children('[data-section-type=' +  sectionType + ']');
@@ -189,6 +203,10 @@ export class InterfaceDirective {
 				let html = $newSection.get(0).outerHTML.replace(new RegExp(templateName, 'g'), newIndex);
 				let $preparedSection = $(html).addClass('existing');
 				$preparedSection.insertBefore($parent);
+				$preparedSection.find('.ckeditor').each((i, elem) => {
+					CKEDITOR.replace($(elem).attr('id'));
+				});
+
 				directive.initSectionConstructor();
 			});
 		});
@@ -204,21 +222,34 @@ export class InterfaceDirective {
 		console.log(this.interfaceSettings.values);
 
 		this.templateCounter = 0;
+		this.ckEditorIds = [];
 		$interface.append(this.generateInterface(this.interfaceSettings.params, this.interfaceSettings.values, ''));
-		this.initSectionConstructor();
 
-		tinymce.remove();
-		tinymce.init({
-			"selector" : ".tinymce",
-			"plugins" : "code",
-			"toolbar" : "code",
-			"menubar" : "tools",
-			// "content_css" : "/css/tinymce.css"
-		});
+		for (let i in this.ckEditorIds) {
+			CKEDITOR.replace(this.ckEditorIds[i]);
+		}
+
+		$('.fields > div > .form-group').sortable();
+		this.initSectionConstructor();
 	}
 
 	constructor(private elem: ElementRef, private renderer: Renderer)
 	{
 		this.element = elem.nativeElement;
+
+		let bootstrapConfirm = (callback) => {
+			$('#confirm-delete').modal('show');
+			$('#confirm-delete').on('click', '.btn-ok', () => {
+				callback();
+			});
+		};
+
+		$('body').on('click', '.section.existing .close', (e) => {
+			console.log('trying to remove');
+			let $parent = $(e.currentTarget).parent();
+			bootstrapConfirm(() => {
+				$parent.remove();
+			})
+		})
 	}
 }

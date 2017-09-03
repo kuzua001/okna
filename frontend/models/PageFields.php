@@ -28,13 +28,14 @@ class PageFields extends Object
         return $this->params;
     }
 
-    public function addField($key, $type, $title = '', $default = '')
+    public function addField($key, $type, $title = '', $default = '', $separated = false)
     {
         $this->params[$key] = [
-            'key'     => $key,
-            'type'    => $type,
-            'title'   => $title,
-            'default' => $default
+            'key'       => $key,
+            'type'      => $type,
+            'title'     => $title,
+            'default'   => $default,
+            'separated' => $separated
         ];
     }
 

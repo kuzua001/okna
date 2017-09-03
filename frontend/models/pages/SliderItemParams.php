@@ -27,7 +27,7 @@ class SliderItemParams extends PageParams
      * @var $tabContent string
      * @title Контент таба
      * @default Текст
-     * @type html
+     * @type textarea
      */
     public $tabContent;
 

@@ -27,6 +27,15 @@ class SliderTabsSectionParams extends SectionParams
 
 
     /**
+     * @var $isRight
+     * @title Картинка справа
+     * @default
+     * @type checkbox
+     */
+    public $isRight;
+
+
+    /**
      * @var $slides SliderItemParams[]
      * @title Слайды
      * @type (SliderItemParams)[]

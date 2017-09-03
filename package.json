@@ -42,7 +42,7 @@
     "@types/angular-mocks": "^1.5.10",
     "@types/core-js": "^0.9.34",
     "@types/jquery": "^3.2.2",
-    "@types/node": "^6.0.45",
+    "@types/node": "^6.0.88",
     "angular-touch": "^1.6.5",
     "concurrently": "^3.1.0",
     "del": "^3.0.0",
@@ -58,6 +58,7 @@
     "lodash": "^4.17.4",
     "ng2-restangular": "^0.1.30",
     "ngx-restangular": "^1.0.11",
+    "require": "^2.4.20",
     "typescript": "^2.4.0"
   }
 }

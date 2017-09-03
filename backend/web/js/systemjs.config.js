@@ -8,6 +8,8 @@
 		'rxjs':                       'js/node_modules/rxjs',
 		'lodash':                     'js/node_modules/lodash',
 		jquery :                      'js/node_modules/jquery/dist/jquery.min.js',
+		bootstrap :                   'js/bootstrap.min.js',
+		jqueryui :                    'js/jqueryui.min.js',
 	};
 
 	// packages tells the System loader how to load when no filename and/or no extension
@@ -48,7 +50,7 @@
 
 	var config = {
 		map: map,
-		packages: packages,
+		packages: packages
 	};
 
 	System.config(config);

@@ -20,12 +20,13 @@ use yii\db\Query;
 /**
  * Class Page
  * @package frontend\models
- * @property $id integer
- * @property $url string
- * @property $action_id integer
- * @property $pages_id integer
+ * @property $id          integer
+ * @property $url         string
+ * @property $name        string
+ * @property $action_id   integer
+ * @property $pages_id    integer
  * @property $params_data string
- * @property $is_enabled boolean
+ * @property $is_enabled  boolean
  */
 class Page extends ActiveRecord
 {

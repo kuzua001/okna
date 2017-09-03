@@ -8,6 +8,8 @@
 
 namespace frontend\controllers;
 
+use frontend\models\menu\TopMenu;
+use frontend\models\menu\TopMenuItem;
 use frontend\views\CmsView;
 use yii\web\Controller;
 use yii;
@@ -27,6 +29,21 @@ class CmsController extends Controller
      */
     protected $page       = null;
 
+    /**
+     * Получить спсиок меню
+     */
+    public function getMenuList()
+    {
+        $menu = new TopMenu();
+        /** @var $pages Page[] */
+        $pages = Page::find()->where(['=', 'is_enabled', '1'])->all();
+        foreach ($pages as $page) {
+            $menu->addMenuItem(new TopMenuItem($page->url, $page->name));
+        }
+
+        return $menu;
+    }
+
     public function beforeAction($action)
     {
         $url        = Url::to();
@@ -42,6 +59,11 @@ class CmsController extends Controller
         $view = new CmsView();
         $view->description = $this->page->pageParams->metaDescription;
         $view->title = $this->page->pageParams->metaTitle;
+
+
+        //var_dump($this->getMenuList());
+        //exit();
+        //$view->topMenu
 
         $this->setView($view);
 

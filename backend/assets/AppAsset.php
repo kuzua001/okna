@@ -25,8 +25,8 @@ class AppAsset extends AssetBundle
         'js/systemjs.config.js',
         'js/import.js',
         'https://code.jquery.com/jquery-3.2.1.min.js',
-        'js/bootstrap.min.js',
-        'https://cloud.tinymce.com/stable/tinymce.min.js'
+        '//cdn.ckeditor.com/4.7.2/basic/ckeditor.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js'
     ];
 
     public $jsOptions = [

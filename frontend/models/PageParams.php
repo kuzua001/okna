@@ -154,16 +154,18 @@ class PageParams
             preg_match('/@type\s+(.+)\s?\n/', $comment, $typeMatch);
             preg_match('/@title\s+(.+)\s?\n/', $comment, $titleMatch);
             preg_match('/@default\s+(.+)\s?\n/', $comment, $defaultMatch);
+            preg_match('/@separated.?\n/', $comment, $separatedMatch);
 
             $typeStr = isset($typeMatch[1]) ? $typeMatch[1] : '';
 
-            $title   = isset($titleMatch[1]) ? $titleMatch[1] : '';
-            $default = isset($defaultMatch[1]) ? $defaultMatch[1] : '';
+            $title     = isset($titleMatch[1]) ? $titleMatch[1] : '';
+            $default   = isset($defaultMatch[1]) ? $defaultMatch[1] : '';
+            $separated = isset($separatedMatch[0]) ? true : false;
 
             preg_match('/\(([a-zA-Z\|]*)\)\[\]/', $typeStr, $multiple);
             if (count($multiple) === 0) {
                 if (ParamField::checkType($typeStr) && !$onlyComposite) {
-                    $pageFields->addField($item->name, $typeStr, $title, $default);
+                    $pageFields->addField($item->name, $typeStr, $title, $default, $separated);
                 }
             } else {
                 $classes = explode('|', $multiple[1]);

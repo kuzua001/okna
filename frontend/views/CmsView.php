@@ -22,4 +22,10 @@ class CmsView extends View {
      * @var
      */
     public $title;
+
+    /**
+     *
+     * @var
+     */
+    public $topMenu;
 }

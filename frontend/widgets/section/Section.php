@@ -15,6 +15,8 @@ use yii\base\Widget;
 class Section extends Widget
 {
     const TYPE_HOTEL_MAIN    = 'hotel_main';
+    const TYPE_FITNESS_MAIN  = 'fitness_main';
+    const TYPE_FITNESS_STYLE = 'fitness_style';
     const TYPE_HOTEL_SERVICE = 'hotel_service';
     const TYPE_SLIDER_TABS   = 'slider_tabs';
 
@@ -28,6 +30,10 @@ class Section extends Widget
         switch ($this->sectionParams->getSectionType()) {
             case self::TYPE_HOTEL_MAIN:
                 return $this->render('hotel/main');
+            case self::TYPE_FITNESS_MAIN:
+                return $this->render('fitness/main');
+            case self::TYPE_FITNESS_STYLE:
+                return $this->render('fitness/style');
             case self::TYPE_SLIDER_TABS:
                 return $this->render('common/slider_tabs');
 

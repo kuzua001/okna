@@ -44,6 +44,11 @@ export class PageComponent {
 	@ViewChild('start') start;
 	@ViewChild( InterfaceDirective ) directive: InterfaceDirective;
 
+	public isSelected(page)
+	{
+		return this.currentPage != null ? page.id == this.currentPage.id : false;
+	}
+
 	public isLoaded()
 	{
 		return this.currentPage != null;

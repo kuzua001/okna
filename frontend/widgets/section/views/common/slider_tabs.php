@@ -2,6 +2,7 @@
 use frontend\widgets\section\Section;
 use frontend\models\pages\SliderTabsSectionParams;
 use yii\helpers\Html;
+use frontend\widgets\buttons\DetailButton;
 
 /** @var Section $widget */
 
@@ -22,7 +23,7 @@ $sectionParams = $widget->sectionParams;
                     </h2>
                 </div>
             </div>
-            <div class="row row-flex row-flex-desktop">
+            <div class="row row-flex row-flex-desktop<?= $sectionParams->isRight ? ' reverse-order' : ''?>">
                 <div class="col l8 m12 s12">
                     <div class="slider slider-element">
                         <ul class="slides">
@@ -66,7 +67,12 @@ $sectionParams = $widget->sectionParams;
             </div>
             <div class="row more-row">
                 <div class="col l12 center">
-                    <button class="detail-button-element black-text"><?= $sectionParams->detailButtonText ?></button>
+                    <?= DetailButton::widget([
+                        'hasDetailButton'  => $sectionParams->hasDetailButton,
+                        'detailButtonText' => $sectionParams->detailButtonText,
+                        'detailButtonLink' => $sectionParams->detailButtonLink,
+                        'blackText'        => true,
+                    ]); ?>
                 </div>
             </div>
         </div>

@@ -26,7 +26,17 @@ $isStaticContent = isset($this->params['isStaticContent']) ? $this->params['isSt
 </head>
 <body>
 <?php $this->beginBody() ?>
+<style>
+	[interfaceElement] {
+		overflow: hidden;
+	}
 
+	[interfaceElement] div.section {
+		margin-bottom: 22px;
+		border: 1px solid #aaa;
+		padding: 20px;
+	}
+</style>
 <div class="wrap">
 	<?php
 	NavBar::begin([
@@ -71,13 +81,13 @@ $isStaticContent = isset($this->params['isStaticContent']) ? $this->params['isSt
 	</div>
 </div>
 
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+<!--<footer class="footer">-->
+<!--    <div class="container">-->
+<!--        <p class="pull-left">&copy; My Company --><?//= date('Y') ?><!--</p>-->
+<!---->
+<!--        <p class="pull-right">--><?//= Yii::powered() ?><!--</p>-->
+<!--    </div>-->
+<!--</footer>-->
 
 <?php $this->endBody() ?>
 </body>

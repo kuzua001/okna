@@ -1,4 +1,7 @@
 <?php
+
+use \frontend\models\Page;
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
@@ -7,11 +10,15 @@ $params = array_merge(
 );
 
 return [
+    'params' => $params,
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'language' => 'en-US',
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'DynamicRouting'],
     'controllerNamespace' => 'frontend\controllers',
+    'modules' => [
+        'DynamicRouting' => 'frontend\components\DynamicRouting'
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
@@ -43,10 +50,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'test' => 'site/test',
+                'test' => 'site/test'
             ],
         ],
 
     ],
-    'params' => $params,
 ];

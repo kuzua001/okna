@@ -4,11 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { RestangularModule } from 'ng2-restangular';
 import { UsersModule } from './users/users.module'
-
+import { PagesModule } from './pages/page.module'
 
 @Component({
 	selector: 'ng-app',
-	templateUrl: '/admin/dynamic/index'
+	templateUrl: `/admin/dynamic/index?v=${new Date().getTime()}`
 })
 export class AppComponent { name = 'Angular'; }
 
@@ -19,7 +19,8 @@ export class AppComponent { name = 'Angular'; }
 		RestangularModule.forRoot((RestangularProvider) => {
 			RestangularProvider.setBaseUrl('/admin/api/');
 		}),
-		UsersModule
+		UsersModule,
+		PagesModule,
 	],
 	declarations: [ AppComponent ],
 	bootstrap: [ AppComponent ]

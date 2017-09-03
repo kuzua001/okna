@@ -1,0 +1,44 @@
+<div #start>
+	<div class="modal fade" id="confirm-delete">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Подтвердите удаление</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					Точно удалить?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-ok" data-dismiss="modal">Удалить</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="createPageModal">
+		<new-page (submitted)="createPage($event)"></new-page>
+	</div>
+	<div class="col-lg-3 sidebar-nav">
+		<div class="affix">
+			<ul class="nav nav-list">
+				<li *ngFor="let page of pages" (click)="loadPage(page)">
+					<a [class.active]="isSelected(page)">{{ page.name }} <a href="/{{ page.url }}" target="_blank"><i class="fa fa-external-link" aria-hidden="true"></i></a></a>
+				</li>
+			</ul>
+			<button class="btn btn-success" data-toggle="modal" data-target="#createPageModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
+			<button *ngIf="isLoaded()" class="btn btn-default btn-primary" (click)="savePage()">Сохранить</button>
+		</div>
+	</div>
+	<div class="col-lg-9" *ngIf="isLoaded()">
+		<div class="form-vertical">
+			<div class="page-options form-group checkbox">
+				<label for="enabled-checkbox">Опубликован?</label>
+				<input id="enabled-checkbox" type="checkbox" [checked]="currentPage.is_enabled" (change)="pageEnableToggle()"/>
+			</div>
+			<div class="fields form-group" interfaceElement></div>
+		</div>
+	</div>
+</div>

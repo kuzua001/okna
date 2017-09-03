@@ -1,5 +1,5 @@
 <?php
-use frontend\widgets\common\BaseSection;
+use frontend\widgets\common\Section;
 use frontend\widgets\common\MainSection;
 use frontend\widgets\common\ServiceSection;
 use frontend\widgets\common\TemporarySection;

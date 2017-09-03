@@ -10,7 +10,13 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck" : true,
     "rootDir": "./backend/web/src/ts",
-    "outDir": "./web/js/built"
+    "outDir": "./web/js/built",
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
   },
   "exclude": [
     "../node_modules",

@@ -1,0 +1,37 @@
+.tab-list-element {
+	li {
+		.content {
+			padding-top: 22px;
+			display: none;
+		}
+
+		.link {
+			display: block;
+			width: 100%;
+			padding: 19px 29px;
+			cursor: pointer;
+		}
+
+		font-family: "Open Sans", sans-serif;
+		font-size: 18px;
+		color: #b8a761;
+
+		&.active,
+		&:hover {
+			.link {
+				color: #000;
+				background-color: #eae4cf;
+			}
+		}
+
+		&.active {
+			.content {
+				display: block;
+			}
+
+			.link {
+				border-left: 3px hsla(47, 39%, 52%, 1) solid;
+			}
+		}
+	}
+}

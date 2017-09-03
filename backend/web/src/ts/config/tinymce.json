@@ -1,0 +1,7 @@
+{
+	"selector" : ".tinymce",
+	"plugins" : "code",
+	"toolbar" : "code",
+	"menubar" : "tools",
+	"content_css" : "/css/tinymce.css"
+}

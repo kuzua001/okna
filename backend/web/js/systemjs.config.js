@@ -3,13 +3,13 @@
 	// map tells the System loader where to look for things
 	var map = {
 		'app':                        '/admin/js/built', // 'dist',
-		'@angular':                   'js/node_modules/@angular',
-		'ng2-restangular':            'js/node_modules/ng2-restangular',
-		'rxjs':                       'js/node_modules/rxjs',
-		'lodash':                     'js/node_modules/lodash',
-		jquery :                      'js/node_modules/jquery/dist/jquery.min.js',
-		bootstrap :                   'js/bootstrap.min.js',
-		jqueryui :                    'js/jqueryui.min.js',
+		'@angular':                   '/admin/js/node_modules/@angular',
+		'ng2-restangular':            '/admin/js/node_modules/ng2-restangular',
+		'rxjs':                       '/admin/js/node_modules/rxjs',
+		'lodash':                     '/admin/js/node_modules/lodash',
+		jquery :                      '/admin/js/node_modules/jquery/dist/jquery.min.js',
+		bootstrap :                   '/admin/js/bootstrap.min.js',
+		jqueryui :                    '/admin/js/jqueryui.min.js',
 	};
 
 	// packages tells the System loader how to load when no filename and/or no extension

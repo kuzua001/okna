@@ -154,10 +154,23 @@ export class InterfaceDirective {
 						$input = $('<input type="checkbox">');
 						$input.prop('checked', value);
 						break;
+					case 'image':
+						$input = $('<div data-image-id="' + itemId + '" class="input-group image-preview">\
+								<span class="input-group-btn">\
+									<input style="display: inline-block;" type="file" accept="image/png, image/jpeg, image/gif" class="btn btn-default image-file">\
+									<input type="hidden" id="' + itemId + '" class="image-file-value" value="' + value + '">\
+									<button type="button" class="btn btn-labeled btn-primary image-upload"> <span class="btn-label"><i class="glyphicon glyphicon-upload"></i> </span>Upload</button>\
+									<i class="fa fa-eye" aria-hidden="true"><img class="preview" src="' + value + '"></i>\
+								</span>\
+							</div>'
+						);
+						break;
 				}
 
 
-				$input.attr('id', itemId);
+				if (item.type != 'image') {
+					$input.attr('id', itemId);
+				}
 
 				if (item.type == 'checkbox') {
 					$input.addClass('checkbox').addClass('checkbox-inline');
@@ -184,6 +197,44 @@ export class InterfaceDirective {
 
 		return $interface;
 
+	}
+
+	private initAjaxFields()
+	{
+		let files = [];
+
+		$('body').on('change', '.section.existing .image-file', (e) => {
+			let $parent = $(e.currentTarget).closest('[data-image-id]');
+			let imageId = $parent.data('image-id');
+			files[imageId] = event.target.files;
+		});
+
+		$('body').on('click', '.section.existing .image-upload', (e) => {
+			let $parent = $(e.currentTarget).closest('[data-image-id]');
+			let imageId = $parent.data('image-id');
+			let data = new FormData();
+
+			let filesList = files[imageId];
+			if (!filesList.length) return;
+
+			data.append('file', filesList[0]);
+
+			$.ajax({
+				url: '/admin/api/files',
+				type: 'POST',
+				data: data,
+				cache: false,
+				dataType: 'json',
+				processData: false,
+				contentType: false,
+				success: (data) => {
+					if (data.status == 'ok') {
+						$parent.find('.image-file-value').val(data.file);
+						$parent.find('img.preview').attr('src', data.file);
+					}
+				}
+			});
+		});
 	}
 
 
@@ -229,7 +280,8 @@ export class InterfaceDirective {
 			CKEDITOR.replace(this.ckEditorIds[i]);
 		}
 
-		$('.fields > div > .form-group').sortable();
+		this.initAjaxFields();
+		//$('.fields > div > .form-group').sortable();
 		this.initSectionConstructor();
 	}
 

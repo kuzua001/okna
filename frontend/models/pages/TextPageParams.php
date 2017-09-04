@@ -8,23 +8,26 @@
 
 namespace frontend\models\pages;
 
-use frontend\models\CmsPageParams;
-use frontend\models\ParamField;
+use frontend\models\pages\SectionParams;
+use frontend\widgets\section\Section;
 
-class TextPageParams extends CmsPageParams
+class TextPageParams extends SectionParams
 {
+
+    protected $sectionType = Section::TYPE_TEXT_PAGE;
+
     /**
-     * @var $title
-     * @title Заголовок страницы
+     * @var $bgColor string
+     * @title Цвет в формате #ffffff
      * @type string
      */
-    public $title;
+    public $bgColor;
 
 
     /**
      * @var $content
      * @title Контент страницы
-     * @type html
+     * @type textarea
      */
     public $content;
 }

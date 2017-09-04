@@ -11,6 +11,7 @@ export class Page {
 	action_id: number;
 	url: string;
 	pages_id: number;
+	domain_id: number;
 }
 
 @Component({
@@ -21,12 +22,24 @@ export class NewPageComponent {
 	@Output()
 	submitted:EventEmitter<Page> = new EventEmitter();
 
+	public domains: any[];
+
+	constructor(public restangular: Restangular) {}
+
+	ngOnInit() {
+		// GET /admin/api/users/1
+		this.restangular.all('domain').getList().subscribe( domains => {
+			this.domains = domains;
+		});
+	}
+
 	newPage: Page = {
 		id : 0,
 		name : '',
 		url : '',
 		action_id : 0,
-		pages_id : 0
+		pages_id : 0,
+		domain_id: 0
 	};
 }
 

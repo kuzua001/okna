@@ -31,6 +31,53 @@ class SliderItemParams extends PageParams
      */
     public $tabContent;
 
+
+    /**
+     * @var $image string
+     * @title Изображение
+     * @default
+     * @type image
+     */
+    public $image;
+
+
+    /**
+     * @var $hasCard boolean
+     * @title Показывать карточку
+     * @default
+     * @separated
+     * @type checkbox
+     */
+    public $hasCard;
+
+    /**
+     * @var $cardTitleFirst string
+     * @title Первая часть заголовка карточки
+     * @default
+     * @type string
+     */
+    public $cardTitleFirst;
+
+
+    /**
+     * @var $cardTitleSecond string
+     * @title вторая часть заголовка карточки
+     * @default
+     * @type string
+     */
+    public $cardTitleSecond;
+
+
+    /**
+     * @var $cardTitleThird string
+     * @title Третья часть заголовка карточки
+     * @default
+     * @type string
+     */
+    public $cardTitleThird;
+
+
+
     protected $sliderItemType = 'simple_slide';
 
     public function varyingField()

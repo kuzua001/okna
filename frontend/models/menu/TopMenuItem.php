@@ -64,7 +64,7 @@ class TopMenuItem
     public function getHTML()
     {
         return HTML::tag('a', Html::encode($this->title), [
-            'href' => $this->url
+            'href' => '/' . ltrim($this->url,'/')
         ]);
     }
 

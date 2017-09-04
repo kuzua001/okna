@@ -8,24 +8,31 @@
 
 namespace frontend\views;
 
+use frontend\models\menu\TopMenu;
 use yii\web\View;
 
 class CmsView extends View {
     /**
      * SEO description
-     * @var
+     * @var string
      */
     public $description;
 
     /**
      * SEO title
-     * @var
+     * @var string
      */
     public $title;
 
     /**
-     *
-     * @var
+     * Верхняя менюха
+     * @var TopMenu
      */
     public $topMenu;
+
+    /**
+     * Дефолтный цвет фона
+     * @var string
+     */
+    public $bgColor;
 }

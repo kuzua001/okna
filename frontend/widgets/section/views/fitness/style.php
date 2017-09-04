@@ -20,40 +20,17 @@ $sectionParams = $widget->sectionParams;
                 <div class="col l6 s12 push-l6">
                     <div class="right-content-block-element">
                         <h2 class="elegant-title-element">
-                            <span class="first">Новый</span>
-                            <span class="second">фитнес-клуб</span>
-                            <span class="third tight">новый стиль жизни</span>
+                            <span class="first"><?= $sectionParams->sloganFirst ?></span>
+                            <span class="second"><?= $sectionParams->sloganSecond ?></span>
+                            <span class="third tight"><?= $sectionParams->sloganThird ?></span>
                         </h2>
-                        <p>
-                            Новое поколение клубов премиум-класса
-                        </p>
-                        <p>
-                            Ультрасовременный клуб, сочетающий в&nbsp;себе уникальный дизайн, удобную инфраструктуру и&nbsp;безупречный сервис.
-                            <br>
-                        </p>
-                        <p>
-                            Бежица - Это красивый спорт
-                        </p>
-                        <p>
-                            Занятия фитнесом — это не просто тренировки для поддержания формы.
-                            Это стиль жизни, стремление быть лучше.
-                            Поэтому мы концентрируемся не столько на физических параметрах, сколько на получении удовольствия от тренировок.
-                            Новые фитнес-технологии позволяют по-новому взглянуть на достижение целей, а инфраструктура спортклуба — полезно организовать время.
-                        </p>
+                        <?= $sectionParams->content ?>
                         <div class="card-element">
                             <header>
-                                К вашим услугам
+                                <?= $sectionParams->cardTitle ?>
                             </header>
                             <section class="content">
-                                <p>
-                                    Тренажasasерный зал, оснащенный современными спортивными тренажерами;
-                                    Кардиоasas-тренажеры Intenza;
-                                    Группоasasвые программы (пилатес, йога, танцы);
-                                    Бассейasasн с зонами для отдыха и релаксации;
-                                    Персонasasальный тренинг;
-                                    Фитнесasas бар со спортивным питанием и коктейлями;
-                                    Бесплаasasтный паркинг.
-                                </p>
+                                <?= $sectionParams->cardContent ?>
                             </section>
                         </div>
                     </div>

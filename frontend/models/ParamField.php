@@ -15,6 +15,7 @@ class ParamField
     const TYPE_TEXTAREA = 'textarea';
     const TYPE_HTML     = 'html';
     const TYPE_CHECKBOX = 'checkbox';
+    const TYPE_IMAGE    = 'image';
     const TYPE_DEFAULT  = self::TYPE_STRING;
 
     private $value = null;
@@ -27,6 +28,7 @@ class ParamField
         self::TYPE_STRING,
         self::TYPE_TEXTAREA,
         self::TYPE_HTML,
+        self::TYPE_IMAGE,
     ];
 
     public static function checkType($type) {

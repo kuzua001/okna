@@ -52,10 +52,12 @@ return [
                         'users'      => 'api/user',
                         'texts'      => 'api/text',
                         'page'       => 'api/page',
-                        'pageFields' => 'api/page-fields'
+                        'domain'     => 'api/domain',
+                        'pageFields' => 'api/page-fields',
                     ],
                     'prefix' => 'api'
                 ],
+                'api/files' => 'api/files',
                 [
                     'pattern' => 'page/edit/<pageId:\d+>',
                     'route' => 'dynamic/page-edit',

@@ -18,6 +18,13 @@
 					<input type="text" [(ngModel)]="newPage.url" class="form-control" id="new-page-url" aria-describedby="urlHelp" placeholder="URL страницы" name="pageURL">
 					<small id="urlHelp" class="form-text text-muted">Страница 1</small>
 				</div>
+				<div class="form-group">
+					<label for="new-page-domain">Домен</label>
+					<select [(ngModel)]="newPage.domain_id" class="form-control" id="new-page-domain" aria-describedby="domainHelp" name="pageDomain">
+						<option *ngFor="let domain of domains" [ngValue]="domain.id">{{ domain.title }}</option>
+					</select>
+					<small id="domainHelp" class="form-text text-muted">domain.ru</small>
+				</div>
 			</form>
 		</div>
 		<div class="modal-footer">

@@ -8,6 +8,26 @@ $(document).ready(function(){
 		interval: 1000000,
 		transition: 1000
 	});
+
+	$('.slider-group').each(function(i, elem) {
+		var $elem    = $(elem);
+		var $slider  = $elem.find('.slider');
+		var $tabList = $elem.find('.tab-list-element');
+
+		$tabList.on('click', 'li', function(e) {
+			var $new     = $(e.currentTarget);
+			var $current = $tabList.find('li.active');
+			var newIndex = $new.index();
+
+			$slider.find('.indicators li').eq(newIndex).click();
+
+			$current.find('section.content').fadeOut(function() {
+				$tabList.children().removeClass('active');
+				$new.addClass('active');
+				$new.find('section.content').fadeIn();
+			});
+		});
+	});
 });
 
 

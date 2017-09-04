@@ -19,6 +19,7 @@ class Section extends Widget
     const TYPE_FITNESS_STYLE = 'fitness_style';
     const TYPE_HOTEL_SERVICE = 'hotel_service';
     const TYPE_SLIDER_TABS   = 'slider_tabs';
+    const TYPE_TEXT_PAGE     = 'text_page';
 
     /**
      * @var SectionParams Параметры секции (объект любого унаследованного класса)
@@ -36,7 +37,8 @@ class Section extends Widget
                 return $this->render('fitness/style');
             case self::TYPE_SLIDER_TABS:
                 return $this->render('common/slider_tabs');
-
+            case self::TYPE_TEXT_PAGE:
+                return $this->render('common/text_page');
         }
     }
 }

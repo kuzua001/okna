@@ -36,7 +36,7 @@ class SliderTabsSectionParams extends SectionParams
 
 
     /**
-     * @var $slides SliderItemParams[]
+     * @var $slides (SliderItemParams)[]
      * @title Слайды
      * @type (SliderItemParams)[]
      */

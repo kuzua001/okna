@@ -1,14 +1,10 @@
 <?php
 
 use \yii\widgets\Menu;
+use \frontend\models\menu\TopMenu;
 
-if (!isset($this->params['menuItems'])) {
-	$menuItems = [
-		['label' => 'отель', 'selector' => 'section#section1', 'url' => 'http://bezhitsa.com'],
-		['label' => 'ресторан', 'selector' => 'section#section3', 'url' => 'http://bzrest.ru'],
-		['label' => 'фитнес-клуб&nbsp', 'selector' => 'section#section4', 'url' => 'http://bzfit.ru'],
-	];
-}
+/** @var $this \frontend\views\CmsView*/
+$topMenu = isset($this->topMenu) ? $this->topMenu : new TopMenu();
 ?>
 <section class="header">
 	<div class="content-wrapper">
@@ -37,8 +33,8 @@ if (!isset($this->params['menuItems'])) {
 					</div>
 					<div class="header-menu col l5">
 						<nav class="menu">
-                            <?php foreach ($menuItems as $item) { ?>
-								<a class="item" ng-click="site.scrollBodyTo(\"<?= $item['selector']?>\")" href="<?= $item['url']?>"><?= $item['label']?></a>
+                            <?php foreach ($topMenu->getItems() as $item) { ?>
+								<?= $item->getHTML() ?>
 							<?php } ?>
 						</nav>
 <!--						<nav class="menu">-->
@@ -60,8 +56,8 @@ if (!isset($this->params['menuItems'])) {
 </section>
 <div class="slide-menu-element mobile-only" ng-class="{'active':site.slideMenuState}" ng-swipe-left="site.setMenuState(false)">
 	<nav class="menu">
-        <?php foreach ($menuItems as $item) { ?>
-			<a class="item" ng-click="site.scrollBodyTo(\"<?= $item['selector']?>\")" href="<?= $item['url']?>"><?= $item['label']?></a>
+        <?php foreach ($topMenu->getItems() as $item) { ?>
+            <?= $item->getHTML() ?>
         <?php } ?>
 	</nav>
 </div>

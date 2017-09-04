@@ -18,6 +18,7 @@ class PageFields extends Object
 
     const TYPE_CHECKBOX      = ParamField::TYPE_CHECKBOX;
     const TYPE_STRING        = ParamField::TYPE_STRING;
+    const TYPE_IMAGE         = ParamField::TYPE_IMAGE;
     const TYPE_TEXTAREA      = ParamField::TYPE_TEXTAREA;
     const TYPE_HTML          = 'html';
     const TYPE_COMPOSITE     = 'composite';

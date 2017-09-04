@@ -20,6 +20,11 @@ class CmsController extends Controller
 {
 
     /**
+     * @var $view CmsView
+     */
+    public $view;
+
+    /**
      * Данные, которые нужны контроллеру для работы
      */
     protected $getParams  = null;
@@ -31,18 +36,32 @@ class CmsController extends Controller
 
     /**
      * Получить спсиок меню
+     * @return TopMenu
      */
-    public function getMenuList()
+    public function getTopMenu()
     {
-        $menu = new TopMenu();
+        $menu     = new TopMenu();
+        $domainId = $this->page->domain_id;
         /** @var $pages Page[] */
-        $pages = Page::find()->where(['=', 'is_enabled', '1'])->all();
+        $pages = Page::find()->where(['=', 'is_enabled', '1'])
+            ->andWhere(['=', 'domain_id', $domainId])->all();
+
         foreach ($pages as $page) {
             $menu->addMenuItem(new TopMenuItem($page->url, $page->name));
         }
 
         return $menu;
     }
+
+    /**
+     * Какого цвета background сей страницы
+     * @return string
+     */
+    public function getDefaultBgColor()
+    {
+        return '#fff';
+    }
+
 
     public function beforeAction($action)
     {
@@ -58,8 +77,9 @@ class CmsController extends Controller
 
         $view = new CmsView();
         $view->description = $this->page->pageParams->metaDescription;
-        $view->title = $this->page->pageParams->metaTitle;
-
+        $view->title       = $this->page->pageParams->metaTitle;
+        $view->bgColor     = $this->getDefaultBgColor();
+        $view->topMenu     = $this->getTopMenu();
 
         //var_dump($this->getMenuList());
         //exit();

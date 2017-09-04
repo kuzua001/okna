@@ -45,7 +45,7 @@ class FitnessStyleSectionParams extends SectionParams
      * @var $content string
      * @title Контент
      * @default Новое поколоение клубов премиум-класса
-     * @type html
+     * @type textarea
      */
     public $content;
 
@@ -59,9 +59,9 @@ class FitnessStyleSectionParams extends SectionParams
 
     /**
      * @var $cardContent string
-     * @title Заголовок карточки
+     * @title Контент карточки
      * @default Тренажерный зал
-     * @type html
+     * @type textarea
      */
     public $cardContent;
 }

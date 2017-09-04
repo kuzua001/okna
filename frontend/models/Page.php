@@ -25,6 +25,7 @@ use yii\db\Query;
  * @property $name        string
  * @property $action_id   integer
  * @property $pages_id    integer
+ * @property $domain_id   integer
  * @property $params_data string
  * @property $is_enabled  boolean
  */
@@ -32,13 +33,13 @@ class Page extends ActiveRecord
 {
     public function fields()
     {
-        return ['id', 'url', 'action_id', 'name', 'is_enabled', 'pages_id'];
+        return ['id', 'url', 'action_id', 'name', 'is_enabled', 'pages_id', 'domain_id'];
     }
 
     public function scenarios()
     {
         return [
-            'default' => ['id', 'url', 'action_id', 'name', 'is_enabled', 'pages_id']
+            'default' => ['id', 'url', 'action_id', 'name', 'is_enabled', 'pages_id', 'domain_id']
         ];
     }
     /**

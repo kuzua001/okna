@@ -16,7 +16,7 @@ class TopMenu
      * Спсиок элементов меню
      * @var $items TopMenuItem[]
      */
-    private $items;
+    private $items = [];
 
     /**
      * Добавить элемент меню

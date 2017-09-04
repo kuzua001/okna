@@ -17,9 +17,17 @@ class LandingPageParams extends CmsPageParams
     /**
      * @var $sectionsParams (SectionParams)[]
      * @title Параметры секций
-     * @type (HotelMainSectionParams|SliderTabsSectionParams|FitnessMainSectionParams|FitnessStyleSectionParams)[]
+     * @type (HotelMainSectionParams|SliderTabsSectionParams|FitnessMainSectionParams|FitnessStyleSectionParams|TextPageParams)[]
      */
     public $sectionsParams;
+
+
+    /**
+     * @var $hasContacts boolean
+     * @title Показывать контактную информацию
+     * @type checkbox
+     */
+    public $hasContacts;
 
     public function getSectionsParams()
     {

@@ -2,9 +2,19 @@
 
 use \yii\widgets\Menu;
 use \frontend\models\menu\TopMenu;
+use \frontend\models\menu\TopMenuItem;
 
 /** @var $this \frontend\views\CmsView*/
-$topMenu = isset($this->topMenu) ? $this->topMenu : new TopMenu();
+
+/**
+ * Меню, которое выводится, когда не знаем, что конкретно выводить в качестве меню
+ */
+$defaultMenu = new TopMenu();
+$defaultMenu->addMenuItem(new TopMenuItem('http://bezhitsa.com', 'отель', true));
+$defaultMenu->addMenuItem(new TopMenuItem('http://bzfit.ru', 'ресторан', true));
+$defaultMenu->addMenuItem(new TopMenuItem('http://bzrest.ru', 'фитнес-клуб', true));
+
+$topMenu = isset($this->topMenu) ? $this->topMenu : $defaultMenu
 ?>
 <section class="header">
 	<div class="content-wrapper">

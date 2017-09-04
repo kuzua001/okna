@@ -45,6 +45,12 @@ class TopMenuItem
     private $type;
 
     /**
+     * когда ссылка на внещний домен (не относительно текущего сайта)
+     * @var $absoluteUrl boolean
+     */
+    private $absoluteUrl;
+
+    /**
      * Установить вложенное меню для данного элемента
      * @param TopMenu $menu
      */
@@ -64,12 +70,13 @@ class TopMenuItem
     public function getHTML()
     {
         return HTML::tag('a', Html::encode($this->title), [
-            'href' => '/' . ltrim($this->url,'/')
+            'href' => $this->absoluteUrl ? $this->url : ('/' . ltrim($this->url,'/'))
         ]);
     }
 
-    function __construct($url, $title) {
-        $this->title = $title;
-        $this->url   = $url;
+    function __construct($url, $title, $absoluteUrl = false) {
+        $this->title       = $title;
+        $this->url         = $url;
+        $this->absoluteUrl = $absoluteUrl;
     }
 }

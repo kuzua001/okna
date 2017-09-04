@@ -46,8 +46,10 @@ class CmsController extends Controller
         $pages = Page::find()->where(['=', 'is_enabled', '1'])
             ->andWhere(['=', 'domain_id', $domainId])->all();
 
-        foreach ($pages as $page) {
-            $menu->addMenuItem(new TopMenuItem($page->url, $page->name));
+        if (count($pages)) {
+            foreach ($pages as $page) {
+                $menu->addMenuItem(new TopMenuItem($page->url, $page->name));
+            }
         }
 
         return $menu;

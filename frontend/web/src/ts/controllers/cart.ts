@@ -112,6 +112,8 @@ export class CartController
 
 		this.cart = cart;
 
+		console.log(1);
+
 		jQuery.ajax({
 			url : 'ajax/get-products',
 			type : 'get',

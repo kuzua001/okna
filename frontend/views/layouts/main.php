@@ -23,7 +23,7 @@ Yii::$app->language = 'ru';
 		<title><?= Html::encode($this->title) ?></title>
 		<?php $this->head() ?>
 	</head>
-	<body ng-app="main" ng-controller="SiteController as site" class="loading">
+	<body ng="main" ng-controller="SiteController as site" class="loading">
 		<div class="modal fade" id="exampleModalLive">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">

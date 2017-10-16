@@ -2,17 +2,21 @@ import * as angular from 'angular';
 import 'angular-route';
 import 'angular-touch';
 import 'angular-carousel';
+import 'slick';
+import 'angular-slick-carousel';
+
+import { ICart } from "./controllers/cart";
 
 
-import { ReservationFormController } from './controllers/reservation_form';
 import { SiteController } from './controllers/site';
 import { CartController } from './controllers/cart';
 
 
 export default angular
-	.module('main', ['ngRoute', 'ngTouch', 'angular-carousel'])
-	.controller('ReservationFormController', ReservationFormController)
-	.controller('SiteController', SiteController)
+	.module('main', ['ngRoute', 'ngTouch', 'angular-carousel', 'slickCarousel'])
+	.controller('SiteController', ["$scope", ($scope) => {
+		return new SiteController();
+	}])
 	.controller('CartController', ["$rootScope", ($rootScope) => new CartController($rootScope)]);
 
 

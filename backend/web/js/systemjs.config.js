@@ -3,16 +3,18 @@
 	// map tells the System loader where to look for things
 	var map = {
 		'app':                        '/admin/js/built', // 'dist',
-		'@angular':                   'js/node_modules/@angular',
-		'ng2-restangular':            'js/node_modules/ng2-restangular',
-		'rxjs':                       'js/node_modules/rxjs',
-		'lodash':                     'js/node_modules/lodash',
-		jquery :                      'js/node_modules/jquery/dist/jquery.min.js',
+		'@angular':                   '/admin/js/node_modules/@angular',
+		'ng2-restangular':            '/admin/js/node_modules/ng2-restangular',
+		'rxjs':                       '/admin/js/node_modules/rxjs',
+		'lodash':                     '/admin/js/node_modules/lodash',
+		jquery :                      '/admin/js/node_modules/jquery/dist/jquery.min.js',
+		bootstrap :                   '/admin/js/bootstrap.min.js',
+		jqueryui :                    '/admin/js/jqueryui.min.js',
 	};
 
 	// packages tells the System loader how to load when no filename and/or no extension
 	var packages = {
-		'app':                        { main: 'index.js',   defaultExtension: 'js' },
+		'app':                        { main: 'index.js?v=' + Math.floor(Math.random(99999)),   defaultExtension: 'js' },
 		"ng2-restangular":            { main: './dist/esm/src/index.js',  defaultExtension: 'js'},
 		'rxjs':                       { main: "./Rx.js", defaultExtension: 'js' },
 		'lodash':                     { main: './lodash.js', defaultExtension: 'js'},
@@ -48,7 +50,7 @@
 
 	var config = {
 		map: map,
-		packages: packages,
+		packages: packages
 	};
 
 	System.config(config);

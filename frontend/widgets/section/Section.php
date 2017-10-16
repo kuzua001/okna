@@ -8,14 +8,13 @@
 
 namespace frontend\widgets\section;
 
-use frontend\models\pages\SectionParams;
-use frontend\models\SectionItem;
+use frontend\models\pages\params\SectionParams;
 use yii\base\Widget;
 
 class Section extends Widget
 {
-    const TYPE_HOTEL_MAIN    = 'hotel_main';
-    const TYPE_HOTEL_SERVICE = 'hotel_service';
+    const TYPE_TEXT_PAGE      = 'text_section';
+    //const TYPE_SLIDER_SETION  = ''
 
     /**
      * @var SectionParams Параметры секции (объект любого унаследованного класса)
@@ -25,8 +24,8 @@ class Section extends Widget
     public function run()
     {
         switch ($this->sectionParams->getSectionType()) {
-            case self::TYPE_HOTEL_MAIN:
-                return $this->render('hotel/main');
+            case self::TYPE_TEXT_PAGE:
+                return $this->render('common/text');
         }
     }
 }

@@ -16,6 +16,9 @@ return [
         'request' => [
             'csrfParam' => '_csrf-backend',
             'baseUrl' => '/admin',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -46,11 +49,15 @@ return [
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => [
-                        'users' => 'api/user',
-                        'texts' => 'api/text'
+                        'users'      => 'api/user',
+                        'texts'      => 'api/text',
+                        'page'       => 'api/page',
+                        'domain'     => 'api/domain',
+                        'pageFields' => 'api/page-fields',
                     ],
                     'prefix' => 'api'
                 ],
+                'api/files' => 'api/files',
                 [
                     'pattern' => 'page/edit/<pageId:\d+>',
                     'route' => 'dynamic/page-edit',

@@ -6,7 +6,7 @@ import { ICart } from "./cart";
 /**
  * Created by ivan on 6/20/17.
  */
-export class SiteController
+export class SiteController implements angular.IController
 {
 	slideMenuState: boolean = false;
 	cart: ICart;
@@ -31,22 +31,6 @@ export class SiteController
 		jQuery('html, body').animate({
 			scrollTop: jQuery(selector).offset().top - 50
 		}, 500);
-	}
-
-	constructor($scope)
-	{
-		let cart: ICart = {
-			total : 0,
-			quantity : 0,
-			products : []
-		};
-
-		this.cart = cart;
-
-		let $this = this;
-		$scope.$on('cartUpdate', function (event, arg : ICart) {
-			$this.cart = arg;
-		});
 	}
 }
 

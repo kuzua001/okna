@@ -1,0 +1,17 @@
+@import 'sizes';
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	position: relative;
+
+	& > .container {
+		padding-top: @header-height;
+		flex: 1 0 auto;
+	}
+
+	& > footer {
+		flex: 0 0 auto;
+	}
+}

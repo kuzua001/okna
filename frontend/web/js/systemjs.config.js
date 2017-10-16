@@ -15,8 +15,9 @@
 			'@angular/router': 'js/node_modules/@angular/router/bundles/router.umd.js',
 			'@angular/forms': 'js/node_modules/@angular/forms/bundles/forms.umd.js',
 */
+			'angular-slick-carousel' : 'js/node_modules/angular-slick-carousel/dist/angular-slick.min.js',
+			'slick'         : 'js/node_modules/slick-carousel/slick/slick.min.js',
 			jquery : 'js/node_modules/jquery/dist/jquery.min.js',
-			popper : 'js/node_modules/popper.js/dist/umd/popper.min.js',
 			rxjs: 'js/node_modules/rxjs',
 			main: 'js/built'
 		},
@@ -34,12 +35,19 @@
 				format : 'global',
 				exports: 'angular',
 				deps : [
-					'jquery', 'popper'
+					'jquery', 'slick'
 				]
 			},
 			main : {
 				deps : ['angular']
 			}
+		},
+		transpiler: "ts",
+		typescriptOptions: {
+			"module": "system",
+			"noImplicitAny": false,
+			"typeCheck": "strict",
+			"tsconfig": true
 		}
 	});
 })(this);

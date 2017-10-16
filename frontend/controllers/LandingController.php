@@ -1,11 +1,10 @@
 <?php
 namespace frontend\controllers;
 
-use Faker\Provider\Base;
 use frontend\components\AppHelper;
-use frontend\models\SectionItem;
+use frontend\models\pages\LandingPage;
+use frontend\models\pages\params\TextPageParams;
 use yii\web\Controller;
-use frontend\widgets\common\Section;
 use yii;
 
 

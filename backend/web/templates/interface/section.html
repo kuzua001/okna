@@ -1,0 +1,20 @@
+<div>
+	<ul>
+		<li *ngFor="let item of params">
+			<div [ngSwitch]="item.type">
+				<div *ngSwitchCase="string">
+					<input type="text">
+				</div>
+				<div *ngSwitchCase="html">
+					<textarea class="tinymce"></textarea>
+				</div>
+				<div *ngSwitchCase="textarea">
+					<textarea></textarea>
+				</div>
+				<div *ngSwitchCase="checkbox">
+					<input type="checkbox">
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>

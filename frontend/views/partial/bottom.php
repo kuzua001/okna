@@ -1,7 +1,7 @@
 	<footer>
 		<div class="container content-wrapper">
 			<div class="row">
-				<div class="col-xs-4">
+				<div class="col">
 					<div class="foot-header">
 						Доставка <i class="fa fa-cutlery" aria-hidden="true"></i>
 					</div>
@@ -11,7 +11,7 @@
 						<li><a href="#">Сотрудничество</a></li>
 					</ul>
 				</div><!--/col-xs-3-->
-				<div class="col-xs-4">
+				<div class="col">
 					<div class="foot-header">
 						Информация <i class="fa fa-handshake-o" aria-hidden="true"></i>
 					</div>
@@ -21,7 +21,7 @@
 						<li><a href="#">Контакты</a></li>
 					</ul>
 				</div>
-				<div class="col-xs-4">
+				<div class="col">
 					<div class="foot-header">
 						Платежные системы <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
 					</div>
@@ -36,11 +36,4 @@
 			</div>
 		</div>
 	</footer>
-
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-	<!--<script type="text/javascript" async defer-->
-	<!--        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfNPNg4M7uT3PqOFIyGpHZx9f8jTqbKUg&callback=initMap">-->
-	<!--</script>-->
 </div>

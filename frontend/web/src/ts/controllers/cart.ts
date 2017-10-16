@@ -29,7 +29,7 @@ export interface ICart {
 /**
  * Created by ivan on 6/20/17.
  */
-export class CartController
+export class CartController implements angular.IController
 {
 	private cart: ICart;
 	private products: IProduct[];
